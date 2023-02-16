@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/navbar";
+import SearchBox from "../../Components/SeachBox/searchBox";
 import "./home.css";
 
 function Home() {
@@ -17,7 +18,9 @@ function Home() {
         <div className="home-main">
           <div className="home-main-content"></div>
           <div className="home-main-option">
-            <div className="home-search-box"></div>
+            <div className="home-search-box">
+              <SearchBox />
+            </div>
             <div className="home-selection-filter"></div>
           </div>
         </div>
