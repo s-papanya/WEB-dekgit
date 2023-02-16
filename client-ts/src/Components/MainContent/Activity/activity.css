@@ -31,6 +31,7 @@
   width: 100%;
   border: 2px dashed rgba(120, 120, 120, 0.4);
   height: 30%;
+  padding: 10px;
   display: flex;
   align-items: flex-start;
 }
@@ -39,6 +40,46 @@
   width: 100%;
   border: 2px dashed rgba(120, 120, 120, 0.4);
   height: 70%;
+  padding: 0px 10px 10px 10px;
   display: flex;
   align-items: flex-start;
+}
+.image {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+.title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.description {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@media (max-width: 1600px) {
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+@media (max-width: 1200px) {
+  .title {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 12px;
+  }
 }
