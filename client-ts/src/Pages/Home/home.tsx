@@ -4,11 +4,15 @@ import Navbar from "../../Components/Navbar/navbar";
 import "./home.css";
 
 function Home() {
+  const coverHome = require("../../Assets/cover_homePage/coverHome.png");
   return (
     <div className="home-container">
+      
       <div className="home-h-e-a-d">
+        
         <Navbar />
       </div>
+      <img className="coverHome" src={coverHome} alt="cover" />
       <div className="home-m-i-d-d-l-e">
         <div className="home-main">
           <div className="home-main-content"></div>
@@ -19,7 +23,7 @@ function Home() {
         </div>
       </div>
       <div className="home-f-o-o-t">
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );
