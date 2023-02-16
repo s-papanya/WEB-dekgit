@@ -1,0 +1,13 @@
+.navbarHeader {
+  width: 100%;
+  height: 50px;
+  background: #000000;
+}
+.menuPrimaryLogo {
+    display: flex;
+  }
+  .menuPrimaryLogin {
+    display: flex;
+    justify-content: flex-end;
+  }
+  

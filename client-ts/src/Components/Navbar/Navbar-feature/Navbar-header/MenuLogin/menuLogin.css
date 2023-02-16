@@ -1,0 +1,16 @@
+.menuLogin {
+  position: absolute;
+  margin-top: -15px;
+  margin-right: 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 36px;
+  color: #ffffff;
+  text-shadow: -1px 0 #d94f5c, 0 1px #d94f5c, 1px 0 #d94f5c, 0 -1px #d94f5c;
+}
+.menuLogin:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #ffffff;
+}
