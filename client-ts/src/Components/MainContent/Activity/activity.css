@@ -1,0 +1,44 @@
+.activity {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  background-color: #ffffff;
+}
+.activity-image {
+  flex: 0 0 auto;
+  width: 45%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.activity-text {
+  flex: 0 0 auto;
+  width: 55%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.activity-title {
+  flex: 0 0 auto;
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 30%;
+  display: flex;
+  align-items: flex-start;
+}
+.activity-description {
+  flex: 0 0 auto;
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 70%;
+  display: flex;
+  align-items: flex-start;
+}

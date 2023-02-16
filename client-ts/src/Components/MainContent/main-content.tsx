@@ -1,4 +1,5 @@
 import React from "react";
+import Activity from "./Activity/activity";
 
 import "./main-content.css";
 
@@ -9,7 +10,9 @@ function MainContent() {
       <header className="main-content-topic">
         <h1 className="main-content-text">ACTIVITY</h1>
       </header>
-      <div className="main-content-content"></div>
+      <div className="main-content-content">
+        <Activity />
+      </div>
     </div>
   );
 }
