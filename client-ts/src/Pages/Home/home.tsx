@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/navbar";
 import "./home.css";
 
@@ -17,7 +18,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="home-f-o-o-t"></div>
+      <div className="home-f-o-o-t">
+        <Footer/>
+      </div>
     </div>
   );
 }

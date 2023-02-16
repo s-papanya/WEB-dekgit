@@ -1,0 +1,49 @@
+.footer {
+    width: 100%;
+    height: 200px;
+    padding: 27px;
+    padding-left: 15%;
+    background-color: #313131;
+    color: #fff;
+  }
+  .head {
+    padding: 0;
+    margin: 0;
+    font-style: bold;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  
+  .social {
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+  }
+  .icon {
+    margin: -27px;
+    margin-right: 27px;
+    transform: scale(2);
+  }
+  
+  .footer ul {
+    padding: 0;
+    margin: 0;
+    margin-left: 27px;
+    display: flex;
+    list-style: none;
+  }
+  
+  .footer li {
+    padding: 15px;
+  }
+  
+  .flex-left {
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  .flex-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
