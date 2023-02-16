@@ -1,15 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import './main-content.css'
+import "./main-content.css";
 
-function MainContent () {
+function MainContent() {
   return (
     <div className="main-content-container">
       <div className="main-content-redline"></div>
-      <div className="main-content-topic"></div>
+      <header className="main-content-topic">
+        <h1 className="main-content-text">ACTIVITY</h1>
+      </header>
       <div className="main-content-content"></div>
     </div>
-  )
+  );
 }
 
-export default MainContent
+export default MainContent;

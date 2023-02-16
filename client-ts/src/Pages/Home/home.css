@@ -80,7 +80,7 @@
   align-items: flex-end;
   justify-content: center;
 }
-@media(max-width: 1600px) {
+@media (max-width: 1600px) {
   .home-h-e-a-d {
     margin-bottom: 0px;
   }
@@ -93,7 +93,7 @@
     width: 66.9%;
   }
 }
-@media(max-width: 1200px) {
+@media (max-width: 1200px) {
   .home-main {
     width: 700px;
   }
