@@ -1,4 +1,4 @@
-import "./navbarMenu.scss";
+import "./navbar-menu.scss";
 
 function NavbarMenu() {
   return (

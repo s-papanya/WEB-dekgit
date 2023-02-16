@@ -1,4 +1,4 @@
-import "./searchBox.css";
+import "./search-box.css";
 
 function SearchBox() {
   return (

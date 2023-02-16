@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavbarHeader from "./Navbar-feature/Navbar-header/navbarHeader";
-import NavbarMenu from "./Navbar-feature/Navbar-Menu/navbarMenu";
+import NavbarHeader from "./Navbar-feature/Navbar-header/navbar-header";
+import NavbarMenu from "./Navbar-feature/Navbar-Menu/navbar-menu";
 import "./navbar.css";
 
 function NavBar() {
