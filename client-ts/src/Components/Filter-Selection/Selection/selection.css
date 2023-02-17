@@ -1,0 +1,136 @@
+.filter-selection-filter {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.filter-selection-All {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  padding: 5px;
+  padding-left: 15px;
+  align-items: left;
+  flex-direction: column;
+  justify-content: left;
+  text-decoration: none;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.35s;
+}
+
+.filter-selection-FirstComeFirstServe {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  padding: 5px;
+  padding-left: 15px;
+  align-self: flex-start;
+  align-items: left;
+  flex-direction: column;
+  justify-content: left;
+  text-decoration: none;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.35s;
+}
+
+.filter-selection-Candidate {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  padding: 5px;
+  padding-left: 15px;
+  align-items: left;
+  flex-direction: column;
+  justify-content: left;
+  text-decoration: none;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.35s;
+}
+
+.All {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+.FirstComeFirstServe {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+.Candidate {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+b span {
+  position: relative;
+  z-index: 2;
+}
+
+b:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ff003b;
+  transition: all 0.35s;
+}
+
+b:hover {
+  color: #fff;
+}
+
+b:hover:after {
+  width: 100%;
+}
+@media (max-width: 1600px) {
+  .filter-selection-All {
+    padding: 8px;
+  }
+  .filter-selection-FirstComeFirstServe {
+    padding: 8px;
+  }
+  .filter-selection-Candidate {
+    padding: 8px;
+  }
+  .All {
+    font-size: 16px;
+  }
+  .FirstComeFirstServe {
+    font-size: 16px;
+  }
+  .Candidate {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .filter-selection-All {
+    padding: 10px;
+  }
+  .filter-selection-FirstComeFirstServe {
+    padding: 10px;
+  }
+  .filter-selection-Candidate {
+    padding: 10px;
+  }
+  .All {
+    font-size: 14px;
+  }
+  .FirstComeFirstServe {
+    font-size: 14px;
+  }
+  .Candidate {
+    font-size: 14px;
+  }
+}

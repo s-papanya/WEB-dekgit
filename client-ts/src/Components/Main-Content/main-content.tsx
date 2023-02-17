@@ -8,7 +8,7 @@ function MainContent() {
     <div className="main-content-container">
       <div className="main-content-redline"></div>
       <header className="main-content-topic">
-        <h1 className="main-content-text">ACTIVITY</h1>
+        <h1 className="content-Topic">ACTIVITY</h1>
       </header>
       <div className="main-content-content">
         <Activity />
