@@ -1,8 +1,9 @@
 import React from "react";
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/navbar";
-import MainContent from "../../Components/MainContent/main-content";
-import SearchBox from "../../Components/Seach-Box/search-box";
+import MainContent from "../../Components/Main-Content/main-content";
+import SearchBar from "../../Components/Search-bar/search-bar";
+import FilterSelection from "../../Components/Filter-Selection/filter-selection";
 import "./home.css";
 
 function Home() {
@@ -18,9 +19,11 @@ function Home() {
           </div>
           <div className="home-main-option">
             <div className="home-search-box">
-              <SearchBox />
+              <SearchBar />
             </div>
-            <div className="home-selection-filter"></div>
+            <div className="home-selection-filter">
+              <FilterSelection />
+            </div>
           </div>
         </div>
       </div>

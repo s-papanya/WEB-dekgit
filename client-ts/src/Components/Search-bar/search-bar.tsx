@@ -1,6 +1,6 @@
-import "./search-box.css";
+import "./search-bar.css";
 
-function SearchBox() {
+function SearchBar() {
   return (
     <div className="background">
       <div id="cover">
@@ -20,4 +20,4 @@ function SearchBox() {
   );
 }
 
-export default SearchBox;
+export default SearchBar;

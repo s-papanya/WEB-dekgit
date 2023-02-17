@@ -28,7 +28,7 @@ function NavBar() {
   return (
     <nav className={`navbar ${isHidden ? "navbar--hidden" : ""}`}>
       <NavbarHeader />
-      <NavbarMenu/>
+      <NavbarMenu />
     </nav>
   );
 }

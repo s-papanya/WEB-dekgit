@@ -1,0 +1,67 @@
+.filter-selection-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f1f1f1;
+}
+.filter-selection-redline {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 5px;
+  display: flex;
+  align-self: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #d94f5c;
+}
+.filter-selection-topic {
+  flex: 0 0 auto;
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 60px;
+  display: flex;
+  padding: 10px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.filter-selection-filter {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.filter-selection-All {
+  flex: 0 0 auto;
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.filter-selection-FirstComeFirstServe {
+  flex: 0 0 auto;
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.filter-selection-Candidate {
+  flex: 0 0 auto;
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
