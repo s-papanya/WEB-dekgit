@@ -14,7 +14,6 @@ function NavBar() {
       } else {
         setIsHidden(false);
       }
-
       lastScrollY = window.scrollY;
     };
 

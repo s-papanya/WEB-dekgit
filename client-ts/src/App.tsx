@@ -1,12 +1,11 @@
-import React from 'react';
-import Home from '../src/Pages/Home/home'
+import AppRoutes from "./Config/routes";
 
 function App() {
-  return(
+  return (
     <div>
-      <Home/>
+      <AppRoutes />
     </div>
-  )
+  );
 }
 
 export default App;

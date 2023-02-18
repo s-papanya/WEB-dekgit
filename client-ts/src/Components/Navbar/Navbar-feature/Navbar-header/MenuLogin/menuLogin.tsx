@@ -3,7 +3,7 @@ import "./menuLogin.css";
 function MenuLogin() {
   return (
     <div className="menuLogin">
-      <a>LOGIN</a>
+      <a href="/login">LOGIN</a>
     </div>
   );
 }
