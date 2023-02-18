@@ -11,7 +11,7 @@ function Footer() {
   return (
     <div className="footer">
       <div className="head">
-        <a>DekGit.</a>
+        .DekGit
       </div>
 
       <div className="flex-left">
