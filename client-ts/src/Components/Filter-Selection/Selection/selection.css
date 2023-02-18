@@ -55,27 +55,27 @@
   transition: all 0.35s;
 }
 
-.All {
+.selection-All {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
 }
-.FirstComeFirstServe {
+.selection-FirstComeFirstServe {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
 }
-.Candidate {
+.selection-Candidate {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
 }
-b span {
+.filter-selection-b .filter-selection-span {
   position: relative;
   z-index: 2;
 }
 
-b:after {
+.filter-selection-b:after {
   position: absolute;
   content: "";
   top: 0;
@@ -86,11 +86,11 @@ b:after {
   transition: all 0.35s;
 }
 
-b:hover {
+.filter-selection-b:hover {
   color: #fff;
 }
 
-b:hover:after {
+.filter-selection-b:hover:after {
   width: 100%;
 }
 @media (max-width: 1600px) {
@@ -103,13 +103,13 @@ b:hover:after {
   .filter-selection-Candidate {
     padding: 8px;
   }
-  .All {
+  .filter-selection-All {
     font-size: 16px;
   }
-  .FirstComeFirstServe {
+  .filter-selection-FirstComeFirstServe {
     font-size: 16px;
   }
-  .Candidate {
+  .filter-selection-Candidate {
     font-size: 16px;
   }
 }
@@ -124,13 +124,13 @@ b:hover:after {
   .filter-selection-Candidate {
     padding: 10px;
   }
-  .All {
+  .filter-selection-All {
     font-size: 14px;
   }
-  .FirstComeFirstServe {
+  .filter-selection-FirstComeFirstServe {
     font-size: 14px;
   }
-  .Candidate {
+  .filter-selection-Candidate {
     font-size: 14px;
   }
 }

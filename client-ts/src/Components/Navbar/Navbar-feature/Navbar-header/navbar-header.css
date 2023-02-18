@@ -3,11 +3,10 @@
   height: 50px;
   background: #000000;
 }
-.menuPrimaryLogo {
-    display: flex;
-  }
-  .menuPrimaryLogin {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
+.navbarHeader-menuPrimaryLogo {
+  display: flex;
+}
+.navbarHeader-menuPrimaryLogin {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -2,18 +2,26 @@ import "./navbar-menu.scss";
 
 function NavbarMenu() {
   return (
-    <ul className="menu">
-      <li className="li-home">
-        <a href="#!">HOME</a>
+    <ul className="navbar-menu">
+      <li className="navbar-li-home">
+        <a className="navbar-a" href="#!">
+          HOME
+        </a>
       </li>
-      <li className="li-history">
-        <a href="#!">HISTORY</a>
+      <li className="navbar-li-history">
+        <a className="navbar-a" href="#!">
+          HISTORY
+        </a>
       </li>
-      <li className="li-notification">
-        <a href="#!">NOTIFICATION</a>
+      <li className="navbar-li-notification">
+        <a className="navbar-a" href="#!">
+          NOTIFICATION
+        </a>
       </li>
-      <li className="li-contact">
-        <a href="#!">CONTACT</a>
+      <li className="navbar-li-contact">
+        <a className="navbar-a" href="#!">
+          CONTACT
+        </a>
       </li>
     </ul>
   );

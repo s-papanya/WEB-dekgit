@@ -10,35 +10,33 @@ import {
 function Footer() {
   return (
     <div className="footer">
-      <div className="head">
-        .DekGit
-      </div>
+      <div className="footer-head">.DekGit</div>
 
-      <div className="flex-left">
+      <div className="footer-flex-left">
         <div>
-          <ul className="ul">
-            <li>About</li>
-            <li>Partnerships</li>
-            <li>Careers</li>
-            <li>Advertising</li>
+          <ul className="footer-ul">
+            <li className="footer-li">About</li>
+            <li className="footer-li">Partnerships</li>
+            <li className="footer-li">Careers</li>
+            <li className="footer-li">Advertising</li>
           </ul>
-          <ul className="ul">
-            <li>Terms</li>
-            <li>Policy</li>
-            <li>Privacy</li>
-            <li>Pricing</li>
-            <li>Contact</li>
+          <ul className="footer-ul">
+            <li className="footer-li">Terms</li>
+            <li className="footer-li">Policy</li>
+            <li className="footer-li">Privacy</li>
+            <li className="footer-li">Pricing</li>
+            <li className="footer-li">Contact</li>
           </ul>
         </div>
       </div>
 
-      <div className="flex-right">
-        <div className="social">
-          <FaFacebook className="icon" />
-          <FaInstagram className="icon" />
-          <FaTwitter className="icon" />
-          <FaPinterest className="icon" />
-          <FaYoutube className="icon" />
+      <div className="footer-flex-right">
+        <div className="footer-social">
+          <FaFacebook className="footer-icon" />
+          <FaInstagram className="footer-icon" />
+          <FaTwitter className="footer-icon" />
+          <FaPinterest className="footer-icon" />
+          <FaYoutube className="footer-icon" />
         </div>
       </div>
     </div>

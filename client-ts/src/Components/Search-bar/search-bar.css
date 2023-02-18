@@ -1,4 +1,4 @@
-.background {
+.search-bar-background {
   height: 0.1px;
   width: 0.1px;
   transform: scale(0.35);
@@ -7,18 +7,18 @@
   outline: none;
 }
 
-.tb {
+.search-bar-tb {
   display: table;
   width: 100%;
 }
 
-.td {
+.search-bar-td {
   display: table-cell;
   vertical-align: middle;
 }
 
-input,
-button {
+.search-bar-input,
+.search-bar-button {
   color: #ffffff;
   padding: 0;
   margin: 0;
@@ -26,7 +26,7 @@ button {
   background-color: transparent;
 }
 
-#cover {
+#search-bar-cover {
   left: 0;
   right: 0;
   width: 1020px;
@@ -36,11 +36,7 @@ button {
   box-shadow: 0 10px 40px #ff9595, 0 0 0 20px #ffffffeb;
 }
 
-form {
-  height: 96px;
-}
-
-input[type="text"] {
+.search-bar-input[type="text"] {
   width: 100%;
   height: 96px;
   font-size: 60px;
@@ -48,17 +44,17 @@ input[type="text"] {
   line-height: 1;
 }
 
-input[type="text"]::placeholder {
+.search-bar-input[type="text"]::placeholder {
   color: #ebdbdb;
   font-weight: 700;
 }
 
-#s-cover {
+#search-bar-s-cover {
   width: 1px;
   padding-left: 35px;
 }
 
-button {
+.search-bar-button {
   position: relative;
   display: block;
   width: 84px;
@@ -66,7 +62,7 @@ button {
   cursor: pointer;
 }
 
-#s-circle {
+#search-bar-s-circle {
   position: relative;
   top: -8px;
   left: 0;
@@ -80,7 +76,7 @@ button {
   transition: 0.5s ease all;
 }
 
-button span {
+.search-bar-button .search-bar-span {
   position: absolute;
   top: 68px;
   left: 43px;
@@ -93,8 +89,8 @@ button span {
   transition: 0.5s ease all;
 }
 
-button span:before,
-button span:after {
+.search-bar-button .search-bar-span:before,
+.search-bar-button .search-bar-span:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -107,7 +103,7 @@ button span:after {
   transition: 0.5s ease all;
 }
 
-#s-cover:hover #s-circle {
+#search-bar-s-cover:hover #search-bar-s-circle {
   top: -1px;
   width: 67px;
   height: 15px;
@@ -116,7 +112,7 @@ button span:after {
   border-radius: 20px;
 }
 
-#s-cover:hover span {
+#search-bar-s-cover:hover .search-bar-span {
   top: 50%;
   left: 56px;
   width: 25px;
@@ -124,29 +120,29 @@ button span:after {
   transform: rotateZ(0);
 }
 
-#s-cover:hover button span:before {
+#search-bar-s-cover:hover .search-bar-button .search-bar-span:before {
   bottom: 11px;
   transform: rotateZ(52deg);
 }
 
-#s-cover:hover button span:after {
+#search-bar-s-cover:hover .search-bar-button .search-bar-span:after {
   bottom: -11px;
   transform: rotateZ(-52deg);
 }
-#s-cover:hover button span:before,
-#s-cover:hover button span:after {
+#search-bar-s-cover:hover .search-bar-button .search-bar-span:before,
+#search-bar-s-cover:hover .search-bar-button .search-bar-span:after {
   right: -6px;
   width: 40px;
   background-color: #fff;
 }
 
 @media (max-width: 1600px) {
-  #cover {
+  #search-bar-cover {
     width: 760px;
   }
 }
 @media (max-width: 1200px) {
-  #cover {
+  #search-bar-cover {
     width: 600px;
   }
 }

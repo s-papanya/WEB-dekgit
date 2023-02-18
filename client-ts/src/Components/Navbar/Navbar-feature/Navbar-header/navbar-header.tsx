@@ -5,10 +5,10 @@ import "./navbar-header.css";
 function NavbarHeader() {
   return (
     <div className="navbarHeader">
-      <div className="menuPrimaryLogo">
+      <div className="navbarHeader-menuPrimaryLogo">
         <IconLogo />
       </div>
-      <div className="menuPrimaryLogin">
+      <div className="navbarHeader-menuPrimaryLogin">
         <MenuLogin />
       </div>
     </div>
