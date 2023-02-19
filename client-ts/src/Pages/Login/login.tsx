@@ -1,8 +1,48 @@
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Button, Input } from "@mui/material";
+import axios from "axios";
+
 import "./login.css";
 import "./login-effect.css";
 
 function Login() {
+  const navigate = useNavigate();
+  const initialUser = { password: "", identifier: "" };
+  const [user, setUser] = useState(initialUser);
+
+  const handleChange = ({
+    target,
+  }: {
+    target: { name: string; value: any };
+  }) => {
+    const { name, value } = target;
+    setUser((currentUser) => ({
+      ...currentUser,
+      [name]: value,
+    }));
+  };
+  const handleLogin = async () => {
+    const url = "http://localhost:1337/api/auth/local";
+    try {
+      if (user.identifier && user.password) {
+        const { data } = await axios.post(url, user);
+        if (data.jwt) {
+          localStorage.setItem("jwt", data.jwt);
+          toast.success("Logged in seccessfully", {
+            hideProgressBar: true,
+          });
+          setUser(initialUser);
+          navigate("/");
+        }
+      }
+    } catch (error: any) {
+      toast.error(error.message, {
+        hideProgressBar: true,
+      });
+    }
+  };
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleSignUpClick = () => {
@@ -19,34 +59,46 @@ function Login() {
         <div className="login-container-form login-container-signUp">
           <form className="login-form">
             <h1 className="login-h1">Create Account</h1>
-            <span className="login-span">
-              or use your email for registration
-            </span>
-            <input className="login-input" type="text" placeholder="Name" />
-            <input className="login-input" type="email" placeholder="Email" />
-            <input
+            <span className="login-span">Use your email for registration</span>
+            <Input className="login-input" type="text" placeholder="Name" />
+            <Input className="login-input" type="email" placeholder="Email" />
+            <Input
               className="login-input"
               type="password"
               placeholder="Password"
             />
-            <button className="login-button">Sign Up</button>
+            <Button className="login-button">Sign Up</Button>
           </form>
         </div>
 
         <div className="login-container-form login-container-signIn">
           <form className="login-form">
             <h1 className="login-h1">Sign in</h1>
-            <span className="login-span">or use your account</span>
-            <input className="login-input" type="email" placeholder="Email" />
-            <input
+            <span className="login-span">
+              We're so excited to see you again
+            </span>
+            <Input
+              className="login-input"
+              type="email"
+              name="identifier"
+              value={user.identifier}
+              onChange={handleChange}
+              placeholder="Enter your email"
+            />
+            <Input
               className="login-input"
               type="password"
-              placeholder="Password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              placeholder="Enter your password"
             />
             <a className="login-a" href="/">
               Forgot your password?
             </a>
-            <button className="login-button">Sign In</button>
+            <Button className="login-button" onClick={handleLogin}>
+              Sign In
+            </Button>
           </form>
         </div>
 
@@ -80,6 +132,19 @@ function Login() {
           </div>
         </div>
       </div>
+      <footer className="login-footer">
+        <p className="login-p">
+          Created with by
+          <a className="login-a" target="_blank">
+            Florin Pop
+          </a>
+          - Read how I created this and how you can join the challenge
+          <a className="login-a" target="_blank">
+            here
+          </a>
+          .
+        </p>
+      </footer>
     </div>
   );
 }

@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
   height: 100vh;
   margin: -20px 0 50px;
 }
@@ -40,7 +39,9 @@
   z-index: 1;
 }
 
+
 .login-form {
+
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -52,11 +53,12 @@
 }
 
 .login-input {
-  background-color: #eee;
-  border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 100%;
+  all: unset!important;;
+  background-color: #eee !important;
+  border: none !important;
+  padding: 12px 15px !important;
+  margin: 8px 0 !important;
+  width: 100% !important;
 }
 
 .login-h1 {
@@ -88,29 +90,30 @@
 }
 
 .login-button {
-  border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 12px 45px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  all: unset!important;
+  border-radius: 20px!important;
+  border: 1px solid #ff4b2b!important;
+  background-color: #ff4b2b!important;
+  color: #ffffff!important;
+  font-size: 12px!important;
+  font-weight: bold!important;
+  padding: 12px 45px!important;
+  letter-spacing: 1px!important;
+  text-transform: uppercase!important;
+  transition: transform 80ms ease-in!important;
 }
 
 .login-button:active {
-  transform: scale(0.95);
+  transform: scale(0.95)!important;
 }
 
 .login-button:focus {
-  outline: none;
+  outline: none!important;
 }
 
 .login-ghost {
-  background-color: transparent;
-  border-color: #ffffff;
+  background-color: transparent!important;
+  border-color: #ffffff!important;
 }
 
 .login-footer {

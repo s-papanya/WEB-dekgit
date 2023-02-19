@@ -94,43 +94,31 @@
   width: 100%;
 }
 @media (max-width: 1600px) {
-  .filter-selection-All {
-    padding: 8px;
-  }
-  .filter-selection-FirstComeFirstServe {
-    padding: 8px;
-  }
-  .filter-selection-Candidate {
-    padding: 8px;
-  }
-  .filter-selection-All {
+  .selection-All {
     font-size: 16px;
+    padding: 3.5px;
   }
-  .filter-selection-FirstComeFirstServe {
+  .selection-FirstComeFirstServe {
     font-size: 16px;
+    padding: 3.5px;
   }
-  .filter-selection-Candidate {
+  .selection-Candidate {
     font-size: 16px;
+    padding: 3.5px;
   }
 }
 
 @media (max-width: 1200px) {
-  .filter-selection-All {
-    padding: 10px;
-  }
-  .filter-selection-FirstComeFirstServe {
-    padding: 10px;
-  }
-  .filter-selection-Candidate {
-    padding: 10px;
-  }
-  .filter-selection-All {
+  .selection-All {
+    padding: 6px;
     font-size: 14px;
   }
-  .filter-selection-FirstComeFirstServe {
-    font-size: 14px;
+  .selection-FirstComeFirstServe {
+    padding: 6px;
+    font-size: 13px;
   }
-  .filter-selection-Candidate {
+  .selection-Candidate {
+    padding: 6px;
     font-size: 14px;
   }
 }
