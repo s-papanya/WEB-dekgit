@@ -6,6 +6,7 @@ import axios from "axios";
 
 import "./login.css";
 import "./login-effect.css";
+import "../../Components/Alert/toast-message.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -31,15 +32,29 @@ function Login() {
         if (data.jwt) {
           localStorage.setItem("jwt", data.jwt);
           toast.success("Logged in seccessfully", {
-            hideProgressBar: true,
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
           });
           setUser(initialUser);
           navigate("/");
         }
       }
     } catch (error: any) {
-      toast.error(error.message, {
-        hideProgressBar: true,
+      toast.error("Please try again", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
       });
     }
   };
