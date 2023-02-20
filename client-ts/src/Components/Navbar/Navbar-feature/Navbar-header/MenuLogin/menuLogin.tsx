@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import Swal from "sweetalert2";
 import "./menuLogin.css";
 
@@ -8,10 +7,11 @@ function MenuLogin() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
+  // check jwt on localstorage and change isLoggedIn state
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     setIsLoggedIn(jwt ? true : false);
-  }, []);
+  }, [isLoggedIn]);
 
   const handleLogin = () => {
     navigate("/login");
@@ -23,7 +23,7 @@ function MenuLogin() {
       text: "Are you sure you want to Logout ?",
       icon: "warning",
       showCancelButton: true,
-      reverseButtons:true,
+      reverseButtons: true,
       confirmButtonColor: "#d33",
       cancelButtonColor: "#3085d6",
       confirmButtonText: "Logout",
@@ -32,7 +32,7 @@ function MenuLogin() {
       if (result.isConfirmed) {
         localStorage.removeItem("jwt");
         setIsLoggedIn(false);
-        navigate("/");
+        window.location.reload();
       }
     });
   };

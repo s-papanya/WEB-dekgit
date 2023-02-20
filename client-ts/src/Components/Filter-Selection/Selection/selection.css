@@ -5,6 +5,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  cursor: pointer;
 }
 .filter-selection-All {
   flex: 0 0 auto;
