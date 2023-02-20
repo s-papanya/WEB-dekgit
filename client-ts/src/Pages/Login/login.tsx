@@ -6,7 +6,6 @@ import axios from "axios";
 
 import "./login.css";
 import "./login-effect.css";
-import "../../Components/Alert/toast-message.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -36,7 +35,6 @@ function Login() {
             autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
             draggable: true,
             progress: undefined,
             theme: "colored",
