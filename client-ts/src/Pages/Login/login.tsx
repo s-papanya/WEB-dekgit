@@ -7,10 +7,15 @@ import axios from "axios";
 import "./login.css";
 import "./login-effect.css";
 
+interface IUser {
+  password: string;
+  identifier: string;
+}
+
 function Login() {
   const navigate = useNavigate();
   const initialUser = { password: "", identifier: "" };
-  const [user, setUser] = useState(initialUser);
+  const [user, setUser] = useState<IUser>(initialUser);
 
   const handleChange = ({
     target,
@@ -30,7 +35,7 @@ function Login() {
         const { data } = await axios.post(url, user);
         if (data.jwt) {
           localStorage.setItem("jwt", data.jwt);
-          toast.success("Logged in seccessfully", {
+          toast.success("Logged in successfully", {
             position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
@@ -147,15 +152,7 @@ function Login() {
       </div>
       <footer className="login-footer">
         <p className="login-p">
-          Created with by
-          <a className="login-a" target="_blank">
-            Florin Pop
-          </a>
-          - Read how I created this and how you can join the challenge
-          <a className="login-a" target="_blank">
-            here
-          </a>
-          .
+          If logged in, you will be able to use More website features
         </p>
       </footer>
     </div>
