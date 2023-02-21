@@ -10,7 +10,7 @@ function Activity() {
       </div>
       <div className="activity-text">
         <div className="activity-title">
-          <h1 className="title">ZERO To Javascript&Typescript</h1>
+          <h1 className="title">ZERO To Javascript</h1>
         </div>
         <div className="activity-description">
           <span className="description">
