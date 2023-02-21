@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastOptions } from "react-toastify";
 import { Button, Input } from "@mui/material";
+import { Register } from "./register";
 import axios from "axios";
 
 import "./login.css";
@@ -12,30 +13,31 @@ interface IUser {
   identifier: string;
 }
 
-function Login() {
-  const navigate = useNavigate();
-  const initialUser = { password: "", identifier: "" };
+function Login(): JSX.Element {
+  const initialUser: IUser = { password: "", identifier: "" };
   const [user, setUser] = useState<IUser>(initialUser);
+  const navigate = useNavigate();
 
   const handleChange = ({
     target,
   }: {
-    target: { name: string; value: any };
-  }) => {
+    target: { name: string; value: string };
+  }): void => {
     const { name, value } = target;
     setUser((currentUser) => ({
       ...currentUser,
       [name]: value,
     }));
   };
-  const handleLogin = async () => {
+
+  const handleLogin = async (): Promise<void> => {
     const url = "http://localhost:1337/api/auth/local";
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
         if (data.jwt) {
           localStorage.setItem("jwt", data.jwt);
-          toast.success("Logged in successfully", {
+          const successOptions: ToastOptions = {
             position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
@@ -43,13 +45,26 @@ function Login() {
             draggable: true,
             progress: undefined,
             theme: "colored",
-          });
+          };
+          toast.success("Logged in successfully", successOptions);
           setUser(initialUser);
           navigate("/");
         }
+      } else {
+        const errorOptions: ToastOptions = {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        };
+        toast.error("Please fill in all required fields.", errorOptions);
       }
     } catch (error: any) {
-      toast.error("Please try again", {
+      const errorOptions: ToastOptions = {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -58,16 +73,18 @@ function Login() {
         draggable: true,
         progress: undefined,
         theme: "colored",
-      });
+      };
+      toast.error("Username or password is incorrect", errorOptions);
     }
   };
+
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleSignUpClick = () => {
+  const handleSignUpClick = (): void => {
     containerRef.current?.classList.add("login-right-panel-active");
   };
 
-  const handleSignInClick = () => {
+  const handleSignInClick = (): void => {
     containerRef.current?.classList.remove("login-right-panel-active");
   };
 
@@ -78,14 +95,7 @@ function Login() {
           <form className="login-form">
             <h1 className="login-h1">Create Account</h1>
             <span className="login-span">Use your email for registration</span>
-            <Input className="login-input" type="text" placeholder="Name" />
-            <Input className="login-input" type="email" placeholder="Email" />
-            <Input
-              className="login-input"
-              type="password"
-              placeholder="Password"
-            />
-            <Button className="login-button">Sign Up</Button>
+            <Register/>
           </form>
         </div>
 
@@ -152,7 +162,12 @@ function Login() {
       </div>
       <footer className="login-footer">
         <p className="login-p">
-          If logged in, you will be able to use More website features
+          if logged in You will be able to use additional features of the
+          website. Or if you don't want to log in,
+          <a className="login-a" href="/">
+            {" "}
+            click to exit.
+          </a>
         </p>
       </footer>
     </div>
