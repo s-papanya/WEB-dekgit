@@ -48,30 +48,42 @@ function NavbarMenu() {
   return (
     <ul className="navbar-menu">
       <li className="navbar-li-home">
-        <a className="navbar-a" onClick={handleHome}
-        style={{ color: isTop ? "#ffffff" : "#000000"}}>
+        <a
+          className="navbar-a"
+          onClick={handleHome}
+          style={{ color: isTop ? "#ffffff" : "#000000" }}
+        >
           HOME
         </a>
       </li>
       {isLoggedIn && (
         <>
           <li className="navbar-li-history">
-            <a className="navbar-a" onClick={handleHistory}
-            style={{ color: isTop ? "#ffffff" : "#000000"}}>
+            <a
+              className="navbar-a"
+              onClick={handleHistory}
+              style={{ color: isTop ? "#ffffff" : "#000000" }}
+            >
               HISTORY
             </a>
           </li>
           <li className="navbar-li-notification">
-            <a className="navbar-a" onClick={handleNotification}
-            style={{ color: isTop ? "#ffffff" : "#000000"}}>
+            <a
+              className="navbar-a"
+              onClick={handleNotification}
+              style={{ color: isTop ? "#ffffff" : "#000000" }}
+            >
               NOTIFICATION
             </a>
           </li>
         </>
       )}
       <li className="navbar-li-contact">
-        <a className="navbar-a" onClick={handleContact}
-        style={{ color: isTop ? "#ffffff" : "#000000"}}>
+        <a
+          className="navbar-a"
+          onClick={handleContact}
+          style={{ color: isTop ? "#ffffff" : "#000000" }}
+        >
           CONTACT
         </a>
       </li>
