@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .MainContact-container {
+=======
+.container {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     width: 100%;
     height: 100%;
     display: flex;
@@ -10,7 +14,11 @@
     background-color: #f1f1f1;
 }
 
+<<<<<<< HEAD
 .MainContact-topic {
+=======
+.topic {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 100%;
     height: 60px;
@@ -23,7 +31,11 @@
     background-color: #ffffff;
 }
 
+<<<<<<< HEAD
 .MainContact-heading-topic {
+=======
+.heading-topic {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     margin: 0;
     align-self: center;
     font-style: normal;
@@ -32,7 +44,11 @@
     line-height: 36px;
 }
 
+<<<<<<< HEAD
 .MainContact-contact {
+=======
+.contact {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 90%;
     height: auto;
@@ -44,7 +60,11 @@
     justify-content: center;
 }
 
+<<<<<<< HEAD
 .MainContact-row {
+=======
+.row {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 100%;
     height: auto;
@@ -54,7 +74,11 @@
     justify-content: center;
 }
 
+<<<<<<< HEAD
 .MainContact-person {
+=======
+.person {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 33%;
     height: auto;
@@ -69,7 +93,11 @@
     padding-bottom: var(--dl-space-space-unit);
 }
 
+<<<<<<< HEAD
 .MainContact-image {
+=======
+.image {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 100%;
     height: 100%;
@@ -78,13 +106,21 @@
     flex-direction: column;
 }
 
+<<<<<<< HEAD
 .MainContact-cover-image {
+=======
+.cover-image {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     width: 100%;
     height: 350px;
     object-fit: cover;
 }
 
+<<<<<<< HEAD
 .MainContact-information {
+=======
+.information {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 100%;
     height: 100%;
@@ -93,7 +129,11 @@
     flex-direction: column;
 }
 
+<<<<<<< HEAD
 .MainContact-name {
+=======
+.name {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 100%;
     height: 100px;
@@ -102,11 +142,19 @@
     justify-content: center;
 }
 
+<<<<<<< HEAD
 .MainContact-text {
     align-self: center;
 }
 
 .MainContact-other {
+=======
+.text {
+    align-self: center;
+}
+
+.other {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 100%;
     height: 100px;
@@ -115,7 +163,11 @@
     align-items: flex-start;
 }
 
+<<<<<<< HEAD
 .MainContact-button {
+=======
+.button {
+>>>>>>> 32f345327b6779e5ba77e9ad203a6a7b2b664770
     flex: 0 0 auto;
     width: 100%;
     border: 2px dashed rgba(120, 120, 120, 0.4);
