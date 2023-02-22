@@ -1,27 +1,26 @@
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/navbar";
-import MainContent from "../../Components/Main-Content/main-content";
-import SearchBar from "../../Components/Search-bar/search-bar";
-import FilterSelection from "../../Components/Filter-Selection/filter-selection";
+import MainContact from "../../Components/Main-Contact/main-contact";
+
 import "./contact.css"
 
 function Contact() {
     const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
     return (
-      <div className="home-container">
-        <div className="home-h-e-a-d"></div>
+      <div className='container'>
         <img className="coverHome" src={coverHome} alt="cover" />
-        <div className="home-m-i-d-d-l-e">
-          <div className="home-main">
-            <div className="home-main-option">
-            </div>
-          </div>
-        </div>
-        <div className="home-f-o-o-t">
-          <Footer />
-        </div>
-        <Navbar />
+      <div className='h-e-a-d'>
+        <Navbar/>
       </div>
+      <div className='m-i-d-d-l-e'>
+        <div className='main'>
+          <MainContact/>
+        </div>
+      </div>
+      <div className='f-o-o-t'>
+        <Footer/>
+      </div>
+    </div>
     );
   }
   
