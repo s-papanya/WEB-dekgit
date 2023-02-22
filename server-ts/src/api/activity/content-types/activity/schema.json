@@ -4,7 +4,8 @@
   "info": {
     "singularName": "activity",
     "pluralName": "activities",
-    "displayName": "Activity"
+    "displayName": "Activity",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +17,37 @@
       "required": true
     },
     "description": {
-      "type": "richtext"
+      "type": "text"
+    },
+    "registrationStart": {
+      "type": "datetime"
+    },
+    "registrationEnd": {
+      "type": "datetime"
+    },
+    "activityStart": {
+      "type": "datetime"
+    },
+    "activityEnd": {
+      "type": "datetime"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "participant": {
+      "type": "integer"
+    },
+    "activityType": {
+      "type": "enumeration",
+      "enum": [
+        "first come first serve",
+        "candidate"
+      ]
     }
   }
 }
