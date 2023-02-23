@@ -3,11 +3,11 @@
     height: 100%;
     display: flex;
     position: relative;
-    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    /*box-shadow: 5px 5px 10px 0px #d4d4d4;*/
     align-items: flex-start;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
 }
 
 .MainContact-topic {
@@ -38,19 +38,25 @@
     height: auto;
     display: flex;
     padding: 0px;
+    position: relative;
     align-self: center;
+    margin-top: var(--dl-space-space-doubleunit);
     align-items: center;
+    margin-bottom: var(--dl-space-space-doubleunit);
     flex-direction: column;
     justify-content: center;
 }
 
 .MainContact-row {
     flex: 0 0 auto;
-    width: 100%;
     height: auto;
     display: flex;
+    position: relative;
+    align-self: stretch;
+    margin-top: var(--dl-space-space-unit);
     align-items: center;
-    margin-bottom: 10px;
+    padding-top: 0px;
+    margin-bottom: 20px;
     justify-content: center;
 }
 
@@ -59,14 +65,12 @@
     width: 33%;
     height: auto;
     display: flex;
+    margin-top: var(--dl-space-space-doubleunit);
     align-items: flex-start;
-    margin-left: 10px;
-    padding-top: var(--dl-space-space-unit);
-    margin-right: 10px;
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: var(--dl-space-space-doubleunit);
     flex-direction: column;
-    padding-bottom: var(--dl-space-space-unit);
 }
 
 .MainContact-image {
@@ -80,8 +84,9 @@
 
 .MainContact-cover-image {
     width: 100%;
-    height: 350px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 .MainContact-information {
@@ -90,15 +95,20 @@
     height: 100%;
     display: flex;
     align-items: flex-start;
+    padding-top: var(--dl-space-space-unit);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
     flex-direction: column;
+    padding-bottom: var(--dl-space-space-unit);
 }
 
 .MainContact-name {
     flex: 0 0 auto;
     width: 100%;
-    height: 100px;
+    height: auto;
     display: flex;
     align-items: center;
+    padding-bottom: var(--dl-space-space-halfunit);
     justify-content: center;
 }
 
@@ -109,17 +119,17 @@
 .MainContact-other {
     flex: 0 0 auto;
     width: 100%;
-    height: 100px;
+    height: auto;
     display: flex;
-    padding: 25px;
     align-items: flex-start;
+    padding-bottom: var(--dl-space-space-doubleunit);
 }
 
 .MainContact-button {
     flex: 0 0 auto;
     width: 100%;
     border: 2px dashed rgba(120, 120, 120, 0.4);
-    height: 100px;
+    height: 50px;
     display: flex;
     align-items: center;
     flex-direction: column;

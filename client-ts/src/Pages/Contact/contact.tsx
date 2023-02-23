@@ -1,7 +1,7 @@
 import Footer from "../../Components/Footer/footer";
 import MainContact from "../../Components/Main-Contact/main-contact";
 import Navbar from "../../Components/Navbar/navbar";
-import "./contact.css";
+
 
 function Contact() {
   const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
