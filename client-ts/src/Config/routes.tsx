@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+
 import Contact from "../Pages/Contact/contact";
 import Home from "../Pages/Home/home";
 import Login from "../Pages/Login/login";
-import AdminFocusContent from "../Pages/Admin/Admin-FocusContent/admin-focusContent"
-import AdminCreateActivity from "../Pages/Admin/Admin-CreateActivity/admin-createActivity"
+import AdminActivityDetail from "../Pages/Admin/Admin-Activity-Detail/admin-activityDetail";
+import AdminCreateActivity from "../Pages/Admin/Admin-CreateActivity/admin-createActivity";
+import ActivityDetail from "../Pages/Activity-Detail/activityDetail";
 
 function AppRoutes() {
   return (
@@ -13,21 +14,10 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/AdminFocusContent" element={<AdminFocusContent />} />
+        <Route path="/activityDetail" element={<ActivityDetail />} />
+        <Route path="/AdminActivityDetail" element={<AdminActivityDetail />} />
         <Route path="/AdminCreateActivity" element={<AdminCreateActivity />} />
       </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </div>
   );
 }

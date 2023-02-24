@@ -119,7 +119,6 @@ function MainContact() {
             <div className="MainContact-button"></div>
           </div>
         </div>
-
       </div>
     </div>
   );

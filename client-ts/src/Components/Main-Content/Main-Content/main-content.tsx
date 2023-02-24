@@ -1,5 +1,4 @@
-import React from "react";
-import Activity from "./Activity/activity";
+import Activity from "../Activity/activity";
 
 import "./main-content.css";
 

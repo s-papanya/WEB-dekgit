@@ -1,5 +1,5 @@
 import React from "react";
-import Selection from "./Selection/selection";
+import Selection from "../Selection/selection";
 import "./filter-selection.css";
 
 function FilterSelection() {

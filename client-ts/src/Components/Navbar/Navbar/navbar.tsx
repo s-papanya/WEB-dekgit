@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavbarHeader from "./Navbar-feature/Navbar-header/navbar-header";
-import NavbarMenu from "./Navbar-feature/Navbar-Menu/navbar-menu";
+import NavbarHeader from "../Navbar-feature/Navbar-header/navbar-header";
+import NavbarMenu from "../Navbar-feature/Navbar-Menu/navbar-menu";
 import "./navbar.css";
 
 function NavBar() {
@@ -34,7 +34,7 @@ function NavBar() {
   return (
     <nav
       className={`navbar ${isHidden ? "navbar--hidden" : ""}`}
-      style={{ backgroundColor: isTop ? "transparent" : "#ffffff"}} // เพิ่มเงื่อนไขเพื่อเปลี่ยนสีพื้นหลังของ Navbar เมื่อเลื่อนลงมาครั้งแรก
+      style={{ backgroundColor: isTop ? "transparent" : "#ffffff" }} // เพิ่มเงื่อนไขเพื่อเปลี่ยนสีพื้นหลังของ Navbar เมื่อเลื่อนลงมาครั้งแรก
     >
       <NavbarHeader />
       <NavbarMenu />
