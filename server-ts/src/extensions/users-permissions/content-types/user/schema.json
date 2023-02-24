@@ -62,6 +62,12 @@
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
+    },
+    "registrations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::registration.registration",
+      "mappedBy": "users_permissions_users"
     }
   }
 }
