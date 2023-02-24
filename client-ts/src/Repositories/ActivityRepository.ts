@@ -1,13 +1,14 @@
 import { IRepository } from "./IRepository";
-import Activity from "../Repositories/Models/Activity";
+import ModelActivity from "../Models/Activity";
 
-export class ActivityRepository implements IRepository<Activity> {
-    async getAll(): Promise<Activity[] | null> {
-        return [
-            {id :1,title: 'Hello World',description: 'The world is not ready for this.'},
-            {id :1,title: 'Hello My friend',description: 'The world is not ready for this.'},
-            {id :1,title: 'Hello My father',description: 'The world is not ready for this.'},
-            {id :1,title: 'Hello My mother',description: 'The world is not ready for this.'}
-        ]
-    }
+import config from "../Config/config";
+
+export class ActivityRepository implements IRepository<ModelActivity> {
+  urlPrefix = config.remoteRepositoryUrlPrefix;
+
+  async getActivity(): Promise<ModelActivity[] | null> {
+    const res = await fetch(`${this.urlPrefix}/activities`);
+    const data = await res.json();
+    return data.data;
+  }
 }

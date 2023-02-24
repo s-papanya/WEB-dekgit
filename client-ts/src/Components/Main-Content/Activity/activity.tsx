@@ -1,37 +1,41 @@
 import { useEffect, useState } from "react";
-import { ActivityRepository } from "../../../Repositories/ActivityRepository";
-import ModelActivity from "../../../Repositories/Models/Activity";
+
+import ModelActivity from "../../../Models/Activity";
+import Repo from "../../../Repositories/index";
 
 import "./activity.css";
-import "../main-content.css";
 
 const cover_activity = require("../../../Assets/cover_activity/activity-1.png");
 
 function Activity() {
-  const activityRepository = new ActivityRepository();
-  const [activities, setActivities] = useState<ModelActivity[] | null>(null);
+  const [activitiesList, setActivitiesList] = useState<ModelActivity[]>([]);
+
+  const fetchData = async () => {
+    const res = await Repo.ActivityRepository.getActivity();
+    if (res) {
+      setActivitiesList(res);
+    }
+  };
 
   useEffect(() => {
-    activityRepository.getAll().then((result) => setActivities(result));
-  }, [activityRepository]);
-
-  if (activities === null) {
-    return <div>ไม่มีข้อมูล</div>;
-  }
+    fetchData();
+  }, []);
 
   return (
     <>
-      {activities.map((activity: ModelActivity) => (
+      {activitiesList.map((activity: ModelActivity) => (
         <div key={activity.id} className="activity">
           <div className="activity-image">
             <img className="image" src={cover_activity} alt="" />
           </div>
           <div className="activity-text">
             <div className="activity-title">
-              <h1 className="title">{activity.title}</h1>
+              <h1 className="title">{activity.attributes.title}</h1>
             </div>
             <div className="activity-description">
-              <span className="description">{activity.description}</span>
+              <span className="description">
+                {activity.attributes.description}
+              </span>
             </div>
           </div>
         </div>
