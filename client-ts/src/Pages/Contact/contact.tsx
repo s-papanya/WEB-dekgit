@@ -3,23 +3,22 @@ import MainContact from "../../Components/Main-Contact/main-contact";
 import Navbar from "../../Components/Navbar/Navbar/navbar";
 
 function Contact() {
-    const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
-    return (
-      <div className="home-container">
-        <div className="home-h-e-a-d"></div>
-        <img className="coverHome" src={coverHome} alt="cover" />
-        <div className="home-m-i-d-d-l-e">
-          <div className="home-main">
-            <div className="home-main-option">
-            </div>
-          </div>
+  const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
+  return (
+    <div className="home-container">
+      <div className="home-h-e-a-d"></div>
+      <img className="coverHome" src={coverHome} alt="cover" />
+      <div className="home-m-i-d-d-l-e">
+        <div className="home-main">
+          <MainContact />
         </div>
-        <div className="home-f-o-o-t">
-          <Footer />
-        </div>
-        <Navbar />
       </div>
-    );
-  }
-  
-  export default Contact ;
+      <div className="home-f-o-o-t">
+        <Footer />
+      </div>
+      <Navbar />
+    </div>
+  );
+}
+
+export default Contact;
