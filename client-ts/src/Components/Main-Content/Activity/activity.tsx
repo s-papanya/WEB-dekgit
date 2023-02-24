@@ -33,9 +33,7 @@ function Activity() {
               <h1 className="title">{activity.attributes.title}</h1>
             </div>
             <div className="activity-description">
-              <span className="description">
-                {activity.attributes.description}
-              </span>
+              <span className="description">{activity.attributes.description}</span>
             </div>
           </div>
         </div>

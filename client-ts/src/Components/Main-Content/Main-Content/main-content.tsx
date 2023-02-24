@@ -11,6 +11,8 @@ function MainContent() {
       </header>
       <div className="main-content-content">
         <Activity />
+        <Activity />
+        <Activity />
       </div>
     </div>
   );
