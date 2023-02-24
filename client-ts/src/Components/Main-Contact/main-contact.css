@@ -53,23 +53,24 @@
     display: flex;
     position: relative;
     align-self: stretch;
-    margin-top: var(--dl-space-space-unit);
+    margin-top: var(--dl-space-space-threeunits);
+    padding-top: var(--dl-space-space-threeunits);
     align-items: center;
-    padding-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     justify-content: center;
 }
 
 .MainContact-person {
     flex: 0 0 auto;
-    width: 33%;
+    width: 300 px;
     height: auto;
     display: flex;
-    margin-top: var(--dl-space-space-doubleunit);
+    margin-top: var(--dl-space-space-threeunits);
     align-items: flex-start;
     margin-left: 20px;
+    padding-top: var(--dl-space-space-doubleunit);
     margin-right: 20px;
-    margin-bottom: var(--dl-space-space-doubleunit);
+    margin-bottom: var(--dl-space-space-threeunits);
     flex-direction: column;
 }
 
@@ -108,30 +109,52 @@
     height: auto;
     display: flex;
     align-items: center;
-    padding-bottom: var(--dl-space-space-halfunit);
     justify-content: center;
 }
 
 .MainContact-text {
+    font-size: 20px;
     align-self: center;
+    font-style: normal;
+    font-weight: 700;
+    padding-bottom: var(--dl-space-space-halfunit);
 }
 
 .MainContact-other {
     flex: 0 0 auto;
     width: 100%;
     height: auto;
-    display: flex;
-    align-items: flex-start;
+    display: flex ;
+
+}
+
+.MainContact-text1 {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    padding-top: var(--dl-space-space-halfunit1);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
     padding-bottom: var(--dl-space-space-doubleunit);
 }
 
-.MainContact-button {
+
+.MainContact-rank {
     flex: 0 0 auto;
     width: 100%;
-    border: 2px dashed rgba(120, 120, 120, 0.4);
     height: 50px;
     display: flex;
+    margin-top: var(--dl-space-space-unit);
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+
+.MainContact-button {
+    padding-top: var(--dl-space-space-unit);
+    border-color: var(--dl-color-primary-1001);
+    padding-left: var(--dl-space-space-doubleunit);
+    border-radius: 50px;
+    padding-right: var(--dl-space-space-doubleunit);
+    padding-bottom: var(--dl-space-space-unit);
 }
