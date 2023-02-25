@@ -16,9 +16,6 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text"
-    },
     "registrationStart": {
       "type": "date"
     },
@@ -54,6 +51,14 @@
         "FirstcomeFirstserve",
         "Candidate"
       ]
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 200
+    },
+    "detail": {
+      "type": "richtext",
+      "maxLength": 1000
     }
   }
 }
