@@ -14,8 +14,14 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/activityDetail" element={<ActivityDetail />} />
-        <Route path="/AdminActivityDetail" element={<AdminActivityDetail />} />
+        <Route
+          path="/activityDetail/:activityId"
+          element={<ActivityDetail />}
+        />
+        <Route
+          path="/AdminActivityDetail/:activityId"
+          element={<AdminActivityDetail />}
+        />
         <Route path="/AdminCreateActivity" element={<AdminCreateActivity />} />
       </Routes>
     </div>

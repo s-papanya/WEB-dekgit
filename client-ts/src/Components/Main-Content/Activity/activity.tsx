@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import ModelActivity from "../../../Models/Activity";
 import Repo from "../../../Repositories/index";
@@ -24,19 +25,27 @@ function Activity() {
   return (
     <>
       {activitiesList.map((activity: ModelActivity) => (
-        <div key={activity.id} className="activity">
-          <div className="activity-image">
-            <img className="image" src={cover_activity} alt="" />
-          </div>
-          <div className="activity-text">
-            <div className="activity-title">
-              <h1 className="title">{activity.attributes.title}</h1>
+        <Link
+          key={activity.id}
+          to={`/activityDetail/${activity.id}`}
+          className="activity-link"
+        >
+          <div className="activity">
+            <div className="activity-image">
+              <img className="image" src={cover_activity} alt="" />
             </div>
-            <div className="activity-description">
-              <span className="description">{activity.attributes.description}</span>
+            <div className="activity-text">
+              <div className="activity-title">
+                <h1 className="title">{activity.attributes.title}</h1>
+              </div>
+              <div className="activity-description">
+                <span className="description">
+                  {activity.attributes.description}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </>
   );
