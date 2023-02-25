@@ -5,7 +5,7 @@ function IconLogo() {
 
   return (
     <div className="iconLogo">
-      <img src={iconLogo} alt="Logo" />
+      <img className="iconLogo-image" src={iconLogo} alt="Logo" />
     </div>
   );
 }
