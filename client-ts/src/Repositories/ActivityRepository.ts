@@ -15,6 +15,6 @@ export class ActivityRepository implements IRepository<ModelActivity> {
   async getActivityById(id: string | number): Promise<ModelActivity | null> {
     const res = await fetch(`${this.urlPrefix}/activities/${id}`);
     const data = await res.json();
-    return data;
+    return data.data;
   }
 }
