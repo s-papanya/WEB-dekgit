@@ -20,16 +20,16 @@
       "type": "text"
     },
     "registrationStart": {
-      "type": "datetime"
+      "type": "date"
     },
     "registrationEnd": {
-      "type": "datetime"
+      "type": "date"
     },
     "activityStart": {
-      "type": "datetime"
+      "type": "date"
     },
     "activityEnd": {
-      "type": "datetime"
+      "type": "date"
     },
     "image": {
       "type": "media",
