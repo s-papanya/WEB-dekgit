@@ -8,11 +8,12 @@ export default interface Activity {
   attributes: {
     title: string;
     description: string;
+    detail: string;
+    activityType: ResultType;
+    participant: number;
     registrationStart: Date;
     registrationEnd: Date;
     activityStart: Date;
     activityEnd: Date;
-    participant: number;
-    activityType: ResultType;
   };
 }

@@ -13,6 +13,11 @@ function ActivityDetailForm() {
       Number(activityId)
     );
     if (res) {
+      const activityData = res.attributes;
+      activityData.registrationStart = new Date(activityData.registrationStart);
+      activityData.registrationEnd = new Date(activityData.registrationEnd);
+      activityData.activityStart = new Date(activityData.activityStart);
+      activityData.activityEnd = new Date(activityData.activityEnd);
       setActivity(res);
     }
   };
@@ -23,8 +28,21 @@ function ActivityDetailForm() {
 
   return (
     <div>
-      <h1>{activity?.attributes.title}</h1>
-      <p>{activity?.attributes.description}</p>
+      {activity ? (
+        <>
+          <h1>{activity.attributes.title}</h1>
+          <p>{activity.attributes.description}</p>
+          <p>{activity.attributes.detail}</p>
+          <p>{activity.attributes.activityType}</p>
+          <p>{activity.attributes.participant}</p>
+          <p>{activity.attributes.registrationStart.toLocaleDateString()}</p>
+          <p>{activity.attributes.registrationEnd.toLocaleDateString()}</p>
+          <p>{activity.attributes.activityStart.toLocaleDateString()}</p>
+          <p>{activity.attributes.activityEnd.toLocaleDateString()}</p>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
