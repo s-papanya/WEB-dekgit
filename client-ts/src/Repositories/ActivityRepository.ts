@@ -11,4 +11,10 @@ export class ActivityRepository implements IRepository<ModelActivity> {
     const data = await res.json();
     return data.data;
   }
+
+  async getActivityById(id: string | number): Promise<ModelActivity | null> {
+    const res = await fetch(`${this.urlPrefix}/activities/${id}`);
+    const data = await res.json();
+    return data;
+  }
 }
