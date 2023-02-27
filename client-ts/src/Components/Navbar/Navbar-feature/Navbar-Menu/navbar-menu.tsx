@@ -45,6 +45,10 @@ function NavbarMenu() {
     navigate("/Contact");
   };
 
+  const handleCreateActivity = () => {
+    navigate("/Admin/CreateActivity");
+  };
+
   return (
     <ul className="navbar-menu">
       <li className="navbar-li-home">
@@ -76,7 +80,17 @@ function NavbarMenu() {
               NOTIFICATION
             </a>
           </li>
+          <li className="navbar-li-notification">
+            <a
+              className="navbar-a"
+              onClick={handleCreateActivity}
+              style={{ color: isTop ? "#ffffff" : "#000000" }}
+            >
+              CREATE ACTIVITY
+            </a>
+          </li>
         </>
+        
       )}
       <li className="navbar-li-contact">
         <a
