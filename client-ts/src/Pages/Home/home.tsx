@@ -6,7 +6,7 @@ import FilterSelection from "../../Components/Filter-Selection/Filter-Selection/
 import "./home.css";
 
 function Home() {
-  const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
+  const coverHome = require("../../Assets/cover_homePage/coverHome.png");
   return (
     <div className="home-container">
       <div className="home-h-e-a-d"></div>

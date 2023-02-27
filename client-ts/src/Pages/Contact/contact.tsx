@@ -3,7 +3,7 @@ import MainContact from "../../Components/Main-Contact/main-contact";
 import Navbar from "../../Components/Navbar/Navbar/navbar";
 
 function Contact() {
-  const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
+  const coverHome = require("../../Assets/cover_contact/coverContact.png");
   return (
     <div className="home-container">
       <div className="home-h-e-a-d"></div>
