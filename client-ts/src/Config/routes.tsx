@@ -3,8 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Contact from "../Pages/Contact/contact";
 import Home from "../Pages/Home/home";
 import Login from "../Pages/Login/login";
-import AdminActivityDetail from "../Pages/Admin/Admin-Activity-Detail/admin-activityDetail";
-import AdminCreateActivity from "../Pages/Admin/Admin-CreateActivity/admin-createActivity";
+import AdminCreateActivity from "../Pages/Admin-CreateActivity/admin-createActivity";
 import ActivityDetail from "../Pages/Activity-Detail/activityDetail";
 
 function AppRoutes() {
@@ -18,11 +17,7 @@ function AppRoutes() {
           path="/activityDetail/:activityId"
           element={<ActivityDetail />}
         />
-        <Route
-          path="/AdminActivityDetail/:activityId"
-          element={<AdminActivityDetail />}
-        />
-        <Route path="/AdminCreateActivity" element={<AdminCreateActivity />} />
+        <Route path="/Admin/CreateActivity" element={<AdminCreateActivity />} />
       </Routes>
     </div>
   );
