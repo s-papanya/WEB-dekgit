@@ -1,5 +1,5 @@
-import IconLogo from "./IconLogo/iconLogo";
-import MenuLogin from "./MenuLogin/menuLogin";
+import IconLogo from "../IconLogo/iconLogo";
+import MenuLogin from "../MenuLogin/menuLogin";
 import "./navbar-header.css";
 
 function NavbarHeader() {
