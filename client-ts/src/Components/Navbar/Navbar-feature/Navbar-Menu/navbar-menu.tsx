@@ -38,7 +38,7 @@ function NavbarMenu() {
     if (admin === "admin") {
       setIsAdmin(true);
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn,isAdmin]);
 
   const handleHome = () => {
     navigate("/");
