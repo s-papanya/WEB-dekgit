@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { userData } from "../../../../..//Config/provider"
 import Swal from "sweetalert2";
 import "./menuLogin.css";
 
 function MenuLogin() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const user = userData();
 
   // check jwt on localstorage and change isLoggedIn state
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
+    const jwt = user.jwt
     setIsLoggedIn(jwt ? true : false);
   }, [isLoggedIn]);
 
@@ -30,7 +32,7 @@ function MenuLogin() {
       cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem("jwt");
+        localStorage.clear();
         setIsLoggedIn(false);
         window.location.reload();
       }
