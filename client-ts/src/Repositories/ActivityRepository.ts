@@ -1,14 +1,13 @@
 import { IRepository } from "./IRepository";
 import ModelActivity from "../Models/Activity";
+import config from "../Config/config";
+
 import { userData } from "../Config/provider";
 
 const user = userData()
 
-import config from "../Config/config";
-
 export class ActivityRepository implements IRepository<ModelActivity> {
   urlPrefix = config.remoteRepositoryUrlPrefix;
-  token = user.jwt
 
   async getActivity(): Promise<ModelActivity[] | null> {
     const res = await fetch(`${this.urlPrefix}/activities`);
@@ -26,10 +25,8 @@ export class ActivityRepository implements IRepository<ModelActivity> {
     const res = await fetch(`${this.urlPrefix}/activities`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${this.token}`,
-        "Content-Type": "application/json",
+        Authorization: `Bearer `+ user.jwt,
       },
-      body: JSON.stringify(entity),
     });
     const data = await res.json();
     return data.data;
