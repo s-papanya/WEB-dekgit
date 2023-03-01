@@ -51,6 +51,7 @@ function Login(): JSX.Element {
           };
           toast.success("Logged in successfully", successOptions);
           setUser(initialUser);
+          addRole();
           navigate("/");
         }
       } else {
@@ -78,6 +79,23 @@ function Login(): JSX.Element {
         theme: "colored",
       };
       toast.error("Username or password is incorrect", errorOptions);
+    }
+  };
+
+  const addRole = async (): Promise<void> => {
+    const user = userData();
+    try {
+      const { data } = await axios.get(
+        "http://localhost:1337/api/users/me?fields[0]=id&populate[role][fields][0]=type",
+        {
+          headers: {
+            Authorization: "Bearer " + user.jwt,
+          },
+        }
+      );
+      storeRole(data);
+    } catch (error: any) {
+      console.log(error);
     }
   };
 
