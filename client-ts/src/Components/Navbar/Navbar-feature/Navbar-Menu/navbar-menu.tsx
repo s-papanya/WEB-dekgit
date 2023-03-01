@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { roleData, userData } from "../../../../Config/provider";
 
 import "./navbar-menu.scss";
 
 function NavbarMenu() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isTop, setIsTop] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const user = userData();
+  const role = roleData();
   const navigate = useNavigate();
 
   let lastScrollY = window.scrollY;
@@ -25,8 +29,15 @@ function NavbarMenu() {
   }, []);
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
+    const jwt = user.jwt;
+    console.log(jwt);
     setIsLoggedIn(jwt ? true : false);
+
+    const admin = role.role;
+    console.log(admin);
+    if (admin === "admin") {
+      setIsAdmin(true);
+    }
   }, [isLoggedIn]);
 
   const handleHome = () => {
@@ -80,17 +91,18 @@ function NavbarMenu() {
               NOTIFICATION
             </a>
           </li>
-          <li className="navbar-li-notification">
-            <a
-              className="navbar-a"
-              onClick={handleCreateActivity}
-              style={{ color: isTop ? "#ffffff" : "#000000" }}
-            >
-              CREATE ACTIVITY
-            </a>
-          </li>
+          {isAdmin && (
+            <li className="navbar-li-notification">
+              <a
+                className="navbar-a"
+                onClick={handleCreateActivity}
+                style={{ color: isTop ? "#ffffff" : "#000000" }}
+              >
+                CREATE ACTIVITY
+              </a>
+            </li>
+          )}
         </>
-        
       )}
       <li className="navbar-li-contact">
         <a
