@@ -2,8 +2,11 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastOptions } from "react-toastify";
 import { Button, Input } from "@mui/material";
+
 import { Register } from "./register";
 import axios from "axios";
+
+import { storeRole, storeUser, userData } from "../../Config/provider";
 
 import "./login.css";
 import "./login-effect.css";
@@ -36,7 +39,7 @@ function Login(): JSX.Element {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
         if (data.jwt) {
-          localStorage.setItem("jwt", data.jwt);
+          storeUser(data);
           const successOptions: ToastOptions = {
             position: "top-right",
             autoClose: 1000,
@@ -95,7 +98,7 @@ function Login(): JSX.Element {
           <form className="login-form">
             <h1 className="login-h1">Create Account</h1>
             <span className="login-span">Use your email for registration</span>
-            <Register/>
+            <Register />
           </form>
         </div>
 
