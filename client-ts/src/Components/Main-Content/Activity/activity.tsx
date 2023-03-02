@@ -6,8 +6,6 @@ import Repo from "../../../Repositories/index";
 
 import "./activity.css";
 
-const cover_activity = require("../../../Assets/cover_activity/activity-1.png");
-
 function Activity() {
   const [activitiesList, setActivitiesList] = useState<ModelActivity[]>([]);
 
@@ -32,7 +30,15 @@ function Activity() {
         >
           <div className="activity">
             <div className="activity-image">
-              <img className="image" src={cover_activity} alt="" />
+              <img
+                className="image"
+                src={
+                  "http://localhost:1337" +
+                  activity?.attributes?.image?.data?.attributes?.formats
+                    ?.thumbnail?.url
+                }
+                alt=""
+              />
             </div>
             <div className="activity-text">
               <div className="activity-title">
