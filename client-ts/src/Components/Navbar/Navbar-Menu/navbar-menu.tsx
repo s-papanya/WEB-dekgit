@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { roleData, userData } from "../../../../Config/provider";
+import { roleData, userData } from "../../../Config/provider";
 
 import "./navbar-menu.scss";
 
@@ -38,7 +38,7 @@ function NavbarMenu() {
     if (admin === "admin") {
       setIsAdmin(true);
     }
-  }, [isLoggedIn,isAdmin]);
+  }, [isLoggedIn, isAdmin]);
 
   const handleHome = () => {
     navigate("/");
