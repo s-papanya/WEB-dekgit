@@ -1,0 +1,324 @@
+.activity-detail-from-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #f1f1f1;
+}
+
+.activity-detail-from-redline {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 5px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #d94f5c;
+}
+
+.activity-detail-from-topic {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    padding: 10px;
+    position: relative;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+.activity-detail-from-text {
+    margin: 0;
+    align-self: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 36px;
+}
+
+.activity-detail-from-detail {
+    flex: 0 0 auto;
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #ffffff;
+    
+}
+
+.activity-detail-from-picture {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.activity-detail-from-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-detail-from-content-detail {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.activity-detail-from-name-activity {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-detail-from-detail-activity {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    padding-right: 30px;
+}
+
+.activity-detail-from-title-detail-activity {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px ;
+    display: flex;
+    align-items: flex-start;
+    
+}
+
+.activity-detail-from-text-title {
+    align-self: center;
+    text-align: center;
+    color: #ed2438;
+}
+
+.activity-detail-from-content-detail-activity {
+  flex: 0 0 auto;
+  width: 95%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  
+
+}
+
+.activity-detail-from-text-content {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.activity-detail-from-registration {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+.activity-detail-from-registration-start {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.activity-detail-from-title-registration-start {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px ;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-content-registration-start {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-registration-end {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.activity-detail-from-title-registration-end {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px ;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-content-registration-end {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-activity-date {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+.activity-detail-from-activity-start {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.activity-detail-from-title-activity-start {
+    flex: 0 0 auto;
+    width: 50%;
+    height: 50px;
+    margin-bottom: 20px ;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-content-activity-start {
+    flex: 0 0 auto;
+    width: 50%;
+    height: 75px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-activity-end {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.activity-detail-from-title-activity-end {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px ;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-content-activity-end {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-participant {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.activity-detail-from-title-participant {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px ;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-content-participant {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-activity-type {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.activity-detail-from-title-activity-type {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px ;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-content-activity-type {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-detail-from-grid-button {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-detail-from-button {
+    width: auto;
+    height: 70%;
+    font-size: 30px;
+    align-self: center;
+    font-style: normal;
+    text-align: center;
+    font-weight: 100;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: var(--dl-radius-radius-radius8);
+}
