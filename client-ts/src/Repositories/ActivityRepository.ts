@@ -10,7 +10,7 @@ export class ActivityRepository implements IRepository<ModelActivity> {
   urlPrefix = config.remoteRepositoryUrlPrefix;
 
   async getActivity(): Promise<ModelActivity[] | null> {
-    const res = await fetch(`${this.urlPrefix}/activities`);
+    const res = await fetch(`${this.urlPrefix}/activities?populate=*`);
     const data = await res.json();
     return data.data;
   }

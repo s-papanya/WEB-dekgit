@@ -15,5 +15,16 @@ export default interface Activity {
     registrationEnd: Date;
     activityStart: Date;
     activityEnd: Date;
+    image: {
+      data: {
+        attributes: {
+          formats: {
+            thumbnail: {
+              url: string;
+            };
+          };
+        };
+      };
+    };
   };
 }
