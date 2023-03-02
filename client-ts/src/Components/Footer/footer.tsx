@@ -10,7 +10,7 @@ import {
 function Footer() {
   return (
     <div className="footer">
-      <div className="footer-head">.DekGit</div>
+      <div className="footer-head"><a href="/">.DekGit</a></div>
 
       <div className="footer-flex-left">
         <div>
@@ -25,7 +25,7 @@ function Footer() {
             <li className="footer-li">Policy</li>
             <li className="footer-li">Privacy</li>
             <li className="footer-li">Pricing</li>
-            <li className="footer-li">Contact</li>
+            <li className="footer-li"><a href="/contact">Contact</a></li>
           </ul>
         </div>
       </div>

@@ -14,6 +14,11 @@
   font-size: 30px;
 }
 
+.footer-head a{
+  text-decoration: none;
+  color: #fff;
+}
+
 .footer-social {
   display: flex;
   justify-content: space-between;
@@ -36,6 +41,10 @@
 
 .footer-li {
   padding: 15px;
+}
+.footer-li a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .footer-flex-left {
