@@ -30,11 +30,9 @@ function NavbarMenu() {
 
   useEffect(() => {
     const jwt = user.jwt;
-    console.log(jwt);
     setIsLoggedIn(jwt ? true : false);
 
     const admin = role.role;
-    console.log(admin);
     if (admin === "admin") {
       setIsAdmin(true);
     }

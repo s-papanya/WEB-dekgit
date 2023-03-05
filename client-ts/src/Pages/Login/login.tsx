@@ -52,7 +52,9 @@ function Login(): JSX.Element {
           toast.success("Logged in successfully", successOptions);
           setUser(initialUser);
           addRole();
-          navigate("/");
+          setTimeout(() => {
+            navigate("/");
+          }, 500);
         }
       } else {
         const errorOptions: ToastOptions = {
