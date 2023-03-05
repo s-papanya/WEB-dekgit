@@ -34,15 +34,17 @@ function Activity() {
                 className="activity-image-image"
                 src={
                   "http://localhost:1337" +
-                  activity?.attributes?.image?.data?.attributes?.formats
-                    ?.large?.url
+                  activity?.attributes?.image?.data?.attributes?.formats?.large
+                    ?.url
                 }
                 alt=""
               />
             </div>
             <div className="activity-text">
               <div className="activity-title">
-                <h1 className="activity-title-title">{activity.attributes.title}</h1>
+                <h1 className="activity-title-title">
+                  {activity.attributes.title}
+                </h1>
               </div>
               <div className="activity-description">
                 <span className="activity-description-description">
