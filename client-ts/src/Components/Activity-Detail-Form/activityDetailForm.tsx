@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Button } from "@mui/material";
 
 import ModelActivity from "../../Models/Activity";
 import Repo from "../../Repositories/index";
 
-import "./activityDetailForm.css"
+import "./activityDetailForm.css";
 
 function ActivityDetailForm() {
   const { activityId } = useParams<{ activityId: string }>();
@@ -29,19 +30,31 @@ function ActivityDetailForm() {
   }, [activityId]);
 
   return (
-    <div>
-      {activity ? (
-        <>
-          <div className="activity-detail-from-container ">
-            <div className="activity-detail-from-redline"></div>
-            <header className="activity-detail-from-topic">
-              <h1 className="activity-detail-from-text">รายละเอียดกิจกรรม</h1>
-            </header>
+    <div className="activity-detail-background-image">
+      <img
+        alt=""
+        src={
+          "http://localhost:1337" +
+          activity?.attributes?.image?.data?.attributes?.formats?.large?.url
+        }
+        className="activity-detail-background-image-image"
+      />
+      <div className="home-main">
+        <div className="activity-detail-from-container ">
+          <div className="activity-detail-from-redline"></div>
+          <header className="activity-detail-from-topic">
+            <h1 className="activity-detail-from-text">รายละเอียดกิจกรรม</h1>
+          </header>
+          {activity ? (
             <div className="activity-detail-from-detail">
               <div className="activity-detail-from-picture">
                 <img
                   alt=""
-                  src=""
+                  src={
+                    "http://localhost:1337" +
+                    activity?.attributes?.image?.data?.attributes?.formats
+                      ?.large?.url
+                  }
                   className="activity-detail-from-image"
                 />
               </div>
@@ -50,12 +63,15 @@ function ActivityDetailForm() {
                   <h1 className="">{activity.attributes.title}</h1>
                 </div>
                 <div className="activity-detail-from-detail-activity">
-
                   <div className="activity-detail-from-title-detail-activity">
-                    <h2 className="activity-detail-from-text-title">คำอธิบายกิจกรรม</h2>
+                    <h2 className="activity-detail-from-text-title">
+                      คำอธิบายกิจกรรม
+                    </h2>
                   </div>
                   <div className="activity-detail-from-content-detail-activity">
-                    <span className="activity-detail-from-text-content">{activity.attributes.detail}</span>
+                    <span className="activity-detail-from-text-content">
+                      {activity.attributes.detail}
+                    </span>
                   </div>
                 </div>
                 <div className="activity-detail-from-registration">
@@ -112,10 +128,14 @@ function ActivityDetailForm() {
                 </div>
                 <div className="activity-detail-from-participant">
                   <div className="activity-detail-from-title-participant">
-                    <h2 className="activity-detail-from-text-title">จำนวนที่รับ :</h2>
+                    <h2 className="activity-detail-from-text-title">
+                      จำนวนที่รับ :
+                    </h2>
                   </div>
                   <div className="activity-detail-from-content-participant">
-                    <span className="activity-detail-from-text-content">{activity.attributes.participant}</span>
+                    <span className="activity-detail-from-text-content">
+                      {activity.attributes.participant}
+                    </span>
                   </div>
                 </div>
                 <div className="activity-detail-from-activity-type">
@@ -132,17 +152,16 @@ function ActivityDetailForm() {
                 </div>
               </div>
               <div className="activity-detail-from-button">
-                <button className="activity-detail-from-button button">
+                <Button className="activity-detail-from-button button">
                   แก้ไขรายละเอียดกิจกรรม
-                </button>
+                </Button>
               </div>
             </div>
-          </div>
-
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

@@ -9,9 +9,7 @@ function ActivityDetail() {
       <div className="home-h-e-a-d"></div>
       <img className="coverHome" src={coverHome} alt="cover" />
       <div className="home-m-i-d-d-l-e">
-        <div className="home-main">
-          <ActivityDetailForm />
-        </div>
+        <ActivityDetailForm />
       </div>
       <div className="home-f-o-o-t">
         <Footer />
