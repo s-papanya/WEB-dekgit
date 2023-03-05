@@ -19,7 +19,7 @@ export default interface Activity {
       data: {
         attributes: {
           formats: {
-            thumbnail: {
+            large: {
               url: string;
             };
           };
