@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { roleData, userData } from "../../Config/provider";
-import Swal from "sweetalert2";
 
 import ModelActivity from "../../Models/Activity";
 import Repo from "../../Repositories/index";
 
+import UpdateActivity from "../Update-Activity/updateActivity";
+import useModal from "../Hook/useModal";
+
+import Swal from "sweetalert2";
 import "./activityDetailForm.css";
 
 function ActivityDetailForm() {
@@ -15,6 +18,7 @@ function ActivityDetailForm() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isApply, setIsApply] = useState(false);
+  const { isOpen, toggle } = useModal();
   const user = userData();
   const role = roleData();
 
@@ -45,10 +49,10 @@ function ActivityDetailForm() {
       cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
-        setIsApply(true)
+        setIsApply(true);
       }
     });
-  }
+  };
 
   const handleCancel = () => {
     Swal.fire({
@@ -62,10 +66,10 @@ function ActivityDetailForm() {
       cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
-        setIsApply(false)
+        setIsApply(false);
       }
     });
-  }
+  };
 
   useEffect(() => {
     const jwt = user.jwt;
@@ -205,21 +209,34 @@ function ActivityDetailForm() {
                   <>
                     {isAdmin ? (
                       <>
-                        <Button className="activity-detail-from-button-edit">
+                        <Button
+                          className="activity-detail-from-button-edit"
+                          onClick={toggle}
+                        >
                           แก้ไขรายละเอียดกิจกรรม
                         </Button>
                         <Button className="activity-detail-from-button-check">
                           เช็ครายชื่อผู้สมัคร
                         </Button>
+                        <UpdateActivity
+                          isOpen={isOpen}
+                          toggle={toggle}
+                        ></UpdateActivity>
                       </>
                     ) : (
                       <>
                         {isApply ? (
-                          <Button className="activity-detail-from-button-edit" onClick={handleCancel}>
+                          <Button
+                            className="activity-detail-from-button-edit"
+                            onClick={handleCancel}
+                          >
                             ยกเลิกสมัครเข้าร่วมกิจกรรม
                           </Button>
                         ) : (
-                          <Button className="activity-detail-from-button-apply" onClick={handleApply}>
+                          <Button
+                            className="activity-detail-from-button-apply"
+                            onClick={handleApply}
+                          >
                             สมัครเข้าร่วมกิจกรรม
                           </Button>
                         )}
