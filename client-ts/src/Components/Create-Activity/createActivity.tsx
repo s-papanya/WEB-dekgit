@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Button, Input } from '@mui/material';
-import axios from 'axios';
+import Repo from '../../Repositories'
 
 interface ICreate{
-    title : string
+    attributes: {
+        title: string;
+        description: string;
+    }
 }
 
 function CreateActivity() {
-    const initialCreate: ICreate = { title:" " };
+    const initialCreate: ICreate = {attributes:{title:'',description:''}};
     const [create, setCreate] = useState<ICreate>(initialCreate);
 
     const handleChange = ({
@@ -23,12 +26,10 @@ function CreateActivity() {
     };
 
     const onCreateActivity = async (): Promise<void> => {
-        try {
-          const url = `http://localhost:1337/api/auth/local/register`
-          const data = await axios.post(url,create)
-          console.log(data.data);
-        } catch (error: any) {
-          console.log(error);
+        try{
+            await Repo.ActivityRepository.createActivity
+        }catch (error: any) {
+            console.log(error);
         }
       };
 
@@ -37,9 +38,16 @@ function CreateActivity() {
             <Input
                 type="text"
                 name="title"
-                value={create.title}
+                value={create.attributes.title}
                 onChange={handleChange}
                 placeholder="Name"
+            />
+            <Input
+                type="text"
+                name="description"
+                value={create.attributes.description}
+                onChange={handleChange}
+                placeholder="Description"
             />
             <Button  onClick={onCreateActivity}>
                 Create
