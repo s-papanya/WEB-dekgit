@@ -1,46 +1,49 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Button, Input } from '@mui/material';
+
+import PostActivity from "../../Models/postActivity"
 import Repo from '../../Repositories'
 
-const initialCreate = {attributes:{title:'',description:''}};
 
 function CreateActivity() {
-    const [create, setCreate] = useState(initialCreate);
+    const [title,setTitle] = useState<string>('')
 
-    const handleChange = (event:React.ChangeEvent<HTMLInputElement>)  => {
-    const { name, value } = event.target;
-    setCreate({...create,[name]:{value}})
-    };
-
-    const onCreateActivity = async (): Promise<void> => {
-        try{
-            const data = await Repo.ActivityRepository.createActivity
-            console.log(data)
-        }catch (error: any) {
-            console.log(error);
+    const newActivity : PostActivity = {
+        data: {
+            title: title,
           }
-      };
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
+        }
+    }
+
+    const handleTitleChange = (e : ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value);
+    }
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        await Repo.ActivityRepository.createActivity(newActivity)
+        window.location.reload()
+    }
 
     return (
-        <div>
+        <form onSubmit={handleSubmit}>
             <Input
                 type="text"
-                name="attributes"
-                value={create.attributes.title}
-                onChange={handleChange}
-                placeholder="Name"
+                placeholder="Title"
+                value={title}
+                onChange={handleTitleChange}
+                onKeyDown={handleKeyDown}
+                required
             />
-            <Input
-                type="text"
-                name="attributes"
-                value={create.attributes.description}
-                onChange={handleChange}
-                placeholder="Description"
-            />
-            <Button  onClick={onCreateActivity}>
+            <Button  type='submit'>
                 Create
             </Button>
-        </div>
+        </form>
     )
 }
 
