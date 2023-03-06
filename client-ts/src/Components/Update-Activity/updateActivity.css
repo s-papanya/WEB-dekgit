@@ -1,0 +1,228 @@
+.update-activity-model-overlay {
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: url("../../Assets/cover_cursor/Cross.cur"), auto;
+}
+
+.update-activity-modal-box {
+  cursor: pointer;
+  display: block;
+  background: white;
+  width: 900px;
+  height: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.update-activity-form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+.update-activity-h1 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.update-activity-span {
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+.update-activity-input {
+  all: unset !important;
+  background-color: #eee !important;
+  border: none !important;
+  font-size: 20px !important;
+  height: 40px !important;
+  width: 100% !important;
+}
+
+.update-activity-input-title {
+  all: unset !important;
+  background-color: #eee !important;
+  border: none !important;
+  font-size: 20px !important;
+  height: 40px !important;
+  width: 100% !important;
+}
+
+.update-activity-input-detail {
+  background-color: #eee !important;
+  border: none !important;
+  font-size: 20px !important;
+  height: 100px !important;
+  width: 100% !important;
+}
+
+.margin-buttom{
+  margin-bottom: 22px;
+}
+
+.update-activity-button {
+  all: unset !important;
+  border-radius: 20px !important;
+  border: 1px solid #ff4b2b !important;
+  background-color: #ff4b2b !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding: 12px 45px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: transform 80ms ease-in !important;
+}
+
+.update-activity-button:active {
+  transform: scale(0.95) !important;
+}
+
+.update-activity-button:focus {
+  outline: none !important;
+}
+
+@media (max-width: 1600px) {
+  .update-activity-modal-box {
+    width: 700px;
+  }
+}
+@media (max-width: 1200px) {
+  .update-activity-modal-box {
+    width: 5000px;
+  }
+}
+
+.update-activity-form-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-form-input {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-container {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.update-activity-title {
+  flex: 0 0 auto;
+  width: 20%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  padding: 8px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-description {
+  flex: 0 0 auto;
+  width: 80%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-detail {
+  flex: 0 0 auto;
+  width: 100%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-activity-type {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-participant {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-registration-start {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-registration-end {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-activity-start {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-activity-end {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.update-activity-image {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
