@@ -4,7 +4,7 @@ import config from "../Config/config";
 
 import { userData } from "../Config/provider";
 
-const user = userData()
+const user = userData();
 
 export class ActivityRepository implements IRepository<ModelActivity> {
   urlPrefix = config.remoteRepositoryUrlPrefix;
@@ -22,13 +22,32 @@ export class ActivityRepository implements IRepository<ModelActivity> {
   }
 
   async createActivity(entity: Partial<ModelActivity>) {
-    const res = await fetch(`${this.urlPrefix}/activities`, {
+    const res = await fetch(`http://localhost:1337/api/activities`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer `+ user.jwt,
+        Authorization: `Bearer ` + user.jwt,
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify(entity),
     });
     const data = await res.json();
-    return data.data;
+    return data;
+  }
+
+  async updateActivity(
+    entity: Partial<ModelActivity>
+  ): Promise<ModelActivity | null> {
+    const res = await fetch(`http://localhost:1337/api/activities/${entity.id}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ` + user.jwt,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(entity),
+    });
+    const data = await res.json();
+    return data;
   }
 }
