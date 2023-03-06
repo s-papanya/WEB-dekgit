@@ -2,49 +2,37 @@ import { useState } from 'react';
 import { Button, Input } from '@mui/material';
 import Repo from '../../Repositories'
 
-interface ICreate{
-    attributes: {
-        title: string;
-        description: string;
-    }
-}
+const initialCreate = {attributes:{title:'',description:''}};
 
 function CreateActivity() {
-    const initialCreate: ICreate = {attributes:{title:'',description:''}};
-    const [create, setCreate] = useState<ICreate>(initialCreate);
+    const [create, setCreate] = useState(initialCreate);
 
-    const handleChange = ({
-    target,
-    }: {
-    target: { name: string; value: string };
-    }): void => {
-    const { name, value } = target;
-    setCreate((currententity) => ({
-        ...currententity,
-        [name]: value,
-    }));
+    const handleChange = (event:React.ChangeEvent<HTMLInputElement>)  => {
+    const { name, value } = event.target;
+    setCreate({...create,[name]:{value}})
     };
 
     const onCreateActivity = async (): Promise<void> => {
         try{
-            await Repo.ActivityRepository.createActivity
+            const data = await Repo.ActivityRepository.createActivity
+            console.log(data)
         }catch (error: any) {
             console.log(error);
-        }
+          }
       };
 
     return (
         <div>
             <Input
                 type="text"
-                name="title"
+                name="attributes"
                 value={create.attributes.title}
                 onChange={handleChange}
                 placeholder="Name"
             />
             <Input
                 type="text"
-                name="description"
+                name="attributes"
                 value={create.attributes.description}
                 onChange={handleChange}
                 placeholder="Description"
