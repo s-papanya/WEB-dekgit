@@ -60,15 +60,22 @@
   width: 100% !important;
 }
 
+.update-activity-input-description {
+  background-color: #eee !important;
+  border: none !important;
+  font-size: 20px !important;
+  height: 80px !important;
+  width: 100% !important;
+}
 .update-activity-input-detail {
   background-color: #eee !important;
   border: none !important;
   font-size: 20px !important;
-  height: 100px !important;
+  height: 150px !important;
   width: 100% !important;
 }
 
-.margin-buttom{
+.margin-buttom {
   margin-bottom: 22px;
 }
 
@@ -128,8 +135,7 @@
 }
 .update-activity-title {
   flex: 0 0 auto;
-  width: 20%;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
+  width: 50%;
   padding: 8px;
   height: auto;
   display: flex;
@@ -138,9 +144,8 @@
 }
 .update-activity-description {
   flex: 0 0 auto;
-  width: 80%;
+  width: 100%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -150,7 +155,6 @@
   flex: 0 0 auto;
   width: 100%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -160,7 +164,6 @@
   flex: 0 0 auto;
   width: 50%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -170,7 +173,6 @@
   flex: 0 0 auto;
   width: 50%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -180,7 +182,6 @@
   flex: 0 0 auto;
   width: 50%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -190,7 +191,6 @@
   flex: 0 0 auto;
   width: 50%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -200,7 +200,6 @@
   flex: 0 0 auto;
   width: 50%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -210,7 +209,6 @@
   flex: 0 0 auto;
   width: 50%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -220,7 +218,6 @@
   flex: 0 0 auto;
   width: 50%;
   padding: 8px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: auto;
   display: flex;
   align-items: flex-start;

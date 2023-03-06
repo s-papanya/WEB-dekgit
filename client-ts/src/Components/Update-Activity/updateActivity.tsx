@@ -9,7 +9,7 @@ interface ModalType {
   toggle: () => void;
 }
 
-export default function UpdateActivity(props: ModalType) {
+function UpdateActivity(props: ModalType) {
   return (
     <>
       {props.isOpen && (
@@ -33,10 +33,11 @@ export default function UpdateActivity(props: ModalType) {
                         placeholder="Title"
                       />
                     </div>
+                  </div>
+                  <div className="update-activity-container">
                     <div className="update-activity-description">
-                      <Input
-                        className="update-activity-input-title"
-                        type="text"
+                      <TextareaAutosize
+                        className="update-activity-input-description"
                         placeholder="Description"
                       />
                     </div>
@@ -117,3 +118,5 @@ export default function UpdateActivity(props: ModalType) {
     </>
   );
 }
+
+export default UpdateActivity;
