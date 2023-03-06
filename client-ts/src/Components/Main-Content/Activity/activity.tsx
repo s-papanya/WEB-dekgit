@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import ModelActivity from "../../../Models/Activity";
+import ModelActivity from "../../../Models/getActivity";
 import Repo from "../../../Repositories/index";
 
 import "./activity.css";

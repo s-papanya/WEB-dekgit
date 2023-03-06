@@ -1,27 +1,28 @@
 import { IRepository } from "./IRepository";
-import ModelActivity from "../Models/Activity";
+import GetActivity from "../Models/getActivity";
+import PostActivity from "../Models/postActivity"
 import config from "../Config/config";
 
 import { userData } from "../Config/provider";
 
 const user = userData();
 
-export class ActivityRepository implements IRepository<ModelActivity> {
+export class ActivityRepository implements IRepository<GetActivity | PostActivity> {
   urlPrefix = config.remoteRepositoryUrlPrefix;
 
-  async getActivity(): Promise<ModelActivity[] | null> {
+  async getActivity(): Promise<GetActivity[] | null> {
     const res = await fetch(`${this.urlPrefix}/activities?populate=*`);
     const data = await res.json();
     return data.data;
   }
 
-  async getActivityById(id: string | number): Promise<ModelActivity | null> {
+  async getActivityById(id: string | number): Promise<GetActivity | null> {
     const res = await fetch(`${this.urlPrefix}/activities/${id}/?populate=*`);
     const data = await res.json();
     return data.data;
   }
 
-  async createActivity(entity: Partial<ModelActivity>) {
+  async createActivity(entity: Partial<PostActivity>) {
     const res = await fetch(`http://localhost:1337/api/activities`, {
       method: "POST",
       headers: {
@@ -35,19 +36,17 @@ export class ActivityRepository implements IRepository<ModelActivity> {
     return data;
   }
 
-  async updateActivity(
-    entity: Partial<ModelActivity>
-  ): Promise<ModelActivity | null> {
-    const res = await fetch(`http://localhost:1337/api/activities/${entity.id}`, {
+  async updateActivity(id: string | number, data: PostActivity): Promise<PostActivity> {
+    const res = await fetch(`http://localhost:1337/api/activities/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ` + user.jwt,
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(entity),
+      body: JSON.stringify(data),
     });
-    const data = await res.json();
-    return data;
+    const res_data = await res.json();
+    return res_data.data;
   }
 }

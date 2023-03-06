@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { roleData, userData } from "../../Config/provider";
 
-import ModelActivity from "../../Models/Activity";
+import ModelActivity from "../../Models/getActivity";
 import Repo from "../../Repositories/index";
 
 import UpdateActivity from "../Update-Activity/updateActivity";

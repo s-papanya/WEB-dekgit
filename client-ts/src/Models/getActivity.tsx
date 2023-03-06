@@ -3,7 +3,7 @@ export enum ResultType {
   Candidate = -1,
 }
 
-export default interface Activity {
+export default interface GetActivity {
   id: number;
   attributes: {
     title: string;
