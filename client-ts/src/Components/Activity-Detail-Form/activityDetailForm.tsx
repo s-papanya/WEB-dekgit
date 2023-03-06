@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
+import { roleData, userData } from "../../Config/provider";
+import Swal from "sweetalert2";
 
 import ModelActivity from "../../Models/Activity";
 import Repo from "../../Repositories/index";
@@ -10,6 +12,11 @@ import "./activityDetailForm.css";
 function ActivityDetailForm() {
   const { activityId } = useParams<{ activityId: string }>();
   const [activity, setActivity] = useState<ModelActivity | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isApply, setIsApply] = useState(false);
+  const user = userData();
+  const role = roleData();
 
   const fetchData = async () => {
     const res = await Repo.ActivityRepository.getActivityById(
@@ -25,9 +32,51 @@ function ActivityDetailForm() {
     }
   };
 
+  const handleApply = () => {
+    Swal.fire({
+      title: "Apply",
+      text: "Are you sure you want to Apply ?",
+      icon: "warning",
+      showCancelButton: true,
+      reverseButtons: true,
+      confirmButtonColor: "#65ce57",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setIsApply(true)
+      }
+    });
+  }
+
+  const handleCancel = () => {
+    Swal.fire({
+      title: "Cancel",
+      text: "Are you sure you want to Cancel ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setIsApply(false)
+      }
+    });
+  }
+
   useEffect(() => {
+    const jwt = user.jwt;
+    setIsLoggedIn(jwt ? true : false);
+
+    const admin = role.role;
+    if (admin === "admin") {
+      setIsAdmin(true);
+    }
     fetchData();
-  }, [activityId]);
+  }, [activityId, isLoggedIn, isApply]);
 
   return (
     <div className="activity-detail-background-image">
@@ -151,10 +200,46 @@ function ActivityDetailForm() {
                   </div>
                 </div>
               </div>
-              <div className="activity-detail-from-button">
-                <Button className="activity-detail-from-button button">
-                  แก้ไขรายละเอียดกิจกรรม
-                </Button>
+              <div className="activity-detail-from-grid-button">
+                {isLoggedIn ? (
+                  <>
+                    {isAdmin ? (
+                      <>
+                        <Button className="activity-detail-from-button-edit">
+                          แก้ไขรายละเอียดกิจกรรม
+                        </Button>
+                        <Button className="activity-detail-from-button-check">
+                          เช็ครายชื่อผู้สมัคร
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        {isApply ? (
+                          <Button className="activity-detail-from-button-edit" onClick={handleCancel}>
+                            ยกเลิกสมัครเข้าร่วมกิจกรรม
+                          </Button>
+                        ) : (
+                          <Button className="activity-detail-from-button-apply" onClick={handleApply}>
+                            สมัครเข้าร่วมกิจกรรม
+                          </Button>
+                        )}
+                      </>
+                    )}
+                  </>
+                ) : (
+                  <div className="activity-detail-from-cannot-login">
+                    <p className="activity-detail-from-cannot-login-p">
+                      Login to activate the activity.
+                      <a
+                        className="activity-detail-from-cannot-login-a"
+                        href="/login"
+                      >
+                        {" "}
+                        Click to go to the login page.
+                      </a>
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           ) : (

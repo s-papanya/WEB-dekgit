@@ -100,6 +100,7 @@
 
 .activity-detail-from-name-activity {
   flex: 0 0 auto;
+  font-size: 24px;
   width: 100%;
   height: 100px;
   display: flex;
@@ -128,6 +129,7 @@
 }
 
 .activity-detail-from-text-title {
+  font-size: 30px;
   align-self: center;
   text-align: center;
   color: #ed2438;
@@ -142,7 +144,7 @@
 }
 
 .activity-detail-from-text-content {
-  font-size: 18px;
+  font-size: 26px;
   text-align: justify;
 }
 
@@ -182,7 +184,7 @@
 
 .activity-detail-from-registration-end {
   flex: 0 0 auto;
-  width: 100%;
+  width: auto;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -316,6 +318,7 @@
 }
 
 .activity-detail-from-grid-button {
+  margin-bottom: 20px;
   flex: 0 0 auto;
   width: 100%;
   height: 75px;
@@ -325,15 +328,98 @@
   justify-content: center;
 }
 
-.activity-detail-from-button {
-  width: auto;
-  height: 70%;
-  font-size: 30px;
-  align-self: center;
-  font-style: normal;
+
+.activity-detail-from-button-edit {
+  all: unset !important;
+  border-radius: 20px !important;
+  border: 1px solid #ff4b2b !important;
+  background-color: #ff4b2b !important;
+  color: #ffffff !important;
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  padding: 12px 45px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: transform 80ms ease-in !important;
+  margin-left: 50px !important; 
+  margin-right: 50px !important;
+  height: 45px !important;
+}
+.activity-detail-from-button-edit:active {
+  transform: scale(0.95) !important;
+}
+.activity-detail-from-button-edit:focus {
+  outline: none !important;
+}
+
+
+.activity-detail-from-button-check {
+  all: unset !important;
+  border-radius: 20px !important;
+  border: 1px solid #3085d6 !important;
+  background-color: #3085d6 !important;
+  color: #ffffff !important;
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  padding: 12px 45px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: transform 80ms ease-in !important;
+  margin-left: 50px !important; 
+  margin-right: 50px !important;
+  height: 45px !important;
+}
+.activity-detail-from-button-check:active {
+  transform: scale(0.95) !important;
+}
+.activity-detail-from-button-check:focus {
+  outline: none !important;
+}
+
+.activity-detail-from-button-apply {
+  all: unset !important;
+  border-radius: 20px !important;
+  border: 1px solid #65ce57!important;
+  background-color: #bad153 !important;
+  color: #ffffff !important;
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  padding: 12px 45px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: transform 80ms ease-in !important;
+  margin-left: 50px !important; 
+  margin-right: 50px !important;
+  height: 45px !important;
+}
+.activity-detail-from-button-apply:active {
+  transform: scale(0.95) !important;
+}
+.activity-detail-from-button-apply:focus {
+  outline: none !important;
+}
+
+.activity-detail-from-cannot-login {
+  background-color: #222;
+  color: #fff;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
   text-align: center;
+  z-index: 999;
+}
+.activity-detail-from-cannot-login-p {
   font-weight: 100;
-  margin-left: 100px;
-  margin-right: 100px;
-  border-radius: var(--dl-radius-radius-radius8);
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 15px 0;
+}
+.activity-detail-from-cannot-login-a {
+  color: #3c97bf;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 15px 0;
 }
