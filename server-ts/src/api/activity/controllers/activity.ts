@@ -18,9 +18,9 @@ export default factories.createCoreController(
         activity = await strapi.entityService.update(
           "api::activity.activity",
           entityId,
-          { data: { Count: (activity.Count || 0) + 1 } }
+          { data: { count: (activity.count || 0) + 1 } }
         );
-        ctx.body = { ok: 1, Count: activity.Count };
+        ctx.body = { ok: 1, count: activity.count };
       } catch (err) {
         ctx.body = err;
       }

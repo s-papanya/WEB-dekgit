@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "registrations",
+  "info": {
+    "singularName": "registration",
+    "pluralName": "registrations",
+    "displayName": "Registration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "activityId": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    }
+  }
+}

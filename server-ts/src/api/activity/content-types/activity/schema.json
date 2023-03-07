@@ -53,6 +53,9 @@
     "detail": {
       "type": "richtext",
       "maxLength": 1000
+    },
+    "count": {
+      "type": "integer"
     }
   }
 }
