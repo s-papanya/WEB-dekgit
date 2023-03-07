@@ -50,18 +50,7 @@ function ActivityDetailForm() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const resp = await fetch(
-            `http://localhost:1337/api/activity/${activityId}/count`,
-            {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ` + user.jwt,
-              },
-            }
-          );
-          const data = await resp.json();
-          console.log(data);
+          await Repo.UserRepository.count(Number(activityId));
           setIsApply(true);
         } catch (err) {
           console.error(err);
@@ -83,18 +72,7 @@ function ActivityDetailForm() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const resp = await fetch(
-            `http://localhost:1337/api/activity/${activityId}/discount`,
-            {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ` + user.jwt,
-              },
-            }
-          );
-          const data = await resp.json();
-          console.log(data);
+          await Repo.UserRepository.discount(Number(activityId));
           setIsApply(false);
         } catch (err) {
           console.error(err);
