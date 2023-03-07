@@ -36,7 +36,7 @@ function ActivityDetailForm() {
     }
   };
 
-  const handleApply = () => {
+  const handleApply = async () => {
     Swal.fire({
       title: "Apply",
       text: "Are you sure you want to Apply ?",
@@ -47,9 +47,25 @@ function ActivityDetailForm() {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes",
       cancelButtonText: "No",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        setIsApply(true);
+        try {
+          const resp = await fetch(
+            `http://localhost:1337/api/activity/${activityId}/count`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ` + user.jwt,
+              },
+            }
+          );
+          const data = await resp.json();
+          console.log(data);
+          setIsApply(true);
+        } catch (err) {
+          console.error(err);
+        }
       }
     });
   };
@@ -64,9 +80,25 @@ function ActivityDetailForm() {
       cancelButtonColor: "#3085d6",
       confirmButtonText: "Yes",
       cancelButtonText: "No",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        setIsApply(false);
+        try {
+          const resp = await fetch(
+            `http://localhost:1337/api/activity/${activityId}/discount`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ` + user.jwt,
+              },
+            }
+          );
+          const data = await resp.json();
+          console.log(data);
+          setIsApply(false);
+        } catch (err) {
+          console.error(err);
+        }
       }
     });
   };
@@ -179,16 +211,30 @@ function ActivityDetailForm() {
                     </div>
                   </div>
                 </div>
-                <div className="activity-detail-from-participant">
-                  <div className="activity-detail-from-title-participant">
-                    <h2 className="activity-detail-from-text-title">
-                      จำนวนที่รับ :
-                    </h2>
+                <div className="activity-detail-from-activity-date">
+                  <div className="activity-detail-from-activity-start">
+                    <div className="activity-detail-from-title-activity-start">
+                      <h2 className="activity-detail-from-text-title">
+                        จำนวนที่รับ :
+                      </h2>
+                    </div>
+                    <div className="activity-detail-from-content-activity-start">
+                      <span className="activity-detail-from-text-content">
+                        {activity.attributes.participant}
+                      </span>
+                    </div>
                   </div>
-                  <div className="activity-detail-from-content-participant">
-                    <span className="activity-detail-from-text-content">
-                      {activity.attributes.participant}
-                    </span>
+                  <div className="activity-detail-from-activity-end">
+                    <div className="activity-detail-from-title-activity-end">
+                      <h2 className="activity-detail-from-text-title">
+                        จำนวนผู้สมัคร :
+                      </h2>
+                    </div>
+                    <div className="activity-detail-from-content-activity-end">
+                      <span className="activity-detail-from-text-content">
+                        {activity.attributes.count}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div className="activity-detail-from-activity-type">

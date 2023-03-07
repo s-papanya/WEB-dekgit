@@ -15,6 +15,7 @@ export default interface GetActivity {
     registrationEnd: Date;
     activityStart: Date;
     activityEnd: Date;
+    count: number;
     image: {
       data: {
         attributes: {
