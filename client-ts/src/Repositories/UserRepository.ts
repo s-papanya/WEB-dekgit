@@ -35,4 +35,14 @@ export class UserRepository implements IRepository<Registration> {
     const data = await resp.json();
     return data.data;
   }
+
+  async adminCheckActivity(
+    id: string | undefined
+  ): Promise<Registration[] | null> {
+    const resp = await fetch(
+      `http://localhost:1337/api/registrations?filters[activityId]=${id}`
+    );
+    const data = await resp.json();
+    return data.data;
+  }
 }
