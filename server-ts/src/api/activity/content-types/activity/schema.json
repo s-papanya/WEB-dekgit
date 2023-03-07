@@ -39,12 +39,6 @@
     "participant": {
       "type": "integer"
     },
-    "registrations": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::registration.registration",
-      "mappedBy": "activities"
-    },
     "activityType": {
       "type": "enumeration",
       "enum": [
