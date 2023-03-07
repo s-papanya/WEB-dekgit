@@ -112,7 +112,14 @@ function UpdateActivity(props: ModalType) {
                 </div>
               </div>
               <div className="margin-buttom"></div>
-              <Button className="update-activity-button">Save</Button>
+              <div className="update-activity-button-container">
+                <div className="update-activity-button-container-in">
+              <Button className="update-activity-button-delete">Delete</Button>
+              </div>
+              <div className="update-activity-button-container-in">
+              <Button className="update-activity-button-save">Save</Button>
+              </div>
+              </div>
             </form>
             {props.children}
           </div>
