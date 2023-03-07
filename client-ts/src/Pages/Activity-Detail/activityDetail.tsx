@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar/navbar";
 import ActivityDetailForm from "../../Components/Activity-Detail-Form/activityDetailForm";
 
 function ActivityDetail() {
-  const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
+  const coverHome = require("../../Assets/cover_detail_activity/CoverDetail.png");
   return (
     <div className="home-container">
       <div className="home-h-e-a-d"></div>
