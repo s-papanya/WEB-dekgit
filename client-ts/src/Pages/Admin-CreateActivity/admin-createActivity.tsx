@@ -5,7 +5,7 @@ import Navbar from "../../Components/Navbar/Navbar/navbar";
 import "./admin-createActivity.css";
 
 function AdminCreateActivity() {
-  const coverHome = require("../../Assets/cover_homePage/coverHome.jfif");
+  const coverHome = require("../../Assets/cover_admin/CoverAdmin.png");
 
   return (
     <div className="home-container">
