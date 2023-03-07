@@ -7,6 +7,7 @@ import ModelActivity from "../../Models/getActivity";
 import Repo from "../../Repositories/index";
 
 import UpdateActivity from "../Update-Activity/updateActivity";
+import AdminCheckActivity from "../Admin-Check-Registation/adminCheckRegistation";
 import useModal from "../Hook/useModal";
 
 import Swal from "sweetalert2";
@@ -18,7 +19,8 @@ function ActivityDetailForm() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isApply, setIsApply] = useState(false);
-  const { isOpen, toggle } = useModal();
+  const { isOpen: isUpdateOpen, toggle: toggleUpdate } = useModal();
+  const { isOpen: isAdminCheckOpen, toggle: toggleAdminCheck } = useModal();
   const user = userData();
   const role = roleData();
 
@@ -228,6 +230,7 @@ function ActivityDetailForm() {
                   </div>
                 </div>
               </div>
+              <div className="margin-buttom"></div>
               <div className="activity-detail-from-grid-button">
                 {isLoggedIn ? (
                   <>
@@ -235,17 +238,24 @@ function ActivityDetailForm() {
                       <>
                         <Button
                           className="activity-detail-from-button-edit"
-                          onClick={toggle}
+                          onClick={toggleUpdate}
                         >
                           แก้ไขรายละเอียดกิจกรรม
                         </Button>
-                        <Button className="activity-detail-from-button-check">
+                        <UpdateActivity
+                          isOpen={isUpdateOpen}
+                          toggle={toggleUpdate}
+                        ></UpdateActivity>
+                        <Button
+                          className="activity-detail-from-button-check"
+                          onClick={toggleAdminCheck}
+                        >
                           เช็ครายชื่อผู้สมัคร
                         </Button>
-                        <UpdateActivity
-                          isOpen={isOpen}
-                          toggle={toggle}
-                        ></UpdateActivity>
+                        <AdminCheckActivity
+                          isOpen={isAdminCheckOpen}
+                          toggle={toggleAdminCheck}
+                        ></AdminCheckActivity>
                       </>
                     ) : (
                       <>

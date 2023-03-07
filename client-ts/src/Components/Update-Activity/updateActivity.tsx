@@ -1,10 +1,9 @@
 import { ReactNode } from "react";
-import { useParams , useNavigate} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button, Input } from "@mui/material";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
 
 import Repo from "../../Repositories/index";
-import ModelActivity from "../../Models/getActivity";
 
 import "./updateActivity.css";
 import Swal from "sweetalert2";
@@ -32,7 +31,7 @@ function UpdateActivity(props: ModalType) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         await Repo.ActivityRepository.deleteActivity(Number(activityId));
-        navigate("/")
+        navigate("/");
       }
     });
   };
