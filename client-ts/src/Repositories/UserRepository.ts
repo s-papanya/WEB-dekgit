@@ -1,16 +1,18 @@
 import { IRepository } from "./IRepository";
-import Registration from "../Models/Registation";
+import getRegistration from "../Models/getRegistation";
+import postRegistration from "../Models/postRegistation";
 
 import config from "../Config/config";
 
 import { userData } from "../Config/provider";
 
+
 const user = userData();
 
-export class UserRepository implements IRepository<Registration> {
+export class UserRepository implements IRepository<getRegistration | postRegistration> {
   urlPrefix = config.remoteRepositoryUrlPrefix;
 
-  async count(id: string | number): Promise<Registration | null> {
+  async count(id: string | number): Promise<getRegistration | null> {
     const resp = await fetch(`http://localhost:1337/api/activity/${id}/count`, {
       method: "GET",
       headers: {
@@ -21,7 +23,8 @@ export class UserRepository implements IRepository<Registration> {
     const data = await resp.json();
     return data.data;
   }
-  async discount(id: string | number): Promise<Registration | null> {
+  
+  async discount(id: string | number): Promise<getRegistration | null> {
     const resp = await fetch(
       `http://localhost:1337/api/activity/${id}/discount`,
       {
@@ -36,9 +39,22 @@ export class UserRepository implements IRepository<Registration> {
     return data.data;
   }
 
+  async applyActivity(data: any): Promise<postRegistration> {
+    const resp = await fetch("http://localhost:1337/api/registrations", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ` + user.jwt,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const res = await resp.json();
+    return res.data;
+  }
+
   async adminCheckActivity(
     id: string | undefined
-  ): Promise<Registration[] | null> {
+  ): Promise<getRegistration[] | null> {
     const resp = await fetch(
       `http://localhost:1337/api/registrations?filters[activityId]=${id}`
     );

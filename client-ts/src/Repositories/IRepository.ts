@@ -7,5 +7,6 @@ export interface IRepository<T> {
 
   count?(id: string | number): Promise<T | null>;
   discount?(id: string | number): Promise<T | null>;
+  applyActivity?(data: T): Promise<T>;
   adminCheckActivity?(id: string | undefined): Promise<T[] | null>;
 }
