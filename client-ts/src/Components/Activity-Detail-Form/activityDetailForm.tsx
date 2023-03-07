@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { roleData, userData } from "../../Config/provider";
 
-import ModelActivity from "../../Models/getActivity";
+import postRegistration from "../../Models/postRegistation";
+import getActivity from "../../Models/getActivity";
 import Repo from "../../Repositories/index";
 
 import UpdateActivity from "../Update-Activity/updateActivity";
@@ -15,7 +16,7 @@ import "./activityDetailForm.css";
 
 function ActivityDetailForm() {
   const { activityId } = useParams<{ activityId: string }>();
-  const [activity, setActivity] = useState<ModelActivity | null>(null);
+  const [activity, setActivity] = useState<getActivity | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isApply, setIsApply] = useState(false);
@@ -39,6 +40,15 @@ function ActivityDetailForm() {
   };
 
   const handleApply = async () => {
+    const userApply: postRegistration = {
+      data: {
+        title: activity?.attributes.title.toString(),
+        status: "Registered",
+        username: user.username,
+        activityId: String(activityId),
+        Image: `http://localhost:1337${activity?.attributes?.image?.data?.attributes?.formats?.large?.url}`,
+      },
+    };
     Swal.fire({
       title: "Apply",
       text: "Are you sure you want to Apply ?",
@@ -53,6 +63,7 @@ function ActivityDetailForm() {
       if (result.isConfirmed) {
         try {
           await Repo.UserRepository.count(Number(activityId));
+          await Repo.UserRepository.applyActivity(userApply);
           setIsApply(true);
         } catch (err) {
           console.error(err);
