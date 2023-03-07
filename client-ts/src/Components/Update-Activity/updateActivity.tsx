@@ -52,7 +52,10 @@ function UpdateActivity(props: ModalType) {
                   </div>
                   <div className="update-activity-container">
                     <div className="update-activity-activity-type">
-                      <select className="update-activity-input-activityType">
+                      <select
+                        className="update-activity-input-activityType"
+                        title="Choose activity type"
+                      >
                         <option>First come first serve</option>
                         <option>Candidate</option>
                       </select>

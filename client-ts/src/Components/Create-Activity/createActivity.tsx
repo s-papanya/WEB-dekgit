@@ -109,7 +109,11 @@ function CreateActivity() {
         onChange={handleDetailChange}
         required
       />
-      <select value={activityType} onChange={handleActivityTypeChange}>
+      <select
+        value={activityType}
+        onChange={handleActivityTypeChange}
+        title="Choose activity type"
+      >
         <option value={ResultType.FirstcomeFirstserve}>
           First come first serve
         </option>
