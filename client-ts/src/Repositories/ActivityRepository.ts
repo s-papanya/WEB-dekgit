@@ -54,4 +54,18 @@ export class ActivityRepository
     const res = await resp.json();
     return res.data;
   }
+
+  async deleteActivity(id: string | number): Promise<void> {
+    const resp = await fetch(
+      `http://localhost:1337/api/activities/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ` + user.jwt,
+        },
+      }
+    );
+    const data_res = await resp.json();
+    return data_res;
+  }
 }

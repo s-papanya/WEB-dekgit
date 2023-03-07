@@ -3,4 +3,5 @@ export interface IRepository<T> {
   getActivityById?(id: string | number): Promise<T | null>; //promise(เป็นobjectที่สามารถแสดงผลลัพธ์การทำงานในอนาคต)
   createActivity?(data: T): Promise<T>; //T คือชนิดของข้อมูลที่ใช้ใน repository
   updateActivity?(id: string | number, data: T): Promise<T>;
+  deleteActivity?(id: string|number): Promise<void>;
 }
