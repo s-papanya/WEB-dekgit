@@ -1,7 +1,13 @@
 import { ReactNode } from "react";
+import { useParams , useNavigate} from "react-router-dom";
 import { Button, Input } from "@mui/material";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
+
+import Repo from "../../Repositories/index";
+import ModelActivity from "../../Models/getActivity";
+
 import "./updateActivity.css";
+import Swal from "sweetalert2";
 
 interface ModalType {
   children?: ReactNode;
@@ -10,6 +16,44 @@ interface ModalType {
 }
 
 function UpdateActivity(props: ModalType) {
+  const navigate = useNavigate();
+  const { activityId } = useParams<{ activityId: string }>();
+
+  const handleDelete = async () => {
+    Swal.fire({
+      title: "Delete",
+      text: "Are you sure you want to Delete ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await Repo.ActivityRepository.deleteActivity(Number(activityId));
+        navigate("/")
+      }
+    });
+  };
+
+  const handleSave = () => {
+    Swal.fire({
+      title: "Save",
+      text: "Are you sure you want to Save ?",
+      icon: "warning",
+      showCancelButton: true,
+      reverseButtons: true,
+      confirmButtonColor: "#65ce57",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+      }
+    });
+  };
+
   return (
     <>
       {props.isOpen && (
@@ -114,11 +158,21 @@ function UpdateActivity(props: ModalType) {
               <div className="margin-buttom"></div>
               <div className="update-activity-button-container">
                 <div className="update-activity-button-container-in">
-              <Button className="update-activity-button-delete">Delete</Button>
-              </div>
-              <div className="update-activity-button-container-in">
-              <Button className="update-activity-button-save">Save</Button>
-              </div>
+                  <Button
+                    className="update-activity-button-delete"
+                    onClick={handleDelete}
+                  >
+                    Delete
+                  </Button>
+                </div>
+                <div className="update-activity-button-container-in">
+                  <Button
+                    className="update-activity-button-save"
+                    onClick={handleSave}
+                  >
+                    Save
+                  </Button>
+                </div>
               </div>
             </form>
             {props.children}
