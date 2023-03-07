@@ -21,6 +21,12 @@ function Login(): JSX.Element {
   const [user, setUser] = useState<IUser>(initialUser);
   const navigate = useNavigate();
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleLogin();
+    }
+  };
+
   const handleChange = ({
     target,
   }: {
@@ -134,6 +140,7 @@ function Login(): JSX.Element {
               name="identifier"
               value={user.identifier}
               onChange={handleChange}
+              onKeyDown={handleKeyDown}
               placeholder="Enter your email"
             />
             <Input
@@ -142,6 +149,7 @@ function Login(): JSX.Element {
               name="password"
               value={user.password}
               onChange={handleChange}
+              onKeyDown={handleKeyDown}
               placeholder="Enter your password"
             />
             <a className="login-a" href="/">

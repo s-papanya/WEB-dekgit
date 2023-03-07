@@ -24,6 +24,12 @@ export const Register = (): any => {
   const initialUser = { email: "", password: "", username: "" };
   const [user, setUser] = useState<IUser>(initialUser);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      signUp();
+    }
+  };
+
   const signUp = async (): Promise<void> => {
     try {
       const url = `http://localhost:1337/api/auth/local/register`;
@@ -91,6 +97,7 @@ export const Register = (): any => {
         name="username"
         value={user.username}
         onChange={handleUserChange}
+        onKeyDown={handleKeyDown}
         placeholder="Name"
       />
       <Input
@@ -99,6 +106,7 @@ export const Register = (): any => {
         name="email"
         value={user.email}
         onChange={handleUserChange}
+        onKeyDown={handleKeyDown}
         placeholder="Email"
       />
       <Input
@@ -107,6 +115,7 @@ export const Register = (): any => {
         name="password"
         value={user.password}
         onChange={handleUserChange}
+        onKeyDown={handleKeyDown}
         placeholder="Password"
       />
       <Button className="login-button" onClick={signUp}>
