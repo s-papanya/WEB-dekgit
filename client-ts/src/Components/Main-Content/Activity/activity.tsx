@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import ModelActivity from "../../../Models/getActivity";
+import getActivity from "../../../Models/getActivity";
 import Repo from "../../../Repositories/index";
 
 import "./activity.css";
 
 function Activity() {
-  const [activitiesList, setActivitiesList] = useState<ModelActivity[]>([]);
+  const [activitiesList, setActivitiesList] = useState<getActivity[]>([]);
 
   const fetchData = async () => {
     const res = await Repo.ActivityRepository.getActivity();
@@ -22,7 +22,7 @@ function Activity() {
 
   return (
     <>
-      {activitiesList.map((activity: ModelActivity) => (
+      {activitiesList.map((activity: getActivity) => (
         <Link
           key={activity.id}
           to={`/activityDetail/${activity.id}`}

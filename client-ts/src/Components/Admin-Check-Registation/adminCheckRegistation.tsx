@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
 
 import "./adminCheckRegistation.css";
-import Registration from "../../Models/Registation";
+import getRegistration from "../../Models/getRegistation";
 import Repo from "../../Repositories/index"
 
 interface ModalType {
@@ -13,7 +13,7 @@ interface ModalType {
 
 function AdminCheckActivity(props: ModalType) {
   const { activityId } = useParams<{ activityId: string }>();
-  const [userRegister, setUserRegister] = useState<Registration[]>([]);
+  const [userRegister, setUserRegister] = useState<getRegistration[]>([]);
 
   const fetchData = async () => {
     try {
