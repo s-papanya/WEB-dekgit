@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useState, useRef, SetStateAction } from "react";
 import { Button, Input } from "@mui/material";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
 
@@ -6,6 +6,7 @@ import PostActivity, { ResultType } from "../../Models/postActivity";
 import Repo from "../../Repositories";
 
 function CreateActivity() {
+  const [file,setFile] = useState<File | null>();
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [detail, setDetail] = useState<string>("");
@@ -17,6 +18,10 @@ function CreateActivity() {
   const [registrationEnd, setRegistrationEnd] = useState<string>("");
   const [activityStart, setActivityStart] = useState<string>("");
   const [activityEnd, setActivityEnd] = useState<string>("");
+
+  const handleImageChange = (event:any) => {
+    setFile(event.target.files[0])
+  }
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -40,7 +45,7 @@ function CreateActivity() {
       setActivityType(ResultType.Candidate);
     } else {
       setActivityType(ResultType.FirstcomeFirstserve);
-    }
+  }
   };
 
   const handleParticipantChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -65,11 +70,13 @@ function CreateActivity() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    
     const registerStart = new Date(registrationStart);
     const registerEnd = new Date(registrationEnd);
     const activitiesStart = new Date(activityStart);
     const activitiesEnd = new Date(activityEnd);
+
+    const imageID = await Repo.ActivityRepository.UploadImageActivity(file)
 
     const newActivity: PostActivity = {
       data: {
@@ -85,7 +92,6 @@ function CreateActivity() {
       },
     };
     await Repo.ActivityRepository.createActivity(newActivity);
-    window.location.reload();
   };
 
   return (
@@ -154,6 +160,10 @@ function CreateActivity() {
         value={activityEnd}
         onChange={handleActivityEndChange}
         required
+        />
+      <Input
+        type="file"
+        onChange={handleImageChange}
       />
       <Button type="submit">Create</Button>
     </form>
