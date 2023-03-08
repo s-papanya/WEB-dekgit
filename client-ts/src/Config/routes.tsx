@@ -5,6 +5,7 @@ import Home from "../Pages/Home/home";
 import Login from "../Pages/Login/login";
 import AdminCreateActivity from "../Pages/Admin-CreateActivity/admin-createActivity";
 import ActivityDetail from "../Pages/Activity-Detail/activityDetail";
+import History from "../Pages/History/history";
 
 function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/history" element={<History />} />
         <Route
           path="/activityDetail/:activityId"
           element={<ActivityDetail />}
