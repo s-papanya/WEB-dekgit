@@ -4,6 +4,7 @@ import PostActivity from "../Models/postActivity";
 import config from "../Config/config";
 
 import { userData } from "../Config/provider";
+import axios from "axios";
 
 const user = userData();
 
@@ -67,5 +68,24 @@ export class ActivityRepository
     );
     const data_res = await resp.json();
     return data_res;
+  }
+
+  async UploadImageActivity(img:File | null | undefined) : Promise<any> {
+
+    if (!img) {
+      console.error('No file selected');
+      return;
+    }
+    
+    const data = new FormData()
+    data.append('files',img)
+
+    const resp = await axios({
+      method: "POST",
+      url: 'http://localhost:1337/api/upload',
+      data
+    })
+
+    return resp;
   }
 }
