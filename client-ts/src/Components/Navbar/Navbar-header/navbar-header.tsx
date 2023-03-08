@@ -39,7 +39,7 @@ function NavbarHeader() {
       if (result.isConfirmed) {
         localStorage.clear();
         setIsLoggedIn(false);
-        window.location.reload();
+        navigate('/')
       }
     });
   };
