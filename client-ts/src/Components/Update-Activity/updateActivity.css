@@ -38,7 +38,9 @@
 }
 
 .update-activity-span {
-  font-size: 12px;
+  width: 80%;
+  font-size: 14px;
+  font-weight: 400;
   margin-bottom: 22px;
 }
 
@@ -96,8 +98,8 @@
 .update-activity-button-save {
   all: unset !important;
   border-radius: 20px !important;
-  border: 1px solid #3085d6  !important;
-  background-color: #3085d6  !important;
+  border: 1px solid #3085d6 !important;
+  background-color: #3085d6 !important;
   color: #ffffff !important;
   font-size: 12px !important;
   font-weight: bold !important;
@@ -249,7 +251,7 @@
 .update-activity-button-container {
   flex: 0 0 auto;
   width: 70%;
-  height: 100px;
+  height: 50px;
   display: flex;
   align-items: flex-start;
 }
@@ -265,3 +267,31 @@
   justify-content: center;
 }
 
+.update-activity-date {
+  width: 100%;
+  height: inherit;
+  border: 5px solid #ff4b2b;
+}
+
+.update-activity-input-title-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3085d6;
+}
+
+.update-must-alert {
+  align-self: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ed2438;
+}
+
+.update-margin-bottom {
+  margin-bottom: 20px;
+}
+
+.update-current {
+  align-self: flex-end;
+}
