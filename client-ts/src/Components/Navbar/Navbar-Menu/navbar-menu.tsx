@@ -43,7 +43,7 @@ function NavbarMenu() {
   }, [isLoggedIn, isAdmin]);
 
   const handleHome = () => {
-    navigate("/y");
+    navigate("/");
   };
 
   const handleHistory = () => {
