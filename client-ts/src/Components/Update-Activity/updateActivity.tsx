@@ -30,6 +30,10 @@ function UpdateActivity(props: ModalType) {
       cancelButtonText: "No",
     }).then(async (result) => {
       if (result.isConfirmed) {
+        Swal.fire({
+          title: "Activity is deleted",
+          icon: "success",
+        });
         await Repo.ActivityRepository.deleteActivity(Number(activityId));
         navigate("/");
       }
