@@ -1,12 +1,13 @@
 import { ChangeEvent, ChangeEventHandler, useState, useRef, SetStateAction } from "react";
-import { Button, Input } from "@mui/material";
+import { Button, Input, TextField } from "@mui/material";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
 
 import PostActivity, { ResultType } from "../../Models/postActivity";
 import Repo from "../../Repositories";
+import { TextFields } from "@mui/icons-material";
 
 function CreateActivity() {
-  const [file,setFile] = useState<File | null>();
+  const [image,setImage] = useState<File | null>();
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [detail, setDetail] = useState<string>("");
@@ -18,10 +19,6 @@ function CreateActivity() {
   const [registrationEnd, setRegistrationEnd] = useState<string>("");
   const [activityStart, setActivityStart] = useState<string>("");
   const [activityEnd, setActivityEnd] = useState<string>("");
-
-  const handleImageChange = (event:any) => {
-    setFile(event.target.files[0])
-  }
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -70,28 +67,32 @@ function CreateActivity() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     const registerStart = new Date(registrationStart);
     const registerEnd = new Date(registrationEnd);
     const activitiesStart = new Date(activityStart);
     const activitiesEnd = new Date(activityEnd);
 
-    const imageID = await Repo.ActivityRepository.UploadImageActivity(file)
+    const newActivity = new FormData();
 
-    const newActivity: PostActivity = {
-      data: {
-        title: title,
-        description: description,
-        detail: detail,
-        participant: participant,
-        activityType: activityType,
-        registrationStart: registerStart.toISOString().substring(0, 10),
-        registrationEnd: registerEnd.toISOString().substring(0, 10),
-        activityStart: activitiesStart.toISOString().substring(0, 10),
-        activityEnd: activitiesEnd.toISOString().substring(0, 10),
-      },
-    };
-    await Repo.ActivityRepository.createActivity(newActivity);
+    newActivity.append("files.image", image!); 
+    newActivity.append("data", JSON.stringify({
+      title,
+      description,
+      detail,
+      participant,
+      activityType,
+      registrationStart: registerStart.toISOString().substring(0, 10),
+      registrationEnd: registerEnd.toISOString().substring(0, 10),
+      activityStart: activitiesStart.toISOString().substring(0, 10),
+      activityEnd: activitiesEnd.toISOString().substring(0, 10),
+    }));
+    console.log(newActivity)
+    try {
+      await Repo.ActivityRepository.createActivity(newActivity)
+    }catch(error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -161,11 +162,16 @@ function CreateActivity() {
         onChange={handleActivityEndChange}
         required
         />
-      <Input
-        type="file"
-        onChange={handleImageChange}
-      />
-      <Button type="submit">Create</Button>
+      
+      <input
+          type="file"
+          accept="image/*"
+          style={{ display: "flex" }}
+          onChange={(event) => setImage(event.target.files ? event.target.files[0] : null)}
+        />
+        <Button type="submit" variant="contained" color="primary">
+          Create Activity
+        </Button>
     </form>
   );
 }

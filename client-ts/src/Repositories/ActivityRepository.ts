@@ -26,18 +26,17 @@ export class ActivityRepository
     return data.data;
   }
 
-  async createActivity(data: PostActivity): Promise<PostActivity> {
-    const resp = await fetch(`http://localhost:1337/api/activities/`, {
+  async createActivity(data:any): Promise<PostActivity> {
+
+    const resp = await fetch(`http://localhost:1337/api/activities`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ` + user.jwt,
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Authorization: `Bearer ` + user.jwt
       },
-      body: JSON.stringify(data),
+      body: data
     });
     const res = await resp.json();
-    return res.data;
+    return res;
   }
 
   async updateActivity(
