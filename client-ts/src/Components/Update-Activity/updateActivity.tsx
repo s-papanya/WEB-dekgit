@@ -188,7 +188,7 @@ function UpdateActivity(props: ModalType) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [activityId]);
 
   return (
     <>

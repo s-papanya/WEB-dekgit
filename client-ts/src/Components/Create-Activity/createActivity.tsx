@@ -4,7 +4,6 @@ import TextareaAutosize from "@mui/base/TextareaAutosize";
 
 import PostActivity, { ResultType } from "../../Models/postActivity";
 import Repo from "../../Repositories";
-import { TextFields } from "@mui/icons-material";
 
 function CreateActivity() {
   const [image,setImage] = useState<File | null>();

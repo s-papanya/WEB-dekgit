@@ -60,7 +60,9 @@ function Login(): JSX.Element {
           addRole();
           setTimeout(() => {
             navigate("/");
-          }, 500);
+          }, 300);
+          navigate("/");
+          window.location.reload()
         }
       } else {
         const errorOptions: ToastOptions = {

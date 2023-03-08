@@ -28,7 +28,7 @@ function AdminCheckActivity(props: ModalType) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [activityId]);
   return (
     <>
       {props.isOpen && (

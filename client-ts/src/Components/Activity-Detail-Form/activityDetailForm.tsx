@@ -117,7 +117,6 @@ function ActivityDetailForm() {
         activityId,
         user.username
       );
-      console.log(data);
       if (data.length > 0) {
         setIsApply(true);
       } else {
@@ -138,7 +137,7 @@ function ActivityDetailForm() {
     }
     fetchData();
     Registered();
-  }, [isAdmin]);
+  }, [isAdmin,activityId]);
 
   return (
     <div className="activity-detail-background-image">

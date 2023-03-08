@@ -40,6 +40,7 @@ function NavbarHeader() {
         localStorage.clear();
         setIsLoggedIn(false);
         navigate('/')
+        window.location.reload()
       }
     });
   };
