@@ -12,6 +12,7 @@
 }
 
 .update-activity-modal-box {
+  transform: scale(0.9);
   cursor: pointer;
   display: block;
   background: white;
