@@ -59,7 +59,7 @@ function NavbarHeader() {
           </div>
           <div className="navbar-login">
             <a className="menulogin-link btn-15" onClick={handleLogout}>
-              LOGOUT
+              SIGN OUT
             </a>
           </div>
         </div>
@@ -67,7 +67,7 @@ function NavbarHeader() {
         <div className="navbar-container-right">
           <div className="navbar-login">
             <a className="menulogin-link btn-15" onClick={handleLogin}>
-              LOGIN
+              SIGN IN
             </a>
           </div>
         </div>
