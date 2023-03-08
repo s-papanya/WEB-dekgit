@@ -87,7 +87,6 @@ function CreateActivity() {
       activityStart: activitiesStart.toISOString().substring(0, 10),
       activityEnd: activitiesEnd.toISOString().substring(0, 10),
     }));
-    console.log(newActivity)
     try {
       await Repo.ActivityRepository.createActivity(newActivity)
     }catch(error) {
