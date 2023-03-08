@@ -68,6 +68,7 @@ function ActivityDetailForm() {
           });
           await Repo.UserRepository.count(Number(activityId));
           await Repo.UserRepository.applyActivity(userApply);
+          fetchData()
           setIsApply(true);
         } catch (err) {
           console.error(err);
@@ -94,6 +95,7 @@ function ActivityDetailForm() {
             icon: "success",
           });
           await Repo.UserRepository.discount(Number(activityId));
+          fetchData()
           const data = await Repo.UserRepository.checkApply(
             activityId,
             user.username
@@ -134,10 +136,9 @@ function ActivityDetailForm() {
     if (admin === "admin") {
       setIsAdmin(true);
     }
-
     fetchData();
     Registered();
-  }, []);
+  }, [isAdmin]);
 
   return (
     <div className="activity-detail-background-image">

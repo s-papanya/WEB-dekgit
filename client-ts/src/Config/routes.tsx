@@ -6,20 +6,60 @@ import Login from "../Pages/Login/login";
 import AdminCreateActivity from "../Pages/Admin-CreateActivity/admin-createActivity";
 import ActivityDetail from "../Pages/Activity-Detail/activityDetail";
 import History from "../Pages/History/history";
+import { ProtectRoute } from "./provider";
 
 function AppRoutes() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/history" element={<History />} />
+        <Route
+          path="/"
+          element={
+            <ProtectRoute>
+              <Home />
+            </ProtectRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <ProtectRoute>
+              <Login />
+            </ProtectRoute>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <ProtectRoute>
+              <Contact />
+            </ProtectRoute>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <ProtectRoute>
+              <History />
+            </ProtectRoute>
+          }
+        />
         <Route
           path="/activityDetail/:activityId"
-          element={<ActivityDetail />}
+          element={
+            <ProtectRoute>
+              <ActivityDetail />
+            </ProtectRoute>
+          }
         />
-        <Route path="/Admin/CreateActivity" element={<AdminCreateActivity />} />
+        <Route
+          path="/Admin/CreateActivity"
+          element={
+            <ProtectRoute>
+              <AdminCreateActivity />
+            </ProtectRoute>
+          }
+        />
       </Routes>
     </div>
   );

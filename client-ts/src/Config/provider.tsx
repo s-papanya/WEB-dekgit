@@ -43,10 +43,6 @@ type Props = {
 export const ProtectRoute = ({ children }: Props) => {
   const { jwt } = userData();
   useEffect(() => {
-    if (!jwt) {
-      console.log("aaaaa");
-    }
   }, [jwt]);
-
   return children;
 };
