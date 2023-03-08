@@ -6,10 +6,11 @@ import config from "../Config/config";
 
 import { userData } from "../Config/provider";
 
-
 const user = userData();
 
-export class UserRepository implements IRepository<getRegistration | postRegistration> {
+export class UserRepository
+  implements IRepository<getRegistration | postRegistration>
+{
   urlPrefix = config.remoteRepositoryUrlPrefix;
 
   async count(id: string | number): Promise<getRegistration | null> {
@@ -23,7 +24,7 @@ export class UserRepository implements IRepository<getRegistration | postRegistr
     const data = await resp.json();
     return data.data;
   }
-  
+
   async discount(id: string | number): Promise<getRegistration | null> {
     const resp = await fetch(
       `http://localhost:1337/api/activity/${id}/discount`,
@@ -49,7 +50,34 @@ export class UserRepository implements IRepository<getRegistration | postRegistr
       body: JSON.stringify(data),
     });
     const res = await resp.json();
-    return res.data;
+    return res.data.id;
+  }
+
+  async cancelActivity(id: string | number): Promise<void> {
+    const resp = await fetch(`http://localhost:1337/api/registrations/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ` + user.jwt,
+      },
+    });
+    const data_res = await resp.json();
+    return data_res;
+  }
+
+  async checkApply(
+    id: string | undefined,
+    username: string
+  ): Promise<getRegistration[]> {
+    try {
+      const resp = await fetch(
+        `http://localhost:1337/api/registrations?filters[activityId][$in][0]=${id}&filters[username][$in][1]=${username}`
+      );
+      const data = await resp.json();
+      return data.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
   }
 
   async adminCheckActivity(
