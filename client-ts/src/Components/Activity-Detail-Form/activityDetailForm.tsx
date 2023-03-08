@@ -62,6 +62,10 @@ function ActivityDetailForm() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
+          Swal.fire({
+            title: "Activity registered",
+            icon: "success",
+          });
           await Repo.UserRepository.count(Number(activityId));
           await Repo.UserRepository.applyActivity(userApply);
           setIsApply(true);
@@ -85,13 +89,41 @@ function ActivityDetailForm() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
+          Swal.fire({
+            title: "Registration canceled",
+            icon: "success",
+          });
           await Repo.UserRepository.discount(Number(activityId));
+          const data = await Repo.UserRepository.checkApply(
+            activityId,
+            user.username
+          );
+          if (data.length > 0) {
+            await Repo.UserRepository.cancelActivity(data[0].id);
+          }
           setIsApply(false);
         } catch (err) {
           console.error(err);
         }
       }
     });
+  };
+
+  const Registered = async () => {
+    try {
+      const data = await Repo.UserRepository.checkApply(
+        activityId,
+        user.username
+      );
+      console.log(data);
+      if (data.length > 0) {
+        setIsApply(true);
+      } else {
+        setIsApply(false);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
@@ -102,8 +134,10 @@ function ActivityDetailForm() {
     if (admin === "admin") {
       setIsAdmin(true);
     }
+
     fetchData();
-  }, [activityId, isLoggedIn, isApply]);
+    Registered();
+  }, []);
 
   return (
     <div className="activity-detail-background-image">
