@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { roleData, userData } from "../../../Config/provider";
+import useModal from "../../Hook/useModal";
+
+import Notification from "../../Notification/notification";
 
 import "./navbar-menu.scss";
 
@@ -8,6 +11,7 @@ function NavbarMenu() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isTop, setIsTop] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const { isOpen: isNotification, toggle: toggleNotification } = useModal();
   const user = userData();
   const role = roleData();
   const navigate = useNavigate();
@@ -39,15 +43,11 @@ function NavbarMenu() {
   }, [isLoggedIn, isAdmin]);
 
   const handleHome = () => {
-    navigate("/");
+    navigate("/y");
   };
 
   const handleHistory = () => {
-    navigate("/history");
-  };
-
-  const handleNotification = () => {
-    navigate("/Notification");
+    navigate("/History");
   };
 
   const handleContact = () => {
@@ -60,6 +60,10 @@ function NavbarMenu() {
 
   return (
     <ul className="navbar-menu">
+      <Notification
+              isOpen={isNotification}
+              toggle={toggleNotification}
+            ></Notification>
       <li className="navbar-li-home">
         <a
           className="navbar-a"
@@ -79,11 +83,13 @@ function NavbarMenu() {
             >
               HISTORY
             </a>
+
+            
           </li>
           <li className="navbar-li-notification">
             <a
               className="navbar-a"
-              onClick={handleNotification}
+              onClick={toggleNotification}
               style={{ color: isTop ? "#ffffff" : "#000000" }}
             >
               NOTIFICATION
