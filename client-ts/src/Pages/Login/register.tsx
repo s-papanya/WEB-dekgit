@@ -4,7 +4,7 @@ import { Button, Input } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
 
 import "./login.css";
-import config from "../../Config/config";
+import config from "../../Config/conf";
 
 interface ApiResponse {
   message: string;
@@ -33,7 +33,7 @@ export const Register = (): any => {
 
   const signUp = async (): Promise<void> => {
     try {
-      const url = `${config.apiPrefix}/auth/local/register`;
+      const url = `${config.apiPrefix}/api/auth/local/register`;
       if (user.username && user.email && user.password) {
         if (user.username.length < 6) {
           throw new Error("Username must be at least 6 characters.");

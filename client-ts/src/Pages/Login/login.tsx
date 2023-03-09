@@ -2,7 +2,7 @@ import { useRef, useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastOptions } from "react-toastify";
 import { Button, Input } from "@mui/material";
-import config from "../../Config/config";
+import config from "../../Config/conf";
 
 import { Register } from "./register";
 import axios from "axios";

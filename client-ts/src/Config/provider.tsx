@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
-import config from "./config";
+import config from "./conf";
 export const storeUser = (data: any) => {
   localStorage.setItem(
     "user",

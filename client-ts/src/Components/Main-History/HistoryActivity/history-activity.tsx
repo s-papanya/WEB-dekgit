@@ -8,7 +8,7 @@ import getRegistration from "../../../Models/getRegistation";
 import Repo from "../../../Repositories/index";
 
 import "./history-activity.css";
-import config from "../../../Config/config";
+import config from "../../../Config/conf";
 
 function HistoryActivity() {
   const [activitiesList, setActivitiesList] = useState<getRegistration[]>([]);

@@ -2,7 +2,7 @@ import { IRepository } from "./IRepository";
 import getRegistration from "../Models/getRegistation";
 import postRegistration from "../Models/postRegistation";
 
-import config from "../Config/config";
+import config from "../Config/conf";
 
 import { userData } from "../Config/provider";
 

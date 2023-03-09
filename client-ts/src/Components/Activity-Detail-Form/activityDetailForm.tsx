@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { roleData, userData } from "../../Config/provider";
+import config from "../../Config/conf";
 
 import postRegistration from "../../Models/postRegistation";
 import getActivity from "../../Models/getActivity";
@@ -13,7 +14,6 @@ import useModal from "../Hook/useModal";
 
 import Swal from "sweetalert2";
 import "./activityDetailForm.css";
-import config from "../../Config/config";
 
 function ActivityDetailForm() {
   const { activityId } = useParams<{ activityId: string }>();

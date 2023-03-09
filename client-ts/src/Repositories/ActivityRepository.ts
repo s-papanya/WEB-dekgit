@@ -1,7 +1,7 @@
 import { IRepository } from "./IRepository";
 import GetActivity from "../Models/getActivity";
 import PostActivity from "../Models/postActivity";
-import config from "../Config/config";
+import config from "../Config/conf";
 
 import { userData } from "../Config/provider";
 
@@ -23,7 +23,6 @@ export class ActivityRepository
   async getActivityById(id: string | number): Promise<GetActivity | null> {
     const res = await fetch(`${this.urlPrefix}/api/activities/${id}/?populate=*`, {
       headers: {
-        Authorization: `Bearer ` + user.jwt,
         Accept: "application/json",
         "Content-Type": "application/json",
       },

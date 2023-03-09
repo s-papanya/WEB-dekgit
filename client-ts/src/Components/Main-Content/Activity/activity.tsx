@@ -5,6 +5,7 @@ import getActivity from "../../../Models/getActivity";
 import Repo from "../../../Repositories/index";
 
 import "./activity.css";
+import config from "../../../Config/conf";
 
 function Activity() {
   const [activitiesList, setActivitiesList] = useState<getActivity[]>([]);
@@ -33,7 +34,7 @@ function Activity() {
               <img
                 className="activity-image-image"
                 src={
-                  "http://localhost:1337" +
+                  config.apiPrefix +
                   activity?.attributes?.image?.data?.attributes?.url
                 }
                 alt=""
