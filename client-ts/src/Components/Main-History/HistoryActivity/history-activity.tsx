@@ -41,11 +41,14 @@ function HistoryActivity() {
         const image = images.find(
           (img) => img.id === parseInt(activity.attributes.activityId)
         );
+        const activityType = images.find(
+          (img) => img.id === parseInt(activity.attributes.activityType)
+        );
 
         return (
           <Link
             key={activity.id}
-            to={`/activityDetail/${activity.attributes.activityId}`}
+            to={`/activityDetail/${activityType?.attributes.activityType}/${activity.attributes.activityId}`}
             className="history-link"
           >
             <div
