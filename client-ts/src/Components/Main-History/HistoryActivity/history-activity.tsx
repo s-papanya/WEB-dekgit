@@ -1,78 +1,69 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import getActivity from "../../../Models/getActivity";
+import { userData } from "../../../Config/provider";
+
+import getRegistration from "../../../Models/getRegistation";
 import Repo from "../../../Repositories/index";
 
 import "./history-activity.css";
 
 function HistoryActivity() {
-    const [activitiesList, setActivitiesList] = useState<getActivity[]>([]);
+  const [activitiesList, setActivitiesList] = useState<getRegistration[]>([]);
 
-    const fetchData = async () => {
-        const res = await Repo.ActivityRepository.getActivity();
-        if (res) {
-            setActivitiesList(res);
-        }
-    };
+  const user = userData();
+  const fetchData = async () => {
+    const res = await Repo.UserRepository.userCheckActivity(user.username);
+    if (res) {
+      setActivitiesList(res);
+    }
+  };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    return (
-        <>
-            {activitiesList.map((activity: getActivity) => (
-                <Link
-                    key={activity.id}
-                    to={`/activityDetail/${activity.id}`}
-                    className="activity-link"
-                >
-
-                    <div className="history-activity-content">
-                        <div className="history-activity-history">
-                            <div className="history-activity-image">
-                                <img
-                                    alt=""
-                                    src={"http://localhost:1337" +
-                                        activity?.attributes?.image?.data?.attributes?.formats?.large
-                                            ?.url}
-                                    className="history-activity-image1"
-                                />
-                            </div>
-                            <div className="history-activity-content-history">
-                                <div className="history-activity-history-title-activity">
-                                    <h1>{activity.attributes.title}</h1>
-                                </div>
-                                <div className="history-activity-historydate">
-                                    <div className="history-activity-history-activity-start">
-                                        <div className="history-activity-title-start-activity">
-                                            <h2>วันที่เริ่มกิจกรรม</h2>
-                                        </div>
-                                        <div className="history-activity-content-start-activity">
-                                            <span className="history-activity-text3">{activity.attributes.activityStart.toLocaleDateString()}</span>
-                                        </div>
-                                    </div>
-                                    <div className="history-activity-history-activity-end">
-                                        <div className="history-activity-title-end-activity">
-                                            <h2>วันที่สิ้นสุดกิจกรรม</h2>
-                                        </div>
-                                        <div className="history-activity-content-end-activity">
-                                            <span className="history-activity-text-content">{activity.attributes.activityEnd.toLocaleDateString()}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="history-activity-history-status">
-                                    <span className="history-activity-text-status"></span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </Link>
-            ))}
-        </>
-    );
+  return (
+    <>
+      {activitiesList.map((activity: getRegistration) => (
+        <Link
+          key={activity.id}
+          to={`/activityDetail/${activity.attributes.activityId}`}
+          className="activity-link"
+        >
+          <div className="history-activity-container">
+            <div className="history-activity-image">
+              <img
+                className="history-activity-image-image"
+                src={"http://localhost:1337" + activity?.attributes?.image}
+                alt=""
+              />
+            </div>
+            <div className="history-activity-text">
+              <h4 className="history-activity-head">Name activity</h4>
+              <div className="history-activity-title">
+                <span className="history-activity-name">
+                  {activity.attributes.title}
+                </span>
+              </div>
+              <h4 className="history-activity-head">Time</h4>
+              <div className="history-activity-title">
+                <span className="history-activity-time">
+                  {activity.attributes.createdAt.toString().slice(0, 10)}
+                </span>
+              </div>
+              <h4 className="history-activity-head">Status</h4>
+              <div className="history-activity-title">
+                <span className="history-activity-status">
+                  {activity.attributes.status}
+                </span>
+              </div>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </>
+  );
 }
 
 export default HistoryActivity;

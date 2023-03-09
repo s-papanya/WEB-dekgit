@@ -1,3 +1,4 @@
+import HistoryActivity from "../HistoryActivity/history-activity";
 import "./main-history.css"
 
 function MainHistory(){
@@ -8,7 +9,7 @@ function MainHistory(){
         <h1 className="main-history-text">HISTORY</h1>
       </header>
       <div className="main-history-content">
-        
+        <HistoryActivity/>
       </div>
     </div>
     );
