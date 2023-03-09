@@ -34,8 +34,7 @@ function Activity() {
                 className="activity-image-image"
                 src={
                   "http://localhost:1337" +
-                  activity?.attributes?.image?.data?.attributes?.formats?.large
-                    ?.url
+                  activity?.attributes?.image?.data?.attributes?.url
                 }
                 alt=""
               />
