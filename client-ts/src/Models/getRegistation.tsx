@@ -6,5 +6,6 @@ export default interface getRegistration {
     username: string;
     activityId: string;
     createdAt: string;
+    image: string
   };
 }

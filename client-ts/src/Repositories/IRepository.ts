@@ -11,4 +11,5 @@ export interface IRepository<T> {
   cancelActivity?(id: string | number): Promise<void>;
   checkApply?(id: string | undefined, username: string): Promise<T[] | null>;
   adminCheckActivity?(id: string | undefined): Promise<T[] | null>;
+  userCheckActivity?(data:string | undefined): Promise<T[] | null>
 }

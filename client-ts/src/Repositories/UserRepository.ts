@@ -89,4 +89,13 @@ export class UserRepository
     const data = await resp.json();
     return data.data;
   }
+
+  async userCheckActivity(
+    data:string |undefined): Promise<getRegistration[] | null>{
+      const resp = await fetch(
+        `http://localhost:1337/api/registrations?filters[username]=${data}`
+      );
+      const res = await resp.json();
+    return res.data;
+    }
 }
