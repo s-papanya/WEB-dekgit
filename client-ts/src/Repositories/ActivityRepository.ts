@@ -15,13 +15,13 @@ export class ActivityRepository
   urlPrefix = config.apiPrefix;
 
   async getActivity(): Promise<GetActivity[] | null> {
-    const res = await fetch(`${this.urlPrefix}/activities?populate=*`);
+    const res = await fetch(`${this.urlPrefix}/api/activities?populate=*`);
     const data = await res.json();
     return data.data;
   }
 
   async getActivityById(id: string | number): Promise<GetActivity | null> {
-    const res = await fetch(`${this.urlPrefix}/activities/${id}/?populate=*`, {
+    const res = await fetch(`${this.urlPrefix}/api/activities/${id}/?populate=*`, {
       headers: {
         Authorization: `Bearer ` + user.jwt,
         Accept: "application/json",
@@ -33,7 +33,7 @@ export class ActivityRepository
   }
 
   async createActivity(data: any): Promise<PostActivity> {
-    const resp = await fetch(`${this.urlPrefix}/activities`, {
+    const resp = await fetch(`${this.urlPrefix}/api/activities`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ` + user.jwt,
@@ -48,7 +48,7 @@ export class ActivityRepository
     id: string | undefined,
     data: PostActivity
   ): Promise<PostActivity> {
-    const resp = await fetch(`${this.urlPrefix}/activities/${id}`, {
+    const resp = await fetch(`${this.urlPrefix}/api/activities/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ` + user.jwt,
@@ -62,7 +62,7 @@ export class ActivityRepository
   }
 
   async deleteActivity(id: string | number): Promise<void> {
-    const resp = await fetch(`${this.urlPrefix}/activities/${id}`, {
+    const resp = await fetch(`${this.urlPrefix}/api/activities/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ` + user.jwt,

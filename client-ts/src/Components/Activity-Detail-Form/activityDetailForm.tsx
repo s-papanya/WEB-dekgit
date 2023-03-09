@@ -13,6 +13,7 @@ import useModal from "../Hook/useModal";
 
 import Swal from "sweetalert2";
 import "./activityDetailForm.css";
+import config from "../../Config/config";
 
 function ActivityDetailForm() {
   const { activityId } = useParams<{ activityId: string }>();
@@ -39,7 +40,7 @@ function ActivityDetailForm() {
     }
   };
 
-  const image = `http://localhost:1337${activity?.attributes.image.data.attributes.url}`;
+  const image = `${config.apiPrefix}${activity?.attributes.image.data.attributes.url}`;
 
   const handleApply = async () => {
     const userApply: postRegistration = {

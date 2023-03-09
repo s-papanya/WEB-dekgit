@@ -8,6 +8,7 @@ import getRegistration from "../../../Models/getRegistation";
 import Repo from "../../../Repositories/index";
 
 import "./history-activity.css";
+import config from "../../../Config/config";
 
 function HistoryActivity() {
   const [activitiesList, setActivitiesList] = useState<getRegistration[]>([]);
@@ -55,7 +56,7 @@ function HistoryActivity() {
                 {image && (
                   <img
                     alt=""
-                    src={`http://localhost:1337${image.attributes.image.data.attributes.url}`}
+                    src={`${config.apiPrefix}${image.attributes.image.data.attributes.url}`}
                     className="history-activity-image-image"
                   />
                 )}

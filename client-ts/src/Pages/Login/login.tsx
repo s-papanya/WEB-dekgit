@@ -43,7 +43,7 @@ function Login(): JSX.Element {
   };
 
   const handleLogin = async (): Promise<void> => {
-    const url = `${config.apiPrefix}/auth/local`
+    const url = `${config.apiPrefix}/api/auth/local`
     try {
       if (user.identifier && user.password) {
         setUser(initialUser);
@@ -99,7 +99,7 @@ function Login(): JSX.Element {
     const user = userData();
     try {
       const { data } = await axios.get(
-        `${config.apiPrefix}/users/me?fields[0]=id&populate[role][fields][0]=type`,
+        `${config.apiPrefix}/api/users/me?fields[0]=id&populate[role][fields][0]=type`,
         {
           headers: {
             Authorization: "Bearer " + user.jwt,
