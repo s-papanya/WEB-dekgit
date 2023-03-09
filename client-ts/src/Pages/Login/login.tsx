@@ -2,6 +2,7 @@ import { useRef, useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastOptions } from "react-toastify";
 import { Button, Input } from "@mui/material";
+import config from "../../Config/config";
 
 import { Register } from "./register";
 import axios from "axios";
@@ -42,7 +43,7 @@ function Login(): JSX.Element {
   };
 
   const handleLogin = async (): Promise<void> => {
-    const url = "http://localhost:1337/api/auth/local";
+    const url = `${config.apiPrefix}/auth/local`
     try {
       if (user.identifier && user.password) {
         setUser(initialUser);
