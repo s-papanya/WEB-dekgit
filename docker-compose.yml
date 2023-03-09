@@ -20,7 +20,7 @@ services:
 
   app:
     build:
-      context: ./my-server
+      context: ./server-ts
     container_name: demo-app
     restart: unless-stopped
     environment:
