@@ -43,15 +43,28 @@ function ActivityDetailForm() {
   const image = `${config.apiPrefix}${activity?.attributes.image.data.attributes.url}`;
 
   const handleApply = async () => {
-    const userApply: postRegistration = {
+    const userApplyCandidate: postRegistration = {
       data: {
         title: activity?.attributes.title.toString(),
-        status: "Registered",
+        status: "Registered.",
         username: user.username,
         activityId: String(activityId),
         Image: image,
+        activityType: "Candidate",
       },
     };
+
+    const userApplyFirstComeFirstServe: postRegistration = {
+      data: {
+        title: activity?.attributes.title.toString(),
+        status: "Please wait for admin to confirm.",
+        username: user.username,
+        activityId: String(activityId),
+        Image: image,
+        activityType: "FirstcomeFirstserve",
+      },
+    };
+
     Swal.fire({
       title: "Apply",
       text: "Are you sure you want to Apply ?",
@@ -70,7 +83,11 @@ function ActivityDetailForm() {
             icon: "success",
           });
           await Repo.UserRepository.count(Number(activityId));
-          await Repo.UserRepository.applyActivity(userApply);
+          if (activity?.attributes.activityType == "Candidate"){
+            await Repo.UserRepository.applyActivity(userApplyCandidate);
+          }else{
+            await Repo.UserRepository.applyActivity(userApplyFirstComeFirstServe);
+          }
           fetchData();
           setIsApply(true);
         } catch (err) {
