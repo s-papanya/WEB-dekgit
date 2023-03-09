@@ -19,11 +19,7 @@ export default interface GetActivity {
     image: {
       data: {
         attributes: {
-          formats: {
-            large: {
-              url: string;
-            };
-          };
+          url: string;
         };
       };
     };

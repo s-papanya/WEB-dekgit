@@ -46,7 +46,7 @@ function ActivityDetailForm() {
         status: "Registered",
         username: user.username,
         activityId: String(activityId),
-        Image: `http://localhost:1337${activity?.attributes?.image?.data?.attributes?.formats?.large?.url}`,
+        Image: `http://localhost:1337${activity?.attributes?.image?.data?.attributes?.url}`,
       },
     };
     Swal.fire({
@@ -145,7 +145,7 @@ function ActivityDetailForm() {
         alt=""
         src={
           "http://localhost:1337" +
-          activity?.attributes?.image?.data?.attributes?.formats?.large?.url
+          activity?.attributes?.image?.data?.attributes?.url
         }
         className="activity-detail-background-image-image"
       />
@@ -162,8 +162,7 @@ function ActivityDetailForm() {
                   alt=""
                   src={
                     "http://localhost:1337" +
-                    activity?.attributes?.image?.data?.attributes?.formats
-                      ?.large?.url
+                    activity?.attributes?.image?.data?.attributes?.url
                   }
                   className="activity-detail-from-image"
                 />
