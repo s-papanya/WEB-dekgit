@@ -11,10 +11,10 @@ const user = userData();
 export class UserRepository
   implements IRepository<getRegistration | postRegistration>
 {
-  urlPrefix = config.remoteRepositoryUrlPrefix;
+  urlPrefix = config.apiPrefix
 
   async count(id: string | number): Promise<getRegistration | null> {
-    const resp = await fetch(`http://localhost:1337/api/activity/${id}/count`, {
+    const resp = await fetch(`${this.urlPrefix}/activity/${id}/count`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export class UserRepository
 
   async discount(id: string | number): Promise<getRegistration | null> {
     const resp = await fetch(
-      `http://localhost:1337/api/activity/${id}/discount`,
+      `${this.urlPrefix}/activity/${id}/discount`,
       {
         method: "PUT",
         headers: {
@@ -41,7 +41,7 @@ export class UserRepository
   }
 
   async applyActivity(data: any): Promise<postRegistration> {
-    const resp = await fetch("http://localhost:1337/api/registrations", {
+    const resp = await fetch(`${this.urlPrefix}/registrations`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ` + user.jwt,
@@ -54,7 +54,7 @@ export class UserRepository
   }
 
   async cancelActivity(id: string | number): Promise<void> {
-    const resp = await fetch(`http://localhost:1337/api/registrations/${id}`, {
+    const resp = await fetch(`${this.urlPrefix}/registrations/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ` + user.jwt,
@@ -70,7 +70,7 @@ export class UserRepository
   ): Promise<getRegistration[]> {
     try {
       const resp = await fetch(
-        `http://localhost:1337/api/registrations?filters[activityId][$in][0]=${id}&filters[username][$in][1]=${username}`
+        `${this.urlPrefix}/registrations?filters[activityId][$in][0]=${id}&filters[username][$in][1]=${username}`
       );
       const data = await resp.json();
       return data.data;
@@ -84,7 +84,7 @@ export class UserRepository
     id: string | undefined
   ): Promise<getRegistration[] | null> {
     const resp = await fetch(
-      `http://localhost:1337/api/registrations?filters[activityId]=${id}`
+      `${this.urlPrefix}/registrations?filters[activityId]=${id}`
     );
     const data = await resp.json();
     return data.data;
@@ -93,7 +93,7 @@ export class UserRepository
   async userCheckActivity(
     data:string |undefined): Promise<getRegistration[] | null>{
       const resp = await fetch(
-        `http://localhost:1337/api/registrations?filters[username]=${data}`
+        `${this.urlPrefix}/registrations?filters[username]=${data}`
       );
       const res = await resp.json();
     return res.data;
