@@ -12,7 +12,7 @@ const user = userData();
 export class ActivityRepository
   implements IRepository<GetActivity | PostActivity>
 {
-  urlPrefix = config.remoteRepositoryUrlPrefix;
+  urlPrefix = config.apiPrefix;
 
   async getActivity(): Promise<GetActivity[] | null> {
     const res = await fetch(`${this.urlPrefix}/activities?populate=*`);
@@ -28,7 +28,7 @@ export class ActivityRepository
 
   async createActivity(data:any): Promise<PostActivity> {
 
-    const resp = await fetch(`http://localhost:1337/api/activities`, {
+    const resp = await fetch(`${this.urlPrefix}/activities`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ` + user.jwt
@@ -43,7 +43,7 @@ export class ActivityRepository
     id: string | undefined,
     data: PostActivity
   ): Promise<PostActivity> {
-    const resp = await fetch(`http://localhost:1337/api/activities/${id}`, {
+    const resp = await fetch(`${this.urlPrefix}/activities/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ` + user.jwt,
@@ -57,7 +57,7 @@ export class ActivityRepository
   }
 
   async deleteActivity(id: string | number): Promise<void> {
-    const resp = await fetch(`http://localhost:1337/api/activities/${id}`, {
+    const resp = await fetch(`${this.urlPrefix}/activities/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ` + user.jwt,
@@ -77,7 +77,7 @@ export class ActivityRepository
 
     const resp = await axios({
       method: "POST",
-      url: "http://localhost:1337/api/upload",
+      url: `${this.urlPrefix}/upload`,
       data,
     });
 

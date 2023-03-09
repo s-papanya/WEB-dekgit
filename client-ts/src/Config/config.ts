@@ -1,7 +1,8 @@
-const isDev = process.env.NODE_ENV || process.env.NODE_ENV === "development";
-const config = {
-  isDev,
-  remoteRepositoryUrlPrefix: isDev ? "http://localhost:1337/api" : "/api",
-};
+const isProd = !(!process.env.NODE_ENV || process.env.NODE_ENV === 'development')
 
-export default config;
+const conf = {
+  isProd,
+  apiPrefix: isProd ? 'https://s22x.coe.psu.ac.th/api' : 'http://localhost:1337/api',
+}
+
+export default conf;
