@@ -45,10 +45,9 @@ function Login(): JSX.Element {
     const url = "http://localhost:1337/api/auth/local";
     try {
       if (user.identifier && user.password) {
+        setUser(initialUser);
         const { data } = await axios.post(url, user);
-        addRole();
         if (data.jwt) {
-          addRole();
           storeUser(data);
           const successOptions: ToastOptions = {
             position: "top-right",
@@ -60,11 +59,10 @@ function Login(): JSX.Element {
             theme: "colored",
           };
           toast.success("Logged in successfully", successOptions);
-          setUser(initialUser);
           addRole();
           setTimeout(() => {
             navigate("/");
-          }, 500);
+          }, 1000);
           navigate("/");
           window.location.reload();
         }

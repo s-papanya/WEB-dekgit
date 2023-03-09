@@ -1,9 +1,9 @@
 import { ReactNode, useEffect, useState } from "react";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import "./adminCheckRegistation.css";
 import getRegistration from "../../Models/getRegistation";
-import Repo from "../../Repositories/index"
+import Repo from "../../Repositories/index";
 
 interface ModalType {
   children?: ReactNode;
@@ -17,7 +17,7 @@ function AdminCheckActivity(props: ModalType) {
 
   const fetchData = async () => {
     try {
-      const data = await Repo.UserRepository.adminCheckActivity(activityId)
+      const data = await Repo.UserRepository.adminCheckActivity(activityId);
       if (data) {
         setUserRegister(data);
       }
@@ -48,15 +48,26 @@ function AdminCheckActivity(props: ModalType) {
                 This page will display all registered users for activity.
               </span>
               <div className="admin-check-activity-container">
-                {userRegister.map((item, index) => (
+                {userRegister.map((user, index) => (
                   <div key={index}>
                     <div className="admin-check-activity-card">
                       <div className="admin-check-activity-card-user">
-                        <span className="admin-check-activity-name">
-                          ชื่อ :{item.attributes.username}
+                        <span className="admin-check-activity-name-title">
+                          Name :
                         </span>
                         <span className="admin-check-activity-name">
-                          เวลา: {item.attributes.createdAt}
+                          {user.attributes.username}
+                        </span>
+                        <span className="admin-check-activity-name-title">
+                          Date time :
+                        </span>
+                        <span className="admin-check-activity-name">
+                          <span className="history-activity-time">
+                            {new Date(user.attributes.createdAt)
+                              .toISOString()
+                              .slice(0, 19)
+                              .replace("T", " ")}
+                          </span>
                         </span>
                       </div>
                     </div>
