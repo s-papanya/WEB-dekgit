@@ -11,8 +11,9 @@ function NavbarMenu() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isTop, setIsTop] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isUser, setIsUser] = useState(false);
   const { isOpen: isNotification, toggle: toggleNotification } = useModal();
-  const user = userData();
+  const checkJwt = userData();
   const role = roleData();
   const navigate = useNavigate();
 
@@ -33,14 +34,19 @@ function NavbarMenu() {
   }, []);
 
   useEffect(() => {
-    const jwt = user.jwt;
+    const jwt = checkJwt.jwt;
     setIsLoggedIn(jwt ? true : false);
+
+    const user = role.role;
+    if (user === "authenticated") {
+      setIsUser(true);
+    }
 
     const admin = role.role;
     if (admin === "admin") {
       setIsAdmin(true);
     }
-  }, [isLoggedIn, isAdmin]);
+  }, [isLoggedIn, isAdmin, isUser]);
 
   const handleHome = () => {
     navigate("/");
@@ -61,9 +67,9 @@ function NavbarMenu() {
   return (
     <ul className="navbar-menu">
       <Notification
-              isOpen={isNotification}
-              toggle={toggleNotification}
-            ></Notification>
+        isOpen={isNotification}
+        toggle={toggleNotification}
+      ></Notification>
       <li className="navbar-li-home">
         <a
           className="navbar-a"
@@ -75,17 +81,17 @@ function NavbarMenu() {
       </li>
       {isLoggedIn && (
         <>
-          <li className="navbar-li-history">
-            <a
-              className="navbar-a"
-              onClick={handleHistory}
-              style={{ color: isTop ? "#ffffff" : "#000000" }}
-            >
-              HISTORY
-            </a>
-
-            
-          </li>
+          {isUser && (
+            <li className="navbar-li-history">
+              <a
+                className="navbar-a"
+                onClick={handleHistory}
+                style={{ color: isTop ? "#ffffff" : "#000000" }}
+              >
+                HISTORY
+              </a>
+            </li>
+          )}
           <li className="navbar-li-notification">
             <a
               className="navbar-a"
@@ -95,6 +101,7 @@ function NavbarMenu() {
               NOTIFICATION
             </a>
           </li>
+
           {isAdmin && (
             <li className="navbar-li-notification">
               <a

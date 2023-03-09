@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastOptions } from "react-toastify";
 import { Button, Input } from "@mui/material";
@@ -23,7 +23,9 @@ function Login(): JSX.Element {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      handleLogin();
+      setTimeout(() => {
+        handleLogin();
+      }, 500);
     }
   };
 
@@ -44,7 +46,9 @@ function Login(): JSX.Element {
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
+        addRole();
         if (data.jwt) {
+          addRole();
           storeUser(data);
           const successOptions: ToastOptions = {
             position: "top-right",
@@ -60,9 +64,9 @@ function Login(): JSX.Element {
           addRole();
           setTimeout(() => {
             navigate("/");
-          }, 300);
+          }, 500);
           navigate("/");
-          window.location.reload()
+          window.location.reload();
         }
       } else {
         const errorOptions: ToastOptions = {
@@ -118,6 +122,9 @@ function Login(): JSX.Element {
   const handleSignInClick = (): void => {
     containerRef.current?.classList.remove("login-right-panel-active");
   };
+  useEffect(() => {
+    addRole()
+  }, [])
 
   return (
     <div className="login-container">
