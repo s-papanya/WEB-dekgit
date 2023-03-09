@@ -2,7 +2,7 @@ import { ChangeEvent, ChangeEventHandler, useState } from "react";
 import { Button, Input, TextField } from "@mui/material";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
 
-import "./createActivity.css"
+import "./createActivity.css";
 import Swal from "sweetalert2";
 
 import { ResultType } from "../../Models/postActivity";
@@ -31,13 +31,43 @@ function CreateActivity() {
   const handleDescriptionChange: ChangeEventHandler<HTMLTextAreaElement> = (
     event
   ) => {
-    setDescription(event.target.value);
+    const value = event.target.value;
+    const maxLineLength = 30;
+    const lineBreaks = Math.floor(value.length / maxLineLength);
+    const newValue =
+      value?.match(new RegExp(".{1," + maxLineLength + "}", "g"))?.join("\n") ||
+      "";
+
+    setDescription(newValue);
+    event.target.style.height = "auto"; // reset ความสูงของ textarea
+    event.target.style.height = `${event.target.scrollHeight}px`;
+
+    if (lineBreaks >= 1) {
+      event.target.style.paddingBottom = `${lineBreaks * 1.5}rem`;
+    } else {
+      event.target.style.paddingBottom = "1rem";
+    }
   };
 
   const handleDetailChange: ChangeEventHandler<HTMLTextAreaElement> = (
     event
   ) => {
-    setDetail(event.target.value);
+    const value = event.target.value;
+    const maxLineLength = 50;
+    const lineBreaks = Math.floor(value.length / maxLineLength);
+    const newValue =
+      value?.match(new RegExp(".{1," + maxLineLength + "}", "g"))?.join("\n") ||
+      "";
+
+    setDetail(newValue);
+    event.target.style.height = "auto";
+    event.target.style.height = `${event.target.scrollHeight}px`;
+
+    if (lineBreaks >= 1) {
+      event.target.style.paddingBottom = `${lineBreaks * 1.5}rem`;
+    } else {
+      event.target.style.paddingBottom = "1rem";
+    }
   };
 
   const handleActivityTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -148,6 +178,7 @@ function CreateActivity() {
                   value={title}
                   onChange={handleTitleChange}
                   required
+                  inputProps={{ maxLength: 25 }}
                 />
               </div>
             </div>
@@ -157,6 +188,7 @@ function CreateActivity() {
                   Description(Show on home page)
                 </span>
                 <TextareaAutosize
+                  maxLength={200}
                   className="update-activity-input-description"
                   placeholder="Description"
                   value={description}
@@ -171,6 +203,7 @@ function CreateActivity() {
                   Detail
                 </span>
                 <TextareaAutosize
+                  maxLength={1000}
                   className="update-activity-input-detail"
                   placeholder="Detail"
                   value={detail}

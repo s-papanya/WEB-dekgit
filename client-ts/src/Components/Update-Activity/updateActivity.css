@@ -60,7 +60,7 @@
   border: none !important;
   font-size: 20px !important;
   height: 40px !important;
-  width: 100% !important;
+  width: 70% !important;
 }
 
 .update-activity-input-description {
@@ -68,14 +68,14 @@
   border: none !important;
   font-size: 20px !important;
   height: 80px !important;
-  width: 100% !important;
+  width: 50% !important;
 }
 .update-activity-input-detail {
   background-color: #eee !important;
   border: none !important;
   font-size: 20px !important;
   height: 150px !important;
-  width: 100% !important;
+  width: 70% !important;
 }
 
 .margin-buttom {
