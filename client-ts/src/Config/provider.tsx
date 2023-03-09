@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import axios from "axios";
 export const storeUser = (data: any) => {
   localStorage.setItem(
     "user",
@@ -36,6 +36,23 @@ export const roleData = () => {
   return false;
 };
 
+const addRole = async (): Promise<void> => {
+  const user = userData();
+  try {
+    const { data } = await axios.get(
+      "http://localhost:1337/api/users/me?fields[0]=id&populate[role][fields][0]=type",
+      {
+        headers: {
+          Authorization: "Bearer " + user.jwt,
+        },
+      }
+    );
+    storeRole(data);
+  } catch (error: any) {
+    console.log(error);
+  }
+};
+
 type Props = {
   children: JSX.Element;
 };
@@ -43,6 +60,7 @@ type Props = {
 export const ProtectRoute = ({ children }: Props) => {
   const { jwt } = userData();
   useEffect(() => {
+    addRole()
   }, [jwt]);
   return children;
 };
