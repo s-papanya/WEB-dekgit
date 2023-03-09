@@ -280,7 +280,7 @@ function ActivityDetailForm() {
                           className="activity-detail-from-button-edit"
                           onClick={toggleUpdate}
                         >
-                          แก้ไขรายละเอียดกิจกรรม
+                          แก้ไขกิจกรรม
                         </Button>
                         <UpdateActivity
                           isOpen={isUpdateOpen}
@@ -290,7 +290,7 @@ function ActivityDetailForm() {
                           className="activity-detail-from-button-check"
                           onClick={toggleAdminCheck}
                         >
-                          เช็ครายชื่อผู้สมัคร
+                          รายชื่อผู้สมัคร
                         </Button>
                         <AdminCheckActivity
                           isOpen={isAdminCheckOpen}

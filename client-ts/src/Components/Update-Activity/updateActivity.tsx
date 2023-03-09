@@ -311,7 +311,7 @@ function UpdateActivity(props: ModalType) {
                   </div>
                   <div className="update-margin-bottom"></div>
                   <span className="update-must-alert">
-                    *You will need to enter a new date each time other
+                    *You need to enter a new date each time other
                     information is updated.
                   </span>
                   <div className="update-activity-date">
