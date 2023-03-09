@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
+import config from "./config";
 export const storeUser = (data: any) => {
   localStorage.setItem(
     "user",
@@ -40,7 +41,7 @@ const addRole = async (): Promise<void> => {
   const user = userData();
   try {
     const { data } = await axios.get(
-      "http://localhost:1337/api/users/me?fields[0]=id&populate[role][fields][0]=type",
+      `${config.apiPrefix}/users/me?fields[0]=id&populate[role][fields][0]=type`,
       {
         headers: {
           Authorization: "Bearer " + user.jwt,

@@ -99,7 +99,7 @@ function Login(): JSX.Element {
     const user = userData();
     try {
       const { data } = await axios.get(
-        "http://localhost:1337/api/users/me?fields[0]=id&populate[role][fields][0]=type",
+        `${config.apiPrefix}/users/me?fields[0]=id&populate[role][fields][0]=type`,
         {
           headers: {
             Authorization: "Bearer " + user.jwt,
