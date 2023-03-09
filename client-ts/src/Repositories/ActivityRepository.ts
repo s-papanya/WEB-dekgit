@@ -21,19 +21,24 @@ export class ActivityRepository
   }
 
   async getActivityById(id: string | number): Promise<GetActivity | null> {
-    const res = await fetch(`${this.urlPrefix}/activities/${id}/?populate=*`);
+    const res = await fetch(`${this.urlPrefix}/activities/${id}/?populate=*`, {
+      headers: {
+        Authorization: `Bearer ` + user.jwt,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
     const data = await res.json();
     return data.data;
   }
 
-  async createActivity(data:any): Promise<PostActivity> {
-
+  async createActivity(data: any): Promise<PostActivity> {
     const resp = await fetch(`${this.urlPrefix}/activities`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ` + user.jwt
+        Authorization: `Bearer ` + user.jwt,
       },
-      body: data
+      body: data,
     });
     const res = await resp.json();
     return res;
