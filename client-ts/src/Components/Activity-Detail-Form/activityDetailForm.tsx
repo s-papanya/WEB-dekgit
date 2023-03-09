@@ -39,6 +39,8 @@ function ActivityDetailForm() {
     }
   };
 
+  const image = `http://localhost:1337${activity?.attributes.image.data.attributes.url}`;
+
   const handleApply = async () => {
     const userApply: postRegistration = {
       data: {
@@ -46,7 +48,7 @@ function ActivityDetailForm() {
         status: "Registered",
         username: user.username,
         activityId: String(activityId),
-        Image: `http://localhost:1337${activity?.attributes?.image?.data?.attributes?.url}`,
+        Image: image,
       },
     };
     Swal.fire({
@@ -68,7 +70,7 @@ function ActivityDetailForm() {
           });
           await Repo.UserRepository.count(Number(activityId));
           await Repo.UserRepository.applyActivity(userApply);
-          fetchData()
+          fetchData();
           setIsApply(true);
         } catch (err) {
           console.error(err);
@@ -95,7 +97,7 @@ function ActivityDetailForm() {
             icon: "success",
           });
           await Repo.UserRepository.discount(Number(activityId));
-          fetchData()
+          fetchData();
           const data = await Repo.UserRepository.checkApply(
             activityId,
             user.username
@@ -137,16 +139,13 @@ function ActivityDetailForm() {
     }
     fetchData();
     Registered();
-  }, [isAdmin,activityId]);
+  }, [isAdmin, activityId]);
 
   return (
     <div className="activity-detail-background-image">
       <img
         alt=""
-        src={
-          "http://localhost:1337" +
-          activity?.attributes?.image?.data?.attributes?.url
-        }
+        src={image}
         className="activity-detail-background-image-image"
       />
       <div className="home-main">
@@ -160,10 +159,7 @@ function ActivityDetailForm() {
               <div className="activity-detail-from-picture">
                 <img
                   alt=""
-                  src={
-                    "http://localhost:1337" +
-                    activity?.attributes?.image?.data?.attributes?.url
-                  }
+                  src={image}
                   className="activity-detail-from-image"
                 />
               </div>

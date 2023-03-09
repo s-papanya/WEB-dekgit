@@ -3,6 +3,10 @@
   text-decoration: none;
   color: black;
 }
+
+.history-activity-wrapper{
+  min-width: 100%;
+}
 .history-activity-container {
   border-radius: 25px 0 0 25px;
   flex: 0 0 auto;
