@@ -11,7 +11,7 @@ const user = userData();
 export class UserRepository
   implements IRepository<getRegistration | postRegistration>
 {
-  urlPrefix = config.apiPrefix
+  urlPrefix = config.apiPrefix;
 
   async count(id: string | number): Promise<getRegistration | null> {
     const resp = await fetch(`${this.urlPrefix}/api/activity/${id}/count`, {
@@ -26,16 +26,13 @@ export class UserRepository
   }
 
   async discount(id: string | number): Promise<getRegistration | null> {
-    const resp = await fetch(
-      `${this.urlPrefix}/api/activity/${id}/discount`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ` + user.jwt,
-        },
-      }
-    );
+    const resp = await fetch(`${this.urlPrefix}/api/activity/${id}/discount`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ` + user.jwt,
+      },
+    });
     const data = await resp.json();
     return data.data;
   }
@@ -91,11 +88,29 @@ export class UserRepository
   }
 
   async userCheckActivity(
-    data:string |undefined): Promise<getRegistration[] | null>{
-      const resp = await fetch(
-        `${this.urlPrefix}/api/registrations?filters[username]=${data}`
-      );
-      const res = await resp.json();
+    data: string | undefined
+  ): Promise<getRegistration[] | null> {
+    const resp = await fetch(
+      `${this.urlPrefix}/api/registrations?filters[username]=${data}`
+    );
+    const res = await resp.json();
     return res.data;
-    }
+  }
+
+  async adminConfirm(
+    id: string | undefined,
+    data: string
+  ): Promise<postRegistration> {
+    const resp = await fetch(`${this.urlPrefix}/api/registrations/${id}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ` + user.jwt,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const res = await resp.json();
+    return res.data;
+  }
 }

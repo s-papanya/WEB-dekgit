@@ -47,7 +47,7 @@
   margin: 0;
   font-weight: 600;
   font-size: 20px;
-  color: red;
+  color: #3085d6;
 }
 
 .history-activity-title {
@@ -71,7 +71,7 @@
 }
 
 .history-activity-status {
-  color: green;
+  color: #008000;
   margin: 0;
   font-weight: 600;
   font-size: 16px;

@@ -170,7 +170,7 @@ function UpdateActivity(props: ModalType) {
             icon: "success",
           }).then((result) => {
             if (result.isConfirmed) {
-              window.location.reload();
+              navigate("/")
             }
           });
         } else {
@@ -279,6 +279,23 @@ function UpdateActivity(props: ModalType) {
                     </div>
                   </div>
                   <div className="update-activity-container">
+                    <div className="update-activity-activity-type">
+                      <span className="update-activity-input-title-title">
+                        Activity type
+                      </span>
+                      <select
+                        defaultValue={activityType}
+                        onChange={handleActivityTypeChange}
+                        title="Choose activity type"
+                      >
+                        <option defaultValue={ResultType.FirstcomeFirstserve}>
+                          First come first serve
+                        </option>
+                        <option defaultValue={ResultType.Candidate}>
+                          Candidate
+                        </option>
+                      </select>
+                    </div>
                     <div className="update-activity-participant">
                       <span className="update-activity-input-title-title">
                         Participant

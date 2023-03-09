@@ -45,7 +45,7 @@ function AppRoutes() {
           }
         />
         <Route
-          path="/activityDetail/:activityId"
+          path="/activityDetail/:activityType/:activityId"
           element={
             <ProtectRoute>
               <ActivityDetail />
