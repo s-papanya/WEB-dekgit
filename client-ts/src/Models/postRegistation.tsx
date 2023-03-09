@@ -5,5 +5,6 @@ export default interface postRegistration {
     username: string;
     activityId: string ;
     Image: string;
+    activityType:string;
   };
 }

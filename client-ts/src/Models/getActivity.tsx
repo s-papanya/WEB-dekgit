@@ -1,6 +1,6 @@
 export enum ResultType {
-  FirstcomeFirstserve = 1,
-  Candidate = -1,
+  FirstcomeFirstserve = "FirstcomeFirstserve",
+  Candidate = "Candidate",
 }
 
 export default interface GetActivity {

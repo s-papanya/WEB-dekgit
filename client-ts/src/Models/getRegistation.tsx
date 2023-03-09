@@ -7,5 +7,6 @@ export default interface getRegistration {
     activityId: string;
     createdAt: string;
     image: string
+    activityType:string;
   };
 }
