@@ -60,14 +60,43 @@ function UpdateActivity(props: ModalType) {
   const handleDescriptionChange: ChangeEventHandler<HTMLTextAreaElement> = (
     event
   ) => {
-    setDescription(event.target.value);
+    const value = event.target.value;
+    const maxLineLength = 30;
+    const lineBreaks = Math.floor(value.length / maxLineLength);
+    const newValue =
+      value?.match(new RegExp(".{1," + maxLineLength + "}", "g"))?.join("\n") ||
+      "";
+
+    setDescription(newValue);
+    event.target.style.height = "auto"; // reset ความสูงของ textarea
+    event.target.style.height = `${event.target.scrollHeight}px`;
+
+    if (lineBreaks >= 1) {
+      event.target.style.paddingBottom = `${lineBreaks * 1.5}rem`;
+    } else {
+      event.target.style.paddingBottom = "1rem";
+    }
   };
 
   const handleDetailChange: ChangeEventHandler<HTMLTextAreaElement> = (
     event
   ) => {
-    setDetail(event.target.value);
-    console.log(setDetail);
+    const value = event.target.value;
+    const maxLineLength = 50;
+    const lineBreaks = Math.floor(value.length / maxLineLength);
+    const newValue =
+      value?.match(new RegExp(".{1," + maxLineLength + "}", "g"))?.join("\n") ||
+      "";
+
+    setDetail(newValue);
+    event.target.style.height = "auto";
+    event.target.style.height = `${event.target.scrollHeight}px`;
+
+    if (lineBreaks >= 1) {
+      event.target.style.paddingBottom = `${lineBreaks * 1.5}rem`;
+    } else {
+      event.target.style.paddingBottom = "1rem";
+    }
   };
 
   const handleActivityTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -212,6 +241,7 @@ function UpdateActivity(props: ModalType) {
                         Name activity
                       </span>
                       <Input
+                        inputProps={{ maxLength: 25 }}
                         className="update-activity-input-title"
                         type="text"
                         placeholder="Title"
@@ -226,6 +256,7 @@ function UpdateActivity(props: ModalType) {
                         Description(Show on home page)
                       </span>
                       <TextareaAutosize
+                        maxLength={200}
                         className="update-activity-input-description"
                         placeholder="Description"
                         defaultValue={description}
@@ -239,6 +270,7 @@ function UpdateActivity(props: ModalType) {
                         Detail
                       </span>
                       <TextareaAutosize
+                        maxLength={1000}
                         className="update-activity-input-detail"
                         placeholder="Detail"
                         defaultValue={detail}
