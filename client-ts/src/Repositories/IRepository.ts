@@ -12,4 +12,5 @@ export interface IRepository<T> {
   checkApply?(id: string | undefined, username: string): Promise<T[] | null>;
   adminCheckActivity?(id: string | undefined): Promise<T[] | null>;
   userCheckActivity?(data:string | undefined): Promise<T[] | null>
+  adminConfirm?(id: string | undefined, data: Object): Promise<T>;
 }

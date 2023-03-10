@@ -158,28 +158,13 @@ function UpdateActivity(props: ModalType) {
       },
     };
     try {
+      await Repo.ActivityRepository.updateActivity(activityId, newActivity);
       Swal.fire({
-        title: "Do you want to save the changes?",
-        showCancelButton: true,
-        confirmButtonText: "Save",
-      }).then(async (result) => {
+        title: "Saved successfully",
+        icon: "success",
+      }).then((result) => {
         if (result.isConfirmed) {
-          await Repo.ActivityRepository.updateActivity(activityId, newActivity);
-          Swal.fire({
-            title: "Saved successfully",
-            icon: "success",
-          }).then((result) => {
-            if (result.isConfirmed) {
-              navigate("/")
-            }
-          });
-        } else {
-          Swal.fire({
-            title: "Error",
-            text: "Error",
-            icon: "error",
-            confirmButtonText: "OK",
-          });
+          navigate("/");
         }
       });
     } catch (error) {
@@ -311,8 +296,8 @@ function UpdateActivity(props: ModalType) {
                   </div>
                   <div className="update-margin-bottom"></div>
                   <span className="update-must-alert">
-                    *You need to enter a new date each time other
-                    information is updated.
+                    *You need to enter a new date each time other information is
+                    updated.
                   </span>
                   <div className="update-activity-date">
                     <div className="update-activity-container">

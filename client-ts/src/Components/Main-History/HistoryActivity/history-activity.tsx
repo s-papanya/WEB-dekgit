@@ -71,21 +71,27 @@ function HistoryActivity() {
                     {activity.attributes.title}
                   </span>
                 </div>
-                <h4 className="history-activity-head">Date time</h4>
-                <div className="history-activity-title">
+                <h4 className="history-activity-head-time">
+                  Date time :{" "}
                   <span className="history-activity-time">
                     {new Date(activity.attributes.createdAt)
                       .toISOString()
                       .slice(0, 19)
                       .replace("T", " ")}
                   </span>
-                </div>
-                <h4 className="history-activity-head">Status</h4>
-                <div className="history-activity-title">
-                  <span className="history-activity-status">
+                </h4>
+                <h4 className="history-activity-head">
+                  Activtiy type:{" "}
+                  <p className="history-activity-status">
+                    {activity.attributes.activityType}
+                  </p>
+                </h4>
+                <h4 className="history-activity-head">
+                  Status :{" "}
+                  <p className="history-activity-status">
                     {activity.attributes.status}
-                  </span>
-                </div>
+                  </p>
+                </h4>
               </div>
             </div>
           </Link>

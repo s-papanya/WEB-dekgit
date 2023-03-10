@@ -99,7 +99,7 @@ export class UserRepository
 
   async adminConfirm(
     id: string | undefined,
-    data: string
+    data: Object 
   ): Promise<postRegistration> {
     const resp = await fetch(`${this.urlPrefix}/api/registrations/${id}`, {
       method: "PUT",

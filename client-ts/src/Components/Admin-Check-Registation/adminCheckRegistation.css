@@ -1,3 +1,10 @@
+.selected {
+  background-color: #ff0000;
+  height: 22px;
+  width: 22px;
+  border-radius: 20%;
+}
+
 .admin-check-activity-model-overlay {
   z-index: 100;
   width: 100%;
@@ -43,7 +50,16 @@
 }
 
 .admin-check-activity-span {
-  font-size: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.admin-check-activity-span-alert {
+  max-width: 600px;
+  color: #ff0000;
+  font-size: 20px;
+  font-weight: 500;
   margin-bottom: 22px;
 }
 

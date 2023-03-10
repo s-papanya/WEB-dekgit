@@ -43,36 +43,46 @@
   flex-direction: column;
 }
 
-.history-activity-head {
-  margin: 0;
+.history-activity-head-time{
+  margin: 5px;
   font-weight: 600;
   font-size: 20px;
   color: #3085d6;
+  display: flex;
+  flex-direction:row
+}
+
+.history-activity-head {
+  margin: 1px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #3085d6;
+  display: flex;
+  flex-direction:row
+  
 }
 
 .history-activity-title {
   flex: 0 0 auto;
   height: auto;
   padding-left: 10px;
-  display: flex;
-  align-items: flex-start;
 }
 
 .history-activity-name {
-  margin: 0;
   font-weight: 600;
   font-size: 16px;
 }
 
 .history-activity-time {
-  margin: 0;
+  margin-top: 4px;
+  color: black;
   font-weight: 600;
   font-size: 16px;
 }
 
 .history-activity-status {
   color: #008000;
-  margin: 0;
+  margin-top: 4px;
   font-weight: 600;
   font-size: 16px;
 }
