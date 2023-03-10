@@ -1,6 +1,7 @@
 import HistoryActivity from "../HistoryActivity/history-activity";
 import "./main-history.css"
 
+
 function MainHistory(){
     return(
         <div className="main-history-container">
