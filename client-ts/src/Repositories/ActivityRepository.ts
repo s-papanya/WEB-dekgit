@@ -9,12 +9,16 @@ import axios from "axios";
 
 const user = userData();
 
+export interface Filter {
+  keyword?:string
+}
+
 export class ActivityRepository
   implements IRepository<GetActivity | PostActivity>
 {
   urlPrefix = config.apiPrefix;
 
-  async getActivity(): Promise<GetActivity[] | null> {
+  async getActivity(filter?:Filter): Promise<GetActivity[] | null> {
     const res = await fetch(`${this.urlPrefix}/api/activities?populate=*`);
     const data = await res.json();
     return data.data;

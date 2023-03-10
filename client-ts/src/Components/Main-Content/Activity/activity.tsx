@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../Footer/footer";
 import Navbar from "../../Navbar/Navbar/navbar";
@@ -10,6 +10,7 @@ import "./activity.css";
 import config from "../../../Config/conf";
 
 import { addRole } from "../../../Config/provider";
+import { Filter } from "../../../Repositories/ActivityRepository";
 
 const coverHome = require("../../../Assets/cover_homePage/coverHome.png");
 
@@ -18,6 +19,12 @@ function Activity() {
   const [candidate, setCandidate] = useState(false)
   const [firstcome, setFirstcome] = useState(false)
   const [all, setAll] = useState(true)
+  const [search, setSearch] = useState('')
+
+  const handleChangeSearchFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value)
+    console.log(search)
+  }
 
   const filterCandidate = async () => {
     setCandidate(true)
@@ -39,16 +46,20 @@ function Activity() {
   }
 
   const fetchData = async () => {
-    const res = await Repo.ActivityRepository.getActivity();
-    if (res) {
-      setActivitiesList(res);
+   const params : Filter = {
+        keyword: search
+    }
+
+    const result = await Repo.ActivityRepository.getActivity(params)
+    if (result) {
+      setActivitiesList(result)
     }
   };
 
   useEffect(() => {
     fetchData();
     addRole()
-  }, []);
+  }, [search]);
 
   return (
     <>
