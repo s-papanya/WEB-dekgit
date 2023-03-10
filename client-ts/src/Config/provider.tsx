@@ -37,7 +37,7 @@ export const roleData = () => {
   return false;
 };
 
-const addRole = async (): Promise<void> => {
+export const addRole = async (): Promise<void> => {
   const user = userData();
   try {
     const { data } = await axios.get(
