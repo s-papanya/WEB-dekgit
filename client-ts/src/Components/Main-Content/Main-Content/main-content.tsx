@@ -4,7 +4,7 @@ import "./main-content.css";
 
 function MainContent() {
   return (
-        <Activity />
+    <Activity />
   );
 }
 

@@ -7,7 +7,7 @@ import "./home.css";
 
 function Home() {
   return (
-            <MainContent />
+    <MainContent />
   );
 }
 
