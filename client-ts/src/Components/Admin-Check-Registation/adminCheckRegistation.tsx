@@ -19,7 +19,7 @@ function AdminCheckActivity(props: ModalType) {
   const { activityType } = useParams<{ activityType: string }>();
   const [userRegister, setUserRegister] = useState<getRegistration[]>([]);
   const [checkCandidate, setCheckActivity] = useState(false);
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
 
   const fetchUser = async () => {
     try {
@@ -32,40 +32,40 @@ function AdminCheckActivity(props: ModalType) {
     }
   };
 
-  const newConfirm = {
-    data: {
-      status: "Registered.",
-    },
-  };
-
-  const cancelConfirm = {
-    data: {
-      status: "Please wait for admin to confirm.",
-    },
-  };
   const Cancel = async (index: any) => {
-    await Repo.UserRepository.adminConfirm(index, String(cancelConfirm));
-  };
-
-  const Confirm = async (index: any) => {
-    const res = await Repo.UserRepository.adminConfirm(
-      index,
-      String(newConfirm)
-    );
-    console.log(String(newConfirm))
+    const cancelConfirm = {
+      data: {
+        status: "Please wait for admin to confirm.",
+      },
+    };
+    const res = await Repo.UserRepository.adminConfirm(index, cancelConfirm);
     if (res) {
       console.log(res);
     }
   };
 
-  const handleUserSelect = async (userIndex: any) => {
-    setSelectedUsers((prevSelectedUsers: any) => {
-      if (prevSelectedUsers.includes(userIndex)) {
-        // ถ้าเลือกรายการนี้แล้ว ให้ลบออกจาก state
-        return prevSelectedUsers.filter((index: any) => index !== userIndex);
+  const Confirm = async (index: any) => {
+    const newConfirm = {
+      data: {
+        status: "Registered.",
+      },
+    };
+    const res = await Repo.UserRepository.adminConfirm(index, newConfirm);
+    if (res) {
+      console.log(res);
+    }
+  };
+
+  const handleUserSelect = async (userId: string) => {
+    setSelectedUsers((prevSelectedUsers: string[]) => {
+      if (prevSelectedUsers.includes(userId)) {
+        // unselect the user
+        Cancel(userId);
+        return prevSelectedUsers.filter((id) => id !== userId);
       } else {
-        // ถ้ายังไม่เลือกรายการนี้ ให้เพิ่มลงใน state
-        return [...prevSelectedUsers, userIndex];
+        // select the user
+        Confirm(userId);
+        return [...prevSelectedUsers, userId];
       }
     });
   };
@@ -78,7 +78,7 @@ function AdminCheckActivity(props: ModalType) {
     }
 
     fetchUser();
-  }, [activityId, checkCandidate]);
+  }, [activityId, checkCandidate,handleUserSelect ]);
   return (
     <>
       {props.isOpen && (
@@ -129,12 +129,12 @@ function AdminCheckActivity(props: ModalType) {
             ) : (
               <div className="admin-check-activity-form">
                 <h1 className="admin-check-activity-h1">Activity Candidate</h1>
-                <span className="admin-check-activity-span">
-                  This page will display all registered users for activity.
+                <span className="admin-check-activity-span-alert">
+                  *Confirm the registration of User by ticking the red color and can press again to cancel the confirmation.
                 </span>
                 <div className="admin-check-activity-container">
-                  {userRegister.map((user, index) => (
-                    <div key={index}>
+                  {userRegister.map((user) => (
+                    <div key={user.id}>
                       <div className="admin-check-activity-card">
                         <div className="admin-check-activity-card-user">
                           <span className="admin-check-activity-name-title">
@@ -153,14 +153,23 @@ function AdminCheckActivity(props: ModalType) {
                                 .slice(0, 19)
                                 .replace("T", " ")}
                             </span>
+                          </span>
+                          <div
+                            key={user.id}
+                            className={`${
+                              selectedUsers.includes(String(user.id)) ||
+                              user.attributes.status === "Registered."
+                                ? "selected"
+                                : ""
+                            }`}
+                          >
                             <input
                               placeholder="Enter your name"
                               type="checkbox"
-                              checked={selectedUsers.includes(index as never)}
-                              onChange={() => handleUserSelect(index)}
-                              onClick={() => Confirm(index)}
+                              checked={selectedUsers.includes(user.id as never)}
+                              onChange={() => handleUserSelect(String(user.id))}
                             />
-                          </span>
+                          </div>
                         </div>
                       </div>
                     </div>
