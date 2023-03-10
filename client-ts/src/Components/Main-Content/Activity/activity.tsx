@@ -9,6 +9,8 @@ import Repo from "../../../Repositories/index";
 import "./activity.css";
 import config from "../../../Config/conf";
 
+import { addRole } from "../../../Config/provider";
+
 const coverHome = require("../../../Assets/cover_homePage/coverHome.png");
 function Activity() {
   const [activitiesList, setActivitiesList] = useState<getActivity[]>([]);
@@ -22,6 +24,7 @@ function Activity() {
 
   useEffect(() => {
     fetchData();
+    addRole()
   }, []);
 
   return (
