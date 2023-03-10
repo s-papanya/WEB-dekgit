@@ -8,8 +8,6 @@ import Repo from "../../../Repositories/index";
 
 import "./activity.css";
 import config from "../../../Config/conf";
-
-import { addRole } from "../../../Config/provider";
 import { Filter } from "../../../Repositories/ActivityRepository";
 
 const coverHome = require("../../../Assets/cover_homePage/coverHome.png");
@@ -58,7 +56,6 @@ function Activity() {
 
   useEffect(() => {
     fetchData();
-    addRole()
   }, [search]);
 
   return (
@@ -202,6 +199,7 @@ function Activity() {
                           className="search-bar-input"
                           type="text"
                           placeholder="Search"
+                          onChange={handleChangeSearchFilter}
                           required
                         />
                       </div>
