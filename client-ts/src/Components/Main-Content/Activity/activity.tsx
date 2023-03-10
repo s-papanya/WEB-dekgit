@@ -12,8 +12,31 @@ import config from "../../../Config/conf";
 import { addRole } from "../../../Config/provider";
 
 const coverHome = require("../../../Assets/cover_homePage/coverHome.png");
+
 function Activity() {
   const [activitiesList, setActivitiesList] = useState<getActivity[]>([]);
+  const [candidate, setCandidate] = useState(false)
+  const [firstcome, setFirstcome] = useState(false)
+  const [all, setAll] = useState(true)
+
+  const filterCandidate = async () => {
+    setCandidate(true)
+    setAll(false)
+    setFirstcome(false)
+  }
+
+  const filterFirstcome = async () => {
+    setFirstcome(true)
+    setAll(false)
+    setCandidate(false)
+  }
+
+  const filterAll = async () => {
+    setAll(true)
+    setCandidate(false)
+    setFirstcome(false)
+
+  }
 
   const fetchData = async () => {
     const res = await Repo.ActivityRepository.getActivity();
@@ -41,44 +64,120 @@ function Activity() {
                   <h1 className="content-Topic">ACTIVITY</h1>
                 </header>
                 <div className="main-content-content">
-                  {activitiesList
-                    .filter(
+                {all &&
+                    activitiesList.filter(
+                      (activity) =>
+                        activity.attributes.activityType === "FirstcomeFirstserve" || activity.attributes.activityType === "Candidate" 
+                    )
+                      .map((activity) => (
+                        <Link
+                          key={activity.attributes.activityType}
+                          to={`/activityDetail/${activity.attributes.activityType}/${activity.id}`}
+                          className="activity-link"
+                        >
+                          <div className="activity">
+                            <div className="activity-image">
+                              <img
+                                className="activity-image-image"
+                                src={
+                                  config.apiPrefix +
+                                  activity?.attributes?.image?.data?.attributes
+                                    ?.url
+                                }
+                                alt=""
+                              />
+                            </div>
+                            <div className="activity-text">
+                              <div className="activity-title">
+                                <h1 className="activity-title-title">
+                                  {activity.attributes.title}
+                                </h1>
+                              </div>
+                              <div className="activity-description">
+                                <span className="activity-description-description">
+                                  {activity.attributes.description}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                  {candidate &&
+                    activitiesList.filter(
                       (activity) =>
                         activity.attributes.activityType === "Candidate"
                     )
-                    .map((activity) => (
-                      <Link
-                        key={activity.attributes.activityType}
-                        to={`/activityDetail/${activity.attributes.activityType}/${activity.id}`}
-                        className="activity-link"
-                      >
-                        <div className="activity">
-                          <div className="activity-image">
-                            <img
-                              className="activity-image-image"
-                              src={
-                                config.apiPrefix +
-                                activity?.attributes?.image?.data?.attributes
-                                  ?.url
-                              }
-                              alt=""
-                            />
-                          </div>
-                          <div className="activity-text">
-                            <div className="activity-title">
-                              <h1 className="activity-title-title">
-                                {activity.attributes.title}
-                              </h1>
+                      .map((activity) => (
+                        <Link
+                          key={activity.attributes.activityType}
+                          to={`/activityDetail/${activity.attributes.activityType}/${activity.id}`}
+                          className="activity-link"
+                        >
+                          <div className="activity">
+                            <div className="activity-image">
+                              <img
+                                className="activity-image-image"
+                                src={
+                                  config.apiPrefix +
+                                  activity?.attributes?.image?.data?.attributes
+                                    ?.url
+                                }
+                                alt=""
+                              />
                             </div>
-                            <div className="activity-description">
-                              <span className="activity-description-description">
-                                {activity.attributes.description}
-                              </span>
+                            <div className="activity-text">
+                              <div className="activity-title">
+                                <h1 className="activity-title-title">
+                                  {activity.attributes.title}
+                                </h1>
+                              </div>
+                              <div className="activity-description">
+                                <span className="activity-description-description">
+                                  {activity.attributes.description}
+                                </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    ))}
+                        </Link>
+                      ))}
+                  {firstcome &&
+                    activitiesList.filter(
+                      (activity) =>
+                        activity.attributes.activityType === "FirstcomeFirstserve"
+                    )
+                      .map((activity) => (
+                        <Link
+                          key={activity.attributes.activityType}
+                          to={`/activityDetail/${activity.attributes.activityType}/${activity.id}`}
+                          className="activity-link"
+                        >
+                          <div className="activity">
+                            <div className="activity-image">
+                              <img
+                                className="activity-image-image"
+                                src={
+                                  config.apiPrefix +
+                                  activity?.attributes?.image?.data?.attributes
+                                    ?.url
+                                }
+                                alt=""
+                              />
+                            </div>
+                            <div className="activity-text">
+                              <div className="activity-title">
+                                <h1 className="activity-title-title">
+                                  {activity.attributes.title}
+                                </h1>
+                              </div>
+                              <div className="activity-description">
+                                <span className="activity-description-description">
+                                  {activity.attributes.description}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
                 </div>
               </div>
             </div>
@@ -114,19 +213,19 @@ function Activity() {
                   <div className="filter-selection-filter">
                     <div className="filter-selection-All">
                       <b className="selection-All filter-selection-b">
-                        <span className="filter-selection-span">ALL</span>
+                        <span onClick={filterAll} className="filter-selection-span">ALL</span>
                       </b>
                     </div>
                     <div className="filter-selection-FirstComeFirstServe">
                       <b className="selection-FirstComeFirstServe filter-selection-b">
-                        <span className="filter-selection-span">
+                        <span onClick={filterFirstcome} className="filter-selection-span">
                           FIRST COME FIRST SERVE
                         </span>
                       </b>
                     </div>
                     <div className="filter-selection-Candidate">
                       <b className="selection-Candidate filter-selection-b">
-                        <span className="filter-selection-span">CANDIDATE</span>
+                        <span onClick={filterCandidate} className="filter-selection-span">CANDIDATE</span>
                       </b>
                     </div>
                   </div>
