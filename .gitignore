@@ -1,0 +1,13 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local database data
+data/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
